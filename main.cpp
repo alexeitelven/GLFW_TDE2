@@ -13,6 +13,7 @@ void processInput(GLFWwindow *window);
 // settings
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
+
 #define arquivo "cubo.csv"
 
 int main()
@@ -61,9 +62,11 @@ int main()
     // ------------------------------------------------------------------
 
     /*Leitura arquivo .csv */
-    //FILE *arquivos=fopen("cubo.csv","rt");
     int linhas=0;
     int i=0;
+    char c,linha[100];
+    char *pch;
+
     // 1ª abertura do arquivo para Verificar tamanho!
     FILE *arqin = fopen(arquivo, "rt"); // é um char criar define
     if (!arqin)
@@ -71,15 +74,14 @@ int main()
         printf("Erro na abertura de %s %d\n",arquivo,strlen(arquivo));
         exit(0);
     }
-    char c,linha[100];
+
     while(fread (&c, sizeof(char), 1, arqin))
     {
-        if(c == '\n')
-        {
-            linhas++;
-        }
+        if(c == '\n') linhas++;
     }
+
     printf("Linhas: %d \n",linhas);
+
     float *vertices=(float *)malloc(linhas*sizeof(float));
     fclose(arqin);
 
@@ -87,62 +89,24 @@ int main()
     fopen(arquivo, "rt");
     while (!feof(arqin))
     {
-
-    //    fscanf(fPointer,"%d",&intarray[i]);
-        /*
         fgets(linha, 100, arqin);
-        printf("%s\n", linha);
-        */
+
+        pch = strtok(linha, ";");
+        while (pch != NULL) //Enquanto houver token
+        {
+            int validarNumerico = strcmp(pch,"\n");
+            if (validarNumerico) {
+                vertices[i] =  atof(pch);
+
+                printf("vertices[%d]: %f\n ",i,vertices[i]);
+                i++;
+            }
+
+            pch = strtok(NULL, ";"); //Procura próximo token
+        }
 
     }
     fclose(arqin);
-    //float vertices[] = {};
-    /*
-    float vertices[] = {
-
-        -0.5f, -0.5f, -0.5f,   0.0f, 0.0f, 0.7f,   0.0f, 0.0f,
-         0.5f, -0.5f, -0.5f,   0.0f, 0.0f, 0.7f,   1.0f, 0.0f,
-         0.5f,  0.5f, -0.5f,   0.0f, 0.0f, 0.7f,   1.0f, 1.0f,
-         0.5f,  0.5f, -0.5f,   0.0f, 0.0f, 0.7f,   1.0f, 1.0f,
-        -0.5f,  0.5f, -0.5f,   0.0f, 0.0f, 0.7f,   0.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f,   0.0f, 0.0f, 0.7f,   0.0f, 0.0f,
-
-        -0.5f, -0.5f,  0.5f,   0.0f, 0.0f, 0.5f,   0.0f, 0.0f,
-         0.5f, -0.5f,  0.5f,   0.0f, 0.0f, 0.5f,   1.0f, 0.0f,
-         0.5f,  0.5f,  0.5f,   0.0f, 0.0f, 0.5f,   1.0f, 1.0f,
-         0.5f,  0.5f,  0.5f,   0.0f, 0.0f, 0.5f,   1.0f, 1.0f,
-        -0.5f,  0.5f,  0.5f,   0.0f, 0.0f, 0.5f,   0.0f, 1.0f,
-        -0.5f, -0.5f,  0.5f,   0.0f, 0.0f, 0.5f,   0.0f, 0.0f,
-
-        -0.5f,  0.5f,  0.5f,   0.0f, 0.0f, 1.0f,   1.0f, 0.0f,
-        -0.5f,  0.5f, -0.5f,   0.0f, 0.0f, 1.0f,   1.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f,   0.0f, 0.0f, 1.0f,   0.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f,   0.0f, 0.0f, 1.0f,   0.0f, 1.0f,
-        -0.5f, -0.5f,  0.5f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,
-        -0.5f,  0.5f,  0.5f,   0.0f, 0.0f, 1.0f,   1.0f, 0.0f,
-
-         0.5f,  0.5f,  0.5f,   0.0f, 0.0f, 0.3f,   1.0f, 0.0f,
-         0.5f,  0.5f, -0.5f,   0.0f, 0.0f, 0.3f,   1.0f, 1.0f,
-         0.5f, -0.5f, -0.5f,   0.0f, 0.0f, 0.3f,   0.0f, 1.0f,
-         0.5f, -0.5f, -0.5f,   0.0f, 0.0f, 0.3f,   0.0f, 1.0f,
-         0.5f, -0.5f,  0.5f,   0.0f, 0.0f, 0.3f,   0.0f, 0.0f,
-         0.5f,  0.5f,  0.5f,   0.0f, 0.0f, 0.3f,   1.0f, 0.0f,
-
-        -0.5f, -0.5f, -0.5f,   1.0f, 1.0f, 1.0f,   0.0f, 1.0f,
-         0.5f, -0.5f, -0.5f,   1.0f, 1.0f, 1.0f,   1.0f, 1.0f,
-         0.5f, -0.5f,  0.5f,   1.0f, 1.0f, 1.0f,   1.0f, 0.0f,
-         0.5f, -0.5f,  0.5f,   1.0f, 1.0f, 1.0f,   1.0f, 0.0f,
-        -0.5f, -0.5f,  0.5f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f,
-        -0.5f, -0.5f, -0.5f,   1.0f, 1.0f, 1.0f,   0.0f, 1.0f,
-
-        -0.5f,  0.5f, -0.5f,   0.0f, 1.0f, 1.0f,   0.0f, 1.0f,
-         0.5f,  0.5f, -0.5f,   0.0f, 1.0f, 1.0f,   1.0f, 1.0f,
-         0.5f,  0.5f,  0.5f,   0.0f, 1.0f, 1.0f,   1.0f, 0.0f,
-         0.5f,  0.5f,  0.5f,   1.0f, 1.0f, 1.0f,   1.0f, 0.0f,
-        -0.5f,  0.5f,  0.5f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f,
-        -0.5f,  0.5f, -0.5f,   1.0f, 1.0f, 1.0f,   0.0f, 1.0f,
-
-    };*/
 
     unsigned int VBO, VAO;
     glGenVertexArrays(1, &VAO);
