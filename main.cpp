@@ -62,7 +62,7 @@ int main()
     // ------------------------------------------------------------------
 
     /*Leitura arquivo .csv */
-    int linhas=0;
+    int linhas=1;
     int i=0;
     char c,linha[100];
     char *pch;
@@ -82,7 +82,7 @@ int main()
 
     printf("Linhas: %d \n",linhas);
 
-    float *vertices=(float *)malloc(linhas*sizeof(float));
+    float vertices[linhas*8];//=(float *)malloc((288)*sizeof(float));
     fclose(arqin);
 
     //2ª abertura do arquivo para popular Vetor de Vertices
@@ -107,6 +107,11 @@ int main()
 
     }
     fclose(arqin);
+
+    for (i=0;i<linhas*8;i++){
+
+
+    }
 
     unsigned int VBO, VAO;
     glGenVertexArrays(1, &VAO);
