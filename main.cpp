@@ -14,7 +14,7 @@ void processInput(GLFWwindow *window);
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
-#define arquivo "cubo.csv"
+#define arquivo "casa.csv"
 
 int main()
 {
@@ -31,7 +31,7 @@ int main()
 
     // glfw window creation
     // --------------------
-    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "OPenGL : Exemplo 3D", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "OPenGL : TDE 2 - 3D", NULL, NULL);
     if (window == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
@@ -82,10 +82,23 @@ int main()
 
     printf("Linhas: %d \n",linhas);
 
+    //float *vertices=(float *)malloc((linhas * 8)*sizeof(float));
     float vertices[linhas*8];//=(float *)malloc((288)*sizeof(float));
-    fclose(arqin);
 
+   // float *vertices=(float*)calloc((linhas * 8),sizeof( float));
+   /*
+   for (i = 0; i < linhas * 8; i++){
+        *(vertices+i) = 0;
+         printf("vertices[%d]: %f\n ",i,*(vertices+i));
+   }
+   */
+
+
+
+    fclose(arqin);
+    i=0;
     //2ª abertura do arquivo para popular Vetor de Vertices
+
     fopen(arquivo, "rt");
     while (!feof(arqin))
     {
@@ -96,7 +109,8 @@ int main()
         {
             int validarNumerico = strcmp(pch,"\n");
             if (validarNumerico) {
-                vertices[i] =  atof(pch);
+                     *(vertices+i) =  atof(pch);
+                //vertices[i] =  atof(pch);
 
                 printf("vertices[%d]: %f\n ",i,vertices[i]);
                 i++;
@@ -108,10 +122,6 @@ int main()
     }
     fclose(arqin);
 
-    for (i=0;i<linhas*8;i++){
-
-
-    }
 
     unsigned int VBO, VAO;
     glGenVertexArrays(1, &VAO);
@@ -154,13 +164,13 @@ int main()
         glm::mat4 projection    = glm::mat4(1.0f);
 
         // Gira o modelo ao redor do eixo y
-        model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.0f, -0.5f, 0.0f));
-
+        //model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.0f, -0.5f, 0.0f));
+        model = glm::rotate(model,  glm::radians(55.0f), glm::vec3(0.1f, 0.0f, 0.0f));
         // afasta o objetoo do observador e o coloca um pouco abaixo dele,
         // para um ponto de vista mais elevado do objeto
-        view  = glm::translate(view, glm::vec3(0.0f, -0.7f, -3.0f));
+        view  = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
 
-        projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+        projection = glm::perspective(glm::radians(60.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         // retrieve the matrix uniform locations
         unsigned int modelLoc = glGetUniformLocation(ourShader.ID, "model");
         unsigned int viewLoc  = glGetUniformLocation(ourShader.ID, "view");
