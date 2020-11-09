@@ -1,0 +1,3590 @@
+
+;; Function std::__cxx11::basic_string<char>::_Alloc_hider::_Alloc_hider (_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_, funcdef_no=3963, decl_uid=72052, cgraph_uid=1304, symbol_order=1308)
+
+std::__cxx11::basic_string<char>::_Alloc_hider::_Alloc_hider (struct _Alloc_hider * const this, char * __dat, const struct allocator & __a)
+{
+  <bb 2> :
+  MEM[(struct  &)this] = {CLOBBER};
+  std::allocator<char>::allocator (this, __a);
+  this->_M_p = __dat;
+  return;
+
+}
+
+
+
+;; Function framebuffer_size_callback (_Z25framebuffer_size_callbackP10GLFWwindowii, funcdef_no=3560, decl_uid=97935, cgraph_uid=901, symbol_order=905)
+
+framebuffer_size_callback (struct GLFWwindow * window, int width, int height)
+{
+  <bb 2> :
+  glViewport (0, 0, width, height);
+  return;
+
+}
+
+
+
+;; Function __tcf_0 (__tcf_0, funcdef_no=4261, decl_uid=105363, cgraph_uid=1601, symbol_order=1701)
+
+__tcf_0 ()
+{
+  <bb 2> :
+  std::ios_base::Init::~Init (&__ioinit);
+  return;
+
+}
+
+
+
+;; Function std::cos (_ZSt3cosf, funcdef_no=66, decl_uid=23268, cgraph_uid=42, symbol_order=42)
+
+std::cos (float __x)
+{
+  float D.105613;
+
+  <bb 2> :
+  D.105613 = __builtin_cosf (__x);
+
+  <bb 3> :
+<L0>:
+  return D.105613;
+
+}
+
+
+
+;; Function std::sin (_ZSt3sinf, funcdef_no=101, decl_uid=23427, cgraph_uid=66, symbol_order=66)
+
+std::sin (float __x)
+{
+  float D.105615;
+
+  <bb 2> :
+  D.105615 = __builtin_sinf (__x);
+
+  <bb 3> :
+<L0>:
+  return D.105615;
+
+}
+
+
+
+;; Function std::sqrt (_ZSt4sqrtf, funcdef_no=107, decl_uid=23451, cgraph_uid=70, symbol_order=70)
+
+std::sqrt (float __x)
+{
+  float D.105632;
+
+  <bb 2> :
+  D.105632 = __builtin_sqrtf (__x);
+
+  <bb 3> :
+<L0>:
+  return D.105632;
+
+}
+
+
+
+;; Function std::tan (_ZSt3tanf, funcdef_no=110, decl_uid=23463, cgraph_uid=72, symbol_order=72)
+
+std::tan (float __x)
+{
+  float D.105736;
+
+  <bb 2> :
+  D.105736 = __builtin_tanf (__x);
+
+  <bb 3> :
+<L0>:
+  return D.105736;
+
+}
+
+
+
+;; Function std::numeric_limits<float>::epsilon (_ZNSt14numeric_limitsIfE7epsilonEv, funcdef_no=440, decl_uid=28156, cgraph_uid=336, symbol_order=336)
+
+std::numeric_limits<float>::epsilon ()
+{
+  float D.105726;
+
+  <bb 2> :
+  D.105726 = 1.1920928955078125e-7;
+
+  <bb 3> :
+<L0>:
+  return D.105726;
+
+}
+
+
+
+;; Function glm::vec<4, float, (glm::qualifier)0>::vec (_ZN3glm3vecILi4EfLNS_9qualifierE0EEC1Ef, funcdef_no=1542, decl_uid=53261, cgraph_uid=391, symbol_order=391)
+
+glm::vec<4, float, (glm::qualifier)0>::vec (struct vec * const this, float scalar)
+{
+  <bb 2> :
+  MEM[(struct  &)this] = {CLOBBER};
+  this->D.51351.x = scalar;
+  this->D.51357.y = scalar;
+  this->D.51363.z = scalar;
+  this->D.51369.w = scalar;
+  return;
+
+}
+
+
+
+;; Function glm::vec<4, float, (glm::qualifier)0>::vec (_ZN3glm3vecILi4EfLNS_9qualifierE0EEC1Effff, funcdef_no=1548, decl_uid=53249, cgraph_uid=395, symbol_order=395)
+
+glm::vec<4, float, (glm::qualifier)0>::vec (struct vec * const this, float _x, float _y, float _z, float _w)
+{
+  <bb 2> :
+  MEM[(struct  &)this] = {CLOBBER};
+  this->D.51351.x = _x;
+  this->D.51357.y = _y;
+  this->D.51363.z = _z;
+  this->D.51369.w = _w;
+  return;
+
+}
+
+
+
+;; Function glm::detail::compute_vec4_mul<float, (glm::qualifier)0, false>::call (_ZN3glm6detail16compute_vec4_mulIfLNS_9qualifierE0ELb0EE4callERKNS_3vecILi4EfLS2_0EEES7_, funcdef_no=1545, decl_uid=53356, cgraph_uid=396, symbol_order=396)
+
+glm::detail::compute_vec4_mul<float, (glm::qualifier)0, false>::call (const struct vec & a, const struct vec & b)
+{
+  <bb 2> :
+  _1 = a->D.51369.w;
+  _2 = b->D.51369.w;
+  _3 = _1 * _2;
+  _4 = a->D.51363.z;
+  _5 = b->D.51363.z;
+  _6 = _4 * _5;
+  _7 = a->D.51357.y;
+  _8 = b->D.51357.y;
+  _9 = _7 * _8;
+  _10 = a->D.51351.x;
+  _11 = b->D.51351.x;
+  _12 = _10 * _11;
+  glm::vec<4, float, (glm::qualifier)0>::vec (&<retval>, _12, _9, _6, _3);
+
+  <bb 3> :
+<L0>:
+  return <retval>;
+
+}
+
+
+
+;; Function glm::vec<4, float, (glm::qualifier)0>::operator*=<float> (_ZN3glm3vecILi4EfLNS_9qualifierE0EEmLIfEERS2_T_, funcdef_no=1544, decl_uid=53350, cgraph_uid=397, symbol_order=397)
+
+glm::vec<4, float, (glm::qualifier)0>::operator*=<float> (struct vec * const this, float scalar)
+{
+  struct vec D.53360;
+  struct vec & D.105653;
+
+  <bb 2> :
+  glm::vec<4, float, (glm::qualifier)0>::vec (&D.53360, scalar);
+  *this = glm::detail::compute_vec4_mul<float, (glm::qualifier)0, false>::call (this, &D.53360);
+
+  <bb 3> :
+  D.105653 = this;
+  D.53360 = {CLOBBER};
+
+  <bb 4> :
+<L1>:
+  return D.105653;
+
+  <bb 5> :
+<L2>:
+  D.53360 = {CLOBBER};
+  resx 1
+
+}
+
+
+
+;; Function glm::operator*<float, (glm::qualifier)0> (_ZN3glmmlIfLNS_9qualifierE0EEENS_3vecILi4ET_XT0_EEERKS4_RKS3_, funcdef_no=1543, decl_uid=53303, cgraph_uid=398, symbol_order=398)
+
+glm::operator*<float, (glm::qualifier)0> (const struct vec & v, const float & scalar)
+{
+  struct vec & D.105650;
+  struct vec D.53349;
+
+  <bb 2> :
+  _1 = *scalar;
+  D.53349 = *v;
+  D.105650 = glm::vec<4, float, (glm::qualifier)0>::operator*=<float> (&D.53349, _1);
+
+  <bb 3> :
+  _2 = D.105650;
+  <retval> = MEM[(const struct vec &)_2];
+  D.53349 = {CLOBBER};
+
+  <bb 4> :
+<L1>:
+  return <retval>;
+
+  <bb 5> :
+<L2>:
+  D.53349 = {CLOBBER};
+  resx 1
+
+}
+
+
+
+;; Function std::char_traits<char>::length (_ZNSt11char_traitsIcE6lengthEPKc, funcdef_no=2189, decl_uid=65236, cgraph_uid=466, symbol_order=467)
+
+std::char_traits<char>::length (const char_type * __s)
+{
+  size_t D.105764;
+
+  <bb 2> :
+  D.105764 = __builtin_strlen (__s);
+
+  <bb 3> :
+<L0>:
+  return D.105764;
+
+}
+
+
+
+;; Function std::operator| (_ZStorSt13_Ios_OpenmodeS_, funcdef_no=2942, decl_uid=80471, cgraph_uid=746, symbol_order=747)
+
+std::operator| (_Ios_Openmode __a, _Ios_Openmode __b)
+{
+  _Ios_Openmode D.105491;
+
+  <bb 2> :
+  D.105491 = __a | __b;
+
+  <bb 3> :
+<L0>:
+  return D.105491;
+
+}
+
+
+
+;; Function std::operator| (_ZStorSt12_Ios_IostateS_, funcdef_no=2949, decl_uid=80506, cgraph_uid=753, symbol_order=754)
+
+std::operator| (_Ios_Iostate __a, _Ios_Iostate __b)
+{
+  _Ios_Iostate D.105489;
+
+  <bb 2> :
+  D.105489 = __a | __b;
+
+  <bb 3> :
+<L0>:
+  return D.105489;
+
+}
+
+
+
+;; Function Shader::use (_ZN6Shader3useEv, funcdef_no=3519, decl_uid=95256, cgraph_uid=860, symbol_order=862)
+
+Shader::use (struct Shader * const this)
+{
+  <bb 2> :
+  __glewUseProgram.55_1 = __glewUseProgram;
+  _2 = this->ID;
+  __glewUseProgram.55_1 (_2);
+  return;
+
+}
+
+
+
+;; Function glm::mat<4, 4, float, (glm::qualifier)0>::length (_ZN3glm3matILi4ELi4EfLNS_9qualifierE0EE6lengthEv, funcdef_no=3537, decl_uid=97333, cgraph_uid=876, symbol_order=878)
+
+glm::mat<4, 4, float, (glm::qualifier)0>::length ()
+{
+  length_type D.105676;
+
+  <bb 2> :
+  D.105676 = 4;
+
+  <bb 3> :
+<L0>:
+  return D.105676;
+
+}
+
+
+
+;; Function glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (_ZNK3glm3matILi4ELi4EfLNS_9qualifierE0EEixEi, funcdef_no=3536, decl_uid=97337, cgraph_uid=877, symbol_order=879)
+
+glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (const struct mat * const this, length_type i)
+{
+  const struct col_type & D.105674;
+  bool iftmp.57;
+
+  <bb 2> :
+  _1 = glm::mat<4, 4, float, (glm::qualifier)0>::length ();
+  if (i < _1)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 3>; [INV]
+
+  <bb 3> :
+  _assert ("i < this->length()", "C:/glm/glm/detail/type_mat4x4.inl", 298);
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+  iftmp.57 = 1;
+  goto <bb 6>; [INV]
+
+  <bb 5> :
+  iftmp.57 = 0;
+
+  <bb 6> :
+  D.105674 = &this->value[i];
+
+  <bb 7> :
+<L4>:
+  return D.105674;
+
+}
+
+
+
+;; Function glm::radians<float> (_ZN3glm7radiansIfEET_S1_, funcdef_no=3555, decl_uid=100835, cgraph_uid=895, symbol_order=899)
+
+glm::radians<float> (float degrees)
+{
+  float D.105702;
+
+  <bb 2> :
+  D.105702 = degrees * 1.745329238474369049072265625e-2;
+
+  <bb 3> :
+<L0>:
+  return D.105702;
+
+}
+
+
+
+;; Function glm::vec<3, float, (glm::qualifier)0>::vec (_ZN3glm3vecILi3EfLNS_9qualifierE0EEC1Efff, funcdef_no=3558, decl_uid=96468, cgraph_uid=898, symbol_order=902)
+
+glm::vec<3, float, (glm::qualifier)0>::vec (struct vec * const this, float _x, float _y, float _z)
+{
+  <bb 2> :
+  MEM[(struct  &)this] = {CLOBBER};
+  this->D.95554.x = _x;
+  this->D.95560.y = _y;
+  this->D.95566.z = _z;
+  return;
+
+}
+
+
+
+;; Function processInput (_Z12processInputP10GLFWwindow, funcdef_no=3559, decl_uid=97937, cgraph_uid=900, symbol_order=904)
+
+processInput (struct GLFWwindow * window)
+{
+  int D.105813;
+  bool retval.75;
+
+  <bb 2> :
+  D.105813 = glfwGetKey (window, 256);
+  _1 = D.105813;
+  retval.75 = _1 == 1;
+  if (retval.75 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  glfwSetWindowShouldClose (window, 1);
+
+  <bb 4> :
+  return;
+
+}
+
+
+
+;; Function glm::detail::compute_abs<float, true>::call (_ZN3glm6detail11compute_absIfLb1EE4callEf, funcdef_no=3606, decl_uid=59504, cgraph_uid=947, symbol_order=951)
+
+glm::detail::compute_abs<float, true>::call (float x)
+{
+  float iftmp.62;
+  float D.105730;
+
+  <bb 2> :
+  if (x >= 0.0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  iftmp.62 = x;
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+  iftmp.62 = -x;
+
+  <bb 5> :
+  D.105730 = iftmp.62;
+
+  <bb 6> :
+<L3>:
+  return D.105730;
+
+}
+
+
+
+;; Function glm::abs<float> (_ZN3glm3absIfEET_S1_, funcdef_no=1755, decl_uid=59499, cgraph_uid=425, symbol_order=425)
+
+glm::abs<float> (float x)
+{
+  float D.105728;
+
+  <bb 2> :
+  D.105728 = glm::detail::compute_abs<float, true>::call (x);
+
+  <bb 3> :
+<L0>:
+  return D.105728;
+
+}
+
+
+
+;; Function glm::vec<3, float, (glm::qualifier)0>::length (_ZN3glm3vecILi3EfLNS_9qualifierE0EE6lengthEv, funcdef_no=3898, decl_uid=95572, cgraph_uid=1238, symbol_order=1242)
+
+glm::vec<3, float, (glm::qualifier)0>::length ()
+{
+  length_type D.105646;
+
+  <bb 2> :
+  D.105646 = 3;
+
+  <bb 3> :
+<L0>:
+  return D.105646;
+
+}
+
+
+
+;; Function glm::vec<3, float, (glm::qualifier)0>::operator[] (_ZNK3glm3vecILi3EfLNS_9qualifierE0EEixEi, funcdef_no=3897, decl_uid=95576, cgraph_uid=1239, symbol_order=1243)
+
+glm::vec<3, float, (glm::qualifier)0>::operator[] (const struct vec * const this, length_type i)
+{
+  const float & D.105700;
+  bool iftmp.58;
+
+  <bb 2> :
+  if (i >= 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _1 = glm::vec<3, float, (glm::qualifier)0>::length ();
+  if (i < _1)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 4> :
+  _assert ("i >= 0 && i < this->length()", "C:/glm/glm/detail/type_vec3.inl", 186);
+  goto <bb 6>; [INV]
+
+  <bb 5> :
+  iftmp.58 = 1;
+  goto <bb 7>; [INV]
+
+  <bb 6> :
+  iftmp.58 = 0;
+
+  <bb 7> :
+  switch (i) <default: <L5> [INV], case 1: <L7> [INV], case 2: <L8> [INV]>
+
+  <bb 8> :
+<L5>:
+  D.105700 = &this->D.95554.x;
+  goto <bb 11>; [INV]
+
+  <bb 9> :
+<L7>:
+  D.105700 = &this->D.95560.y;
+  goto <bb 11>; [INV]
+
+  <bb 10> :
+<L8>:
+  D.105700 = &this->D.95566.z;
+
+  <bb 11> :
+<L9>:
+  return D.105700;
+
+}
+
+
+
+;; Function glm::vec<4, float, (glm::qualifier)0>::length (_ZN3glm3vecILi4EfLNS_9qualifierE0EE6lengthEv, funcdef_no=3900, decl_uid=51375, cgraph_uid=1240, symbol_order=1244)
+
+glm::vec<4, float, (glm::qualifier)0>::length ()
+{
+  length_type D.105756;
+
+  <bb 2> :
+  D.105756 = 4;
+
+  <bb 3> :
+<L0>:
+  return D.105756;
+
+}
+
+
+
+;; Function glm::vec<4, float, (glm::qualifier)0>::operator[] (_ZNK3glm3vecILi4EfLNS_9qualifierE0EEixEi, funcdef_no=3899, decl_uid=51379, cgraph_uid=1241, symbol_order=1245)
+
+glm::vec<4, float, (glm::qualifier)0>::operator[] (const struct vec * const this, length_type i)
+{
+  const float & D.105807;
+  bool iftmp.74;
+
+  <bb 2> :
+  if (i >= 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _1 = glm::vec<4, float, (glm::qualifier)0>::length ();
+  if (i < _1)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 4> :
+  _assert ("i >= 0 && i < this->length()", "C:/glm/glm/detail/type_vec4.inl", 497);
+  goto <bb 6>; [INV]
+
+  <bb 5> :
+  iftmp.74 = 1;
+  goto <bb 7>; [INV]
+
+  <bb 6> :
+  iftmp.74 = 0;
+
+  <bb 7> :
+  switch (i) <default: <L5> [INV], case 1: <L7> [INV], case 2: <L8> [INV], case 3: <L9> [INV]>
+
+  <bb 8> :
+<L5>:
+  D.105807 = &this->D.51351.x;
+  goto <bb 12>; [INV]
+
+  <bb 9> :
+<L7>:
+  D.105807 = &this->D.51357.y;
+  goto <bb 12>; [INV]
+
+  <bb 10> :
+<L8>:
+  D.105807 = &this->D.51363.z;
+  goto <bb 12>; [INV]
+
+  <bb 11> :
+<L9>:
+  D.105807 = &this->D.51369.w;
+
+  <bb 12> :
+<L10>:
+  return D.105807;
+
+}
+
+
+
+;; Function Shader::setMat4 (_ZNK6Shader7setMat4ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3glm3matILi4ELi4EfLNS8_9qualifierE0EEE, funcdef_no=3535, decl_uid=95310, cgraph_uid=878, symbol_order=880)
+
+Shader::setMat4 (const struct Shader * const this, const struct string & name, const struct mat4 & mat)
+{
+  int D.105800;
+  const float & D.105799;
+  const struct col_type & D.105798;
+
+  <bb 2> :
+  __glewUniformMatrix4fv.72_1 = __glewUniformMatrix4fv;
+  D.105798 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (mat, 0);
+  _2 = D.105798;
+  D.105799 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_2, 0);
+  _3 = D.105799;
+  __glewGetUniformLocation.73_4 = __glewGetUniformLocation;
+  _5 = std::__cxx11::basic_string<char>::c_str (name);
+  _6 = this->ID;
+  D.105800 = __glewGetUniformLocation.73_4 (_6, _5);
+  _7 = D.105800;
+  __glewUniformMatrix4fv.72_1 (_7, 1, 0, _3);
+  return;
+
+}
+
+
+
+;; Function glm::vec<3, float, (glm::qualifier)0>::operator[] (_ZN3glm3vecILi3EfLNS_9qualifierE0EEixEi, funcdef_no=3905, decl_uid=95573, cgraph_uid=1245, symbol_order=1249)
+
+glm::vec<3, float, (glm::qualifier)0>::operator[] (struct vec * const this, length_type i)
+{
+  float & D.105644;
+  bool iftmp.56;
+
+  <bb 2> :
+  if (i >= 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _1 = glm::vec<3, float, (glm::qualifier)0>::length ();
+  if (i < _1)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 4> :
+  _assert ("i >= 0 && i < this->length()", "C:/glm/glm/detail/type_vec3.inl", 170);
+  goto <bb 6>; [INV]
+
+  <bb 5> :
+  iftmp.56 = 1;
+  goto <bb 7>; [INV]
+
+  <bb 6> :
+  iftmp.56 = 0;
+
+  <bb 7> :
+  switch (i) <default: <L5> [INV], case 1: <L7> [INV], case 2: <L8> [INV]>
+
+  <bb 8> :
+<L5>:
+  D.105644 = &this->D.95554.x;
+  goto <bb 11>; [INV]
+
+  <bb 9> :
+<L7>:
+  D.105644 = &this->D.95560.y;
+  goto <bb 11>; [INV]
+
+  <bb 10> :
+<L8>:
+  D.105644 = &this->D.95566.z;
+
+  <bb 11> :
+<L9>:
+  return D.105644;
+
+}
+
+
+
+;; Function glm::detail::compute_vec4_add<float, (glm::qualifier)0, false>::call (_ZN3glm6detail16compute_vec4_addIfLNS_9qualifierE0ELb0EE4callERKNS_3vecILi4EfLS2_0EEES7_, funcdef_no=3909, decl_uid=103228, cgraph_uid=1247, symbol_order=1251)
+
+glm::detail::compute_vec4_add<float, (glm::qualifier)0, false>::call (const struct vec & a, const struct vec & b)
+{
+  <bb 2> :
+  _1 = a->D.51369.w;
+  _2 = b->D.51369.w;
+  _3 = _1 + _2;
+  _4 = a->D.51363.z;
+  _5 = b->D.51363.z;
+  _6 = _4 + _5;
+  _7 = a->D.51357.y;
+  _8 = b->D.51357.y;
+  _9 = _7 + _8;
+  _10 = a->D.51351.x;
+  _11 = b->D.51351.x;
+  _12 = _10 + _11;
+  glm::vec<4, float, (glm::qualifier)0>::vec (&<retval>, _12, _9, _6, _3);
+
+  <bb 3> :
+<L0>:
+  return <retval>;
+
+}
+
+
+
+;; Function glm::vec<4, float, (glm::qualifier)0>::operator+=<float> (_ZN3glm3vecILi4EfLNS_9qualifierE0EEpLIfEERS2_RKNS0_ILi4ET_LS1_0EEE, funcdef_no=3908, decl_uid=103219, cgraph_uid=1248, symbol_order=1252)
+
+glm::vec<4, float, (glm::qualifier)0>::operator+=<float> (struct vec * const this, const struct vec & v)
+{
+  struct vec D.103232;
+  struct vec & D.105664;
+
+  <bb 2> :
+  D.103232 = *v;
+  *this = glm::detail::compute_vec4_add<float, (glm::qualifier)0, false>::call (this, &D.103232);
+  D.105664 = this;
+  D.103232 = {CLOBBER};
+
+  <bb 3> :
+<L1>:
+  return D.105664;
+
+}
+
+
+
+;; Function glm::operator+<float, (glm::qualifier)0> (_ZN3glmplIfLNS_9qualifierE0EEENS_3vecILi4ET_XT0_EEERKS4_S6_, funcdef_no=3907, decl_uid=103194, cgraph_uid=1249, symbol_order=1253)
+
+glm::operator+<float, (glm::qualifier)0> (const struct vec & v1, const struct vec & v2)
+{
+  struct vec & D.105661;
+  struct vec D.103218;
+
+  <bb 2> :
+  D.103218 = *v1;
+  D.105661 = glm::vec<4, float, (glm::qualifier)0>::operator+=<float> (&D.103218, v2);
+
+  <bb 3> :
+  _1 = D.105661;
+  <retval> = MEM[(const struct vec &)_1];
+  D.103218 = {CLOBBER};
+
+  <bb 4> :
+<L1>:
+  return <retval>;
+
+  <bb 5> :
+<L2>:
+  D.103218 = {CLOBBER};
+  resx 1
+
+}
+
+
+
+;; Function glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (_ZN3glm3matILi4ELi4EfLNS_9qualifierE0EEixEi, funcdef_no=3912, decl_uid=97334, cgraph_uid=1253, symbol_order=1257)
+
+glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (struct mat * const this, length_type i)
+{
+  struct col_type & D.105746;
+  bool iftmp.63;
+
+  <bb 2> :
+  _1 = glm::mat<4, 4, float, (glm::qualifier)0>::length ();
+  if (i < _1)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 3>; [INV]
+
+  <bb 3> :
+  _assert ("i < this->length()", "C:/glm/glm/detail/type_mat4x4.inl", 291);
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+  iftmp.63 = 1;
+  goto <bb 6>; [INV]
+
+  <bb 5> :
+  iftmp.63 = 0;
+
+  <bb 6> :
+  D.105746 = &this->value[i];
+
+  <bb 7> :
+<L4>:
+  return D.105746;
+
+}
+
+
+
+;; Function glm::translate<float, (glm::qualifier)0> (_ZN3glm9translateIfLNS_9qualifierE0EEENS_3matILi4ELi4ET_XT0_EEERKS4_RKNS_3vecILi3ES3_XT0_EEE, funcdef_no=3906, decl_uid=100872, cgraph_uid=1250, symbol_order=1254)
+
+glm::translate<float, (glm::qualifier)0> (const struct mat & m, const struct vec & v)
+{
+  struct col_type & D.105688;
+  const struct col_type & D.105687;
+  const float & D.105686;
+  const struct col_type & D.105685;
+  const float & D.105684;
+  const struct col_type & D.105683;
+  const float & D.105682;
+  const struct col_type & D.105681;
+  struct mat Result [value-expr: <retval>];
+  struct col_type & D.105679;
+  struct vec D.103213;
+  struct vec D.103214;
+  struct vec D.103215;
+  struct vec D.103216;
+  struct vec D.103237;
+
+  <bb 2> :
+  <retval> = *m;
+  D.105681 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (m, 3);
+  _1 = D.105681;
+  D.105682 = glm::vec<3, float, (glm::qualifier)0>::operator[] (v, 2);
+  _2 = D.105682;
+  D.105683 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (m, 2);
+  _3 = D.105683;
+  D.103216 = glm::operator*<float, (glm::qualifier)0> (_3, _2); [return slot optimization]
+  D.105684 = glm::vec<3, float, (glm::qualifier)0>::operator[] (v, 1);
+
+  <bb 3> :
+  _4 = D.105684;
+  D.105685 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (m, 1);
+
+  <bb 4> :
+  _5 = D.105685;
+  D.103214 = glm::operator*<float, (glm::qualifier)0> (_5, _4); [return slot optimization]
+
+  <bb 5> :
+  D.105686 = glm::vec<3, float, (glm::qualifier)0>::operator[] (v, 0);
+
+  <bb 6> :
+  _6 = D.105686;
+  D.105687 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (m, 0);
+
+  <bb 7> :
+  _7 = D.105687;
+  D.103213 = glm::operator*<float, (glm::qualifier)0> (_7, _6); [return slot optimization]
+
+  <bb 8> :
+  D.103215 = glm::operator+<float, (glm::qualifier)0> (&D.103213, &D.103214); [return slot optimization]
+
+  <bb 9> :
+  D.103237 = glm::operator+<float, (glm::qualifier)0> (&D.103215, &D.103216); [return slot optimization]
+
+  <bb 10> :
+  D.105688 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&<retval>, 3);
+
+  <bb 11> :
+  D.105679 = D.105688;
+  *D.105679 = glm::operator+<float, (glm::qualifier)0> (&D.103237, _1);
+
+  <bb 12> :
+  D.103237 = {CLOBBER};
+  D.103215 = {CLOBBER};
+  D.103213 = {CLOBBER};
+  D.103214 = {CLOBBER};
+  D.103216 = {CLOBBER};
+
+  <bb 13> :
+<L0>:
+  return <retval>;
+
+  <bb 14> :
+<L1>:
+  D.103237 = {CLOBBER};
+  resx 5
+
+  <bb 15> :
+<L2>:
+  D.103215 = {CLOBBER};
+  resx 4
+
+  <bb 16> :
+<L3>:
+  D.103213 = {CLOBBER};
+  resx 3
+
+  <bb 17> :
+<L4>:
+  D.103214 = {CLOBBER};
+  resx 2
+
+  <bb 18> :
+<L5>:
+  D.103216 = {CLOBBER};
+  resx 1
+
+}
+
+
+
+;; Function glm::value_ptr<float, (glm::qualifier)0> (_ZN3glm9value_ptrIfLNS_9qualifierE0EEEPT_RNS_3matILi4ELi4ES2_XT0_EEE, funcdef_no=3911, decl_uid=100884, cgraph_uid=1252, symbol_order=1256)
+
+glm::value_ptr<float, (glm::qualifier)0> (struct mat & m)
+{
+  struct col_type & D.105740;
+  float * D.105738;
+
+  <bb 2> :
+  D.105740 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (m, 0);
+  _1 = D.105740;
+  D.105738 = &_1->D.51351.x;
+
+  <bb 3> :
+<L0>:
+  return D.105738;
+
+}
+
+
+
+;; Function glm::vec<4, float, (glm::qualifier)0>::operator[] (_ZN3glm3vecILi4EfLNS_9qualifierE0EEixEi, funcdef_no=3913, decl_uid=51376, cgraph_uid=1254, symbol_order=1258)
+
+glm::vec<4, float, (glm::qualifier)0>::operator[] (struct vec * const this, length_type i)
+{
+  float & D.105754;
+  bool iftmp.64;
+
+  <bb 2> :
+  if (i >= 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _1 = glm::vec<4, float, (glm::qualifier)0>::length ();
+  if (i < _1)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 4> :
+  _assert ("i >= 0 && i < this->length()", "C:/glm/glm/detail/type_vec4.inl", 479);
+  goto <bb 6>; [INV]
+
+  <bb 5> :
+  iftmp.64 = 1;
+  goto <bb 7>; [INV]
+
+  <bb 6> :
+  iftmp.64 = 0;
+
+  <bb 7> :
+  switch (i) <default: <L5> [INV], case 1: <L7> [INV], case 2: <L8> [INV], case 3: <L9> [INV]>
+
+  <bb 8> :
+<L5>:
+  D.105754 = &this->D.51351.x;
+  goto <bb 12>; [INV]
+
+  <bb 9> :
+<L7>:
+  D.105754 = &this->D.51357.y;
+  goto <bb 12>; [INV]
+
+  <bb 10> :
+<L8>:
+  D.105754 = &this->D.51363.z;
+  goto <bb 12>; [INV]
+
+  <bb 11> :
+<L9>:
+  D.105754 = &this->D.51369.w;
+
+  <bb 12> :
+<L10>:
+  return D.105754;
+
+}
+
+
+
+;; Function std::move<std::allocator<char>&> (_ZSt4moveIRSaIcEEONSt16remove_referenceIT_E4typeEOS3_, funcdef_no=3929, decl_uid=102025, cgraph_uid=1270, symbol_order=1274)
+
+std::move<std::allocator<char>&> (struct allocator & __t)
+{
+  struct type & D.105487;
+
+  <bb 2> :
+  D.105487 = __t;
+
+  <bb 3> :
+<L0>:
+  return D.105487;
+
+}
+
+
+
+;; Function std::__cxx11::basic_string<char>::_Alloc_hider::_Alloc_hider (_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_, funcdef_no=3931, decl_uid=72044, cgraph_uid=1272, symbol_order=1276)
+
+std::__cxx11::basic_string<char>::_Alloc_hider::_Alloc_hider (struct _Alloc_hider * const this, char * __dat, struct allocator & __a)
+{
+  <bb 2> :
+  MEM[(struct  &)this] = {CLOBBER};
+  _1 = std::move<std::allocator<char>&> (__a);
+  std::allocator<char>::allocator (this, _1);
+  this->_M_p = __dat;
+  return;
+
+}
+
+
+
+;; Function __gnu_cxx::new_allocator<char>::new_allocator (_ZN9__gnu_cxx13new_allocatorIcEC2Ev, funcdef_no=3957, decl_uid=66464, cgraph_uid=1298, symbol_order=1302)
+
+__gnu_cxx::new_allocator<char>::new_allocator (struct new_allocator * const this)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+
+;; Function std::allocator<char>::allocator (_ZNSaIcEC2Ev, funcdef_no=3785, decl_uid=66529, cgraph_uid=1126, symbol_order=1130)
+
+std::allocator<char>::allocator (struct allocator * const this)
+{
+  <bb 2> :
+  __gnu_cxx::new_allocator<char>::new_allocator (this);
+  return;
+
+}
+
+
+
+;; Function __gnu_cxx::new_allocator<char>::~new_allocator (_ZN9__gnu_cxx13new_allocatorIcED2Ev, funcdef_no=3960, decl_uid=66469, cgraph_uid=1301, symbol_order=1305)
+
+__gnu_cxx::new_allocator<char>::~new_allocator (struct new_allocator * const this)
+{
+  <bb 2> :
+  return;
+
+}
+
+
+
+;; Function std::allocator<char>::~allocator (_ZNSaIcED2Ev, funcdef_no=3788, decl_uid=66534, cgraph_uid=1129, symbol_order=1133)
+
+std::allocator<char>::~allocator (struct allocator * const this)
+{
+  <bb 2> :
+  __gnu_cxx::new_allocator<char>::~new_allocator (this);
+  return;
+
+}
+
+
+
+;; Function std::__cxx11::basic_string<char>::basic_string (_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev, funcdef_no=3863, decl_uid=72983, cgraph_uid=1204, symbol_order=1208)
+
+std::__cxx11::basic_string<char>::basic_string (struct basic_string * const this)
+{
+  char * D.105486;
+  struct allocator D.103064;
+
+  <bb 2> :
+  MEM[(struct  &)this] = {CLOBBER};
+  _1 = &this->_M_dataplus;
+  std::allocator<char>::allocator (&D.103064);
+  D.105486 = std::__cxx11::basic_string<char>::_M_local_data (this);
+  _2 = D.105486;
+  std::__cxx11::basic_string<char>::_Alloc_hider::_Alloc_hider (_1, _2, &D.103064);
+  std::allocator<char>::~allocator (&D.103064);
+  D.103064 = {CLOBBER};
+  std::__cxx11::basic_string<char>::_M_set_length (this, 0);
+  return;
+
+}
+
+
+
+;; Function std::__cxx11::basic_string<char>::_Alloc_hider::~_Alloc_hider (_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD1Ev, funcdef_no=3685, decl_uid=73082, cgraph_uid=1025, symbol_order=1029)
+
+std::__cxx11::basic_string<char>::_Alloc_hider::~_Alloc_hider (struct _Alloc_hider * const this)
+{
+  <bb 2> :
+  std::allocator<char>::~allocator (this);
+  MEM[(struct  &)this] = {CLOBBER};
+  return;
+
+}
+
+
+
+;; Function std::__cxx11::basic_string<char>::~basic_string (_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, funcdef_no=3686, decl_uid=72988, cgraph_uid=1027, symbol_order=1031)
+
+std::__cxx11::basic_string<char>::~basic_string (struct basic_string * const this)
+{
+  <bb 2> :
+  std::__cxx11::basic_string<char>::_M_dispose (this);
+  _1 = &this->_M_dataplus;
+  std::__cxx11::basic_string<char>::_Alloc_hider::~_Alloc_hider (_1);
+  MEM[(struct  &)this] = {CLOBBER};
+  return;
+
+}
+
+
+
+;; Function std::operator==<char, std::char_traits<char>, std::allocator<char> > (_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_, funcdef_no=4071, decl_uid=103158, cgraph_uid=1412, symbol_order=1416)
+
+std::operator==<char, std::char_traits<char>, std::allocator<char> > (const struct basic_string & __lhs, const char * __rhs)
+{
+  bool D.105517;
+
+  <bb 2> :
+  _1 = std::__cxx11::basic_string<char>::compare (__lhs, __rhs);
+  D.105517 = _1 == 0;
+
+  <bb 3> :
+<L0>:
+  return D.105517;
+
+}
+
+
+
+;; Function std::operator!=<char, std::char_traits<char>, std::allocator<char> > (_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_, funcdef_no=3901, decl_uid=97879, cgraph_uid=1242, symbol_order=1246)
+
+std::operator!=<char, std::char_traits<char>, std::allocator<char> > (const struct basic_string & __lhs, const char * __rhs)
+{
+  bool D.105515;
+
+  <bb 2> :
+  _1 = std::operator==<char, std::char_traits<char>, std::allocator<char> > (__lhs, __rhs);
+  D.105515 = ~_1;
+
+  <bb 3> :
+<L0>:
+  return D.105515;
+
+}
+
+
+
+;; Function Shader::checkCompileErrors (_ZN6Shader18checkCompileErrorsEjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, funcdef_no=3538, decl_uid=95314, cgraph_uid=879, symbol_order=881)
+
+Shader::checkCompileErrors (struct Shader * const this, GLuint shader, struct string & restrict type)
+{
+  struct basic_ostream & D.105513;
+  struct basic_ostream & D.105512;
+  struct basic_ostream & D.105511;
+  struct basic_ostream & D.105510;
+  struct basic_ostream & D.105509;
+  struct basic_ostream & D.105508;
+  struct basic_ostream & D.105507;
+  struct basic_ostream & D.105506;
+  struct basic_ostream & D.105505;
+  struct basic_ostream & D.105504;
+  bool D.105503;
+  GLchar infoLog[1024];
+  GLint success;
+  bool retval.48;
+
+  <bb 2> :
+  D.105503 = std::operator!=<char, std::char_traits<char>, std::allocator<char> > (type, "PROGRAM");
+
+  <bb 3> :
+  retval.48 = D.105503;
+  if (retval.48 != 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 14>; [INV]
+
+  <bb 4> :
+  __glewGetShaderiv.49_1 = __glewGetShaderiv;
+  __glewGetShaderiv.49_1 (shader, 35713, &success);
+
+  <bb 5> :
+  success.50_2 = success;
+  if (success.50_2 == 0)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 24>; [INV]
+
+  <bb 6> :
+  __glewGetShaderInfoLog.51_3 = __glewGetShaderInfoLog;
+  __glewGetShaderInfoLog.51_3 (shader, 1024, 0B, &infoLog);
+
+  <bb 7> :
+  D.105504 = std::operator<< <std::char_traits<char> > (&cout, "ERROR::SHADER_COMPILATION_ERROR of type: ");
+
+  <bb 8> :
+  _4 = D.105504;
+  D.105505 = std::operator<< <char, std::char_traits<char>, std::allocator<char> > (_4, type);
+
+  <bb 9> :
+  _5 = D.105505;
+  D.105506 = std::operator<< <std::char_traits<char> > (_5, "\n");
+
+  <bb 10> :
+  _6 = D.105506;
+  D.105507 = std::operator<< <std::char_traits<char> > (_6, &infoLog);
+
+  <bb 11> :
+  _7 = D.105507;
+  D.105508 = std::operator<< <std::char_traits<char> > (_7, "\n -- --------------------------------------------------- -- ");
+
+  <bb 12> :
+  _8 = D.105508;
+  std::basic_ostream<char>::operator<< (_8, endl);
+
+  <bb 13> :
+  goto <bb 24>; [INV]
+
+  <bb 14> :
+  __glewGetProgramiv.52_9 = __glewGetProgramiv;
+  __glewGetProgramiv.52_9 (shader, 35714, &success);
+
+  <bb 15> :
+  success.53_10 = success;
+  if (success.53_10 == 0)
+    goto <bb 16>; [INV]
+  else
+    goto <bb 24>; [INV]
+
+  <bb 16> :
+  __glewGetProgramInfoLog.54_11 = __glewGetProgramInfoLog;
+  __glewGetProgramInfoLog.54_11 (shader, 1024, 0B, &infoLog);
+
+  <bb 17> :
+  D.105509 = std::operator<< <std::char_traits<char> > (&cout, "ERROR::PROGRAM_LINKING_ERROR of type: ");
+
+  <bb 18> :
+  _12 = D.105509;
+  D.105510 = std::operator<< <char, std::char_traits<char>, std::allocator<char> > (_12, type);
+
+  <bb 19> :
+  _13 = D.105510;
+  D.105511 = std::operator<< <std::char_traits<char> > (_13, "\n");
+
+  <bb 20> :
+  _14 = D.105511;
+  D.105512 = std::operator<< <std::char_traits<char> > (_14, &infoLog);
+
+  <bb 21> :
+  _15 = D.105512;
+  D.105513 = std::operator<< <std::char_traits<char> > (_15, "\n -- --------------------------------------------------- -- ");
+
+  <bb 22> :
+  _16 = D.105513;
+  std::basic_ostream<char>::operator<< (_16, endl);
+
+  <bb 23> :
+
+  <bb 24> :
+  success = {CLOBBER};
+  infoLog = {CLOBBER};
+  return;
+
+  <bb 25> :
+<L9>:
+  success = {CLOBBER};
+  infoLog = {CLOBBER};
+  resx 1
+
+}
+
+
+
+;; Function glm::operator*<float, (glm::qualifier)0> (_ZN3glmmlIfLNS_9qualifierE0EEENS_3vecILi3ET_XT0_EEES3_RKS4_, funcdef_no=4073, decl_uid=103180, cgraph_uid=1414, symbol_order=1418)
+
+glm::operator*<float, (glm::qualifier)0> (float scalar, const struct vec & v)
+{
+  <bb 2> :
+  _1 = v->D.95566.z;
+  _2 = scalar * _1;
+  _3 = v->D.95560.y;
+  _4 = scalar * _3;
+  _5 = v->D.95554.x;
+  _6 = scalar * _5;
+  glm::vec<3, float, (glm::qualifier)0>::vec (&<retval>, _6, _4, _2);
+
+  <bb 3> :
+<L0>:
+  return <retval>;
+
+}
+
+
+
+;; Function glm::perspectiveRH_NO<float> (_ZN3glm16perspectiveRH_NOIfEENS_3matILi4ELi4ET_LNS_9qualifierE0EEES2_S2_S2_S2_, funcdef_no=4074, decl_uid=103241, cgraph_uid=1415, symbol_order=1419)
+
+glm::perspectiveRH_NO<float> (float fovy, float aspect, float zNear, float zFar)
+{
+  float & D.105723;
+  struct col_type & D.105722;
+  float & D.105721;
+  struct col_type & D.105720;
+  float & D.105719;
+  struct col_type & D.105718;
+  float & D.105717;
+  struct col_type & D.105716;
+  float & D.105715;
+  struct col_type & D.105714;
+  float D.105713;
+  struct mat Result [value-expr: <retval>];
+  const float tanHalfFovy;
+  bool iftmp.59;
+
+  <bb 2> :
+  _1 = std::numeric_limits<float>::epsilon ();
+  _2 = aspect - _1;
+  D.105713 = glm::abs<float> (_2);
+
+  <bb 3> :
+  _3 = D.105713;
+  if (_3 > 0.0)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 4> :
+  _assert ("abs(aspect - std::numeric_limits<T>::epsilon()) > static_cast<T>(0)", "C:/glm/glm/ext/matrix_clip_space.inl", 251);
+
+  <bb 5> :
+  goto <bb 7>; [INV]
+
+  <bb 6> :
+  iftmp.59 = 1;
+  goto <bb 8>; [INV]
+
+  <bb 7> :
+  iftmp.59 = 0;
+
+  <bb 8> :
+  _4 = fovy / 2.0e+0;
+  _5 = std::tan (_4);
+  tanHalfFovy = _5;
+  <retval> = {};
+  tanHalfFovy.60_6 = tanHalfFovy;
+  _7 = aspect * tanHalfFovy.60_6;
+  D.105714 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&<retval>, 0);
+
+  <bb 9> :
+  _8 = D.105714;
+  D.105715 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_8, 0);
+
+  <bb 10> :
+  _9 = D.105715;
+  _10 = 1.0e+0 / _7;
+  *_9 = _10;
+  tanHalfFovy.61_11 = tanHalfFovy;
+  D.105716 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&<retval>, 1);
+
+  <bb 11> :
+  _12 = D.105716;
+  D.105717 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_12, 1);
+
+  <bb 12> :
+  _13 = D.105717;
+  _14 = 1.0e+0 / tanHalfFovy.61_11;
+  *_13 = _14;
+  _15 = zFar + zNear;
+  _16 = -_15;
+  _17 = zFar - zNear;
+  D.105718 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&<retval>, 2);
+
+  <bb 13> :
+  _18 = D.105718;
+  D.105719 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_18, 2);
+
+  <bb 14> :
+  _19 = D.105719;
+  _20 = _16 / _17;
+  *_19 = _20;
+  D.105720 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&<retval>, 2);
+
+  <bb 15> :
+  _21 = D.105720;
+  D.105721 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_21, 3);
+
+  <bb 16> :
+  _22 = D.105721;
+  *_22 = -1.0e+0;
+  _23 = zFar * 2.0e+0;
+  _24 = zNear * _23;
+  _25 = -_24;
+  _26 = zFar - zNear;
+  D.105722 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&<retval>, 3);
+
+  <bb 17> :
+  _27 = D.105722;
+  D.105723 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_27, 2);
+
+  <bb 18> :
+  _28 = D.105723;
+  _29 = _25 / _26;
+  *_28 = _29;
+
+  <bb 19> :
+  tanHalfFovy = {CLOBBER};
+
+  <bb 20> :
+<L5>:
+  return <retval>;
+
+  <bb 21> :
+<L6>:
+  tanHalfFovy = {CLOBBER};
+  resx 1
+
+}
+
+
+
+;; Function glm::perspective<float> (_ZN3glm11perspectiveIfEENS_3matILi4ELi4ET_LNS_9qualifierE0EEES2_S2_S2_S2_, funcdef_no=3910, decl_uid=100876, cgraph_uid=1251, symbol_order=1255)
+
+glm::perspective<float> (float fovy, float aspect, float zNear, float zFar)
+{
+  <bb 2> :
+  <retval> = glm::perspectiveRH_NO<float> (fovy, aspect, zNear, zFar); [return slot optimization]
+
+  <bb 3> :
+<L0>:
+  return <retval>;
+
+}
+
+
+
+;; Function glm::inversesqrt<float> (_ZN3glm11inversesqrtIfEET_S1_, funcdef_no=4180, decl_uid=104339, cgraph_uid=1521, symbol_order=1525)
+
+glm::inversesqrt<float> (float x)
+{
+  float D.105630;
+
+  <bb 2> :
+  _1 = std::sqrt (x);
+  D.105630 = 1.0e+0 / _1;
+
+  <bb 3> :
+<L0>:
+  return D.105630;
+
+}
+
+
+
+;; Function glm::operator*<float, (glm::qualifier)0> (_ZN3glmmlIfLNS_9qualifierE0EEENS_3vecILi3ET_XT0_EEERKS4_S3_, funcdef_no=4181, decl_uid=104341, cgraph_uid=1522, symbol_order=1526)
+
+glm::operator*<float, (glm::qualifier)0> (const struct vec & v, float scalar)
+{
+  <bb 2> :
+  _1 = v->D.95566.z;
+  _2 = scalar * _1;
+  _3 = v->D.95560.y;
+  _4 = scalar * _3;
+  _5 = v->D.95554.x;
+  _6 = scalar * _5;
+  glm::vec<3, float, (glm::qualifier)0>::vec (&<retval>, _6, _4, _2);
+
+  <bb 3> :
+<L0>:
+  return <retval>;
+
+}
+
+
+
+;; Function __gnu_cxx::__is_null_pointer<const char> (_ZN9__gnu_cxx17__is_null_pointerIKcEEbPT_, funcdef_no=4189, decl_uid=104397, cgraph_uid=1530, symbol_order=1534)
+
+__gnu_cxx::__is_null_pointer<const char> (const char * __ptr)
+{
+  bool D.105788;
+
+  <bb 2> :
+  D.105788 = __ptr == 0B;
+
+  <bb 3> :
+<L0>:
+  return D.105788;
+
+}
+
+
+
+;; Function std::__iterator_category<const char*> (_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_, funcdef_no=4191, decl_uid=105185, cgraph_uid=1531, symbol_order=1535)
+
+std::__iterator_category<const char*> (const char * const & D.105186)
+{
+  struct iterator_category D.105794;
+
+  <bb 2> :
+
+  <bb 3> :
+<L0>:
+  return D.105794;
+
+}
+
+
+
+;; Function glm::operator*<float, (glm::qualifier)0> (_ZN3glmmlIfLNS_9qualifierE0EEENS_3vecILi3ET_XT0_EEERKS4_S6_, funcdef_no=4223, decl_uid=105274, cgraph_uid=1563, symbol_order=1567)
+
+glm::operator*<float, (glm::qualifier)0> (const struct vec & v1, const struct vec & v2)
+{
+  <bb 2> :
+  _1 = v1->D.95566.z;
+  _2 = v2->D.95566.z;
+  _3 = _1 * _2;
+  _4 = v1->D.95560.y;
+  _5 = v2->D.95560.y;
+  _6 = _4 * _5;
+  _7 = v1->D.95554.x;
+  _8 = v2->D.95554.x;
+  _9 = _7 * _8;
+  glm::vec<3, float, (glm::qualifier)0>::vec (&<retval>, _9, _6, _3);
+
+  <bb 3> :
+<L0>:
+  return <retval>;
+
+}
+
+
+
+;; Function glm::detail::compute_dot<glm::vec<3, float, (glm::qualifier)0>, float, false>::call (_ZN3glm6detail11compute_dotINS_3vecILi3EfLNS_9qualifierE0EEEfLb0EE4callERKS4_S7_, funcdef_no=4222, decl_uid=105141, cgraph_uid=1564, symbol_order=1568)
+
+glm::detail::compute_dot<glm::vec<3, float, (glm::qualifier)0>, float, false>::call (const struct vec & a, const struct vec & b)
+{
+  struct vec tmp;
+  float D.105625;
+
+  <bb 2> :
+  tmp = glm::operator*<float, (glm::qualifier)0> (a, b); [return slot optimization]
+  _1 = tmp.D.95554.x;
+  _2 = tmp.D.95560.y;
+  _3 = _1 + _2;
+  _4 = tmp.D.95566.z;
+  D.105625 = _3 + _4;
+  tmp = {CLOBBER};
+
+  <bb 3> :
+<L1>:
+  return D.105625;
+
+}
+
+
+
+;; Function glm::dot<3, float, (glm::qualifier)0> (_ZN3glm3dotILi3EfLNS_9qualifierE0EEET0_RKNS_3vecIXT_ES2_XT1_EEES6_, funcdef_no=4179, decl_uid=104336, cgraph_uid=1520, symbol_order=1524)
+
+glm::dot<3, float, (glm::qualifier)0> (const struct vec & x, const struct vec & y)
+{
+  float D.105624;
+  float D.105622;
+
+  <bb 2> :
+  D.105624 = glm::detail::compute_dot<glm::vec<3, float, (glm::qualifier)0>, float, false>::call (x, y);
+  D.105622 = D.105624;
+
+  <bb 3> :
+<L0>:
+  return D.105622;
+
+}
+
+
+
+;; Function glm::detail::compute_normalize<3, float, (glm::qualifier)0, false>::call (_ZN3glm6detail17compute_normalizeILi3EfLNS_9qualifierE0ELb0EE4callERKNS_3vecILi3EfLS2_0EEE, funcdef_no=4136, decl_uid=103786, cgraph_uid=1477, symbol_order=1481)
+
+glm::detail::compute_normalize<3, float, (glm::qualifier)0, false>::call (const struct vec & v)
+{
+  float D.105621;
+
+  <bb 2> :
+  D.105621 = glm::dot<3, float, (glm::qualifier)0> (v, v);
+  _1 = D.105621;
+  _2 = glm::inversesqrt<float> (_1);
+  <retval> = glm::operator*<float, (glm::qualifier)0> (v, _2); [return slot optimization]
+
+  <bb 3> :
+<L0>:
+  return <retval>;
+
+}
+
+
+
+;; Function glm::normalize<3, float, (glm::qualifier)0> (_ZN3glm9normalizeILi3EfLNS_9qualifierE0EEENS_3vecIXT_ET0_XT1_EEERKS4_, funcdef_no=4072, decl_uid=103176, cgraph_uid=1413, symbol_order=1417)
+
+glm::normalize<3, float, (glm::qualifier)0> (const struct vec & x)
+{
+  <bb 2> :
+  <retval> = glm::detail::compute_normalize<3, float, (glm::qualifier)0, false>::call (x); [return slot optimization]
+
+  <bb 3> :
+<L0>:
+  return <retval>;
+
+}
+
+
+
+;; Function glm::rotate<float, (glm::qualifier)0> (_ZN3glm6rotateIfLNS_9qualifierE0EEENS_3matILi4ELi4ET_XT0_EEERKS4_S3_RKNS_3vecILi3ES3_XT0_EEE, funcdef_no=3904, decl_uid=100853, cgraph_uid=1246, symbol_order=1250)
+
+glm::rotate<float, (glm::qualifier)0> (const struct mat & m, float angle, const struct vec & v)
+{
+  struct col_type & D.105610;
+  const struct col_type & D.105609;
+  struct col_type & D.105604;
+  const struct col_type & D.105603;
+  float & D.105602;
+  struct col_type & D.105601;
+  const struct col_type & D.105600;
+  float & D.105599;
+  struct col_type & D.105598;
+  const struct col_type & D.105597;
+  float & D.105596;
+  struct col_type & D.105595;
+  struct col_type & D.105590;
+  const struct col_type & D.105589;
+  float & D.105588;
+  struct col_type & D.105587;
+  const struct col_type & D.105586;
+  float & D.105585;
+  struct col_type & D.105584;
+  const struct col_type & D.105583;
+  float & D.105582;
+  struct col_type & D.105581;
+  struct col_type & D.105576;
+  const struct col_type & D.105575;
+  float & D.105574;
+  struct col_type & D.105573;
+  const struct col_type & D.105572;
+  float & D.105571;
+  struct col_type & D.105570;
+  const struct col_type & D.105569;
+  float & D.105568;
+  struct col_type & D.105567;
+  float & D.105566;
+  struct col_type & D.105565;
+  float & D.105564;
+  float & D.105563;
+  float & D.105562;
+  struct col_type & D.105561;
+  float & D.105560;
+  float & D.105559;
+  float & D.105558;
+  float & D.105557;
+  struct col_type & D.105556;
+  float & D.105555;
+  float & D.105554;
+  float & D.105553;
+  float & D.105552;
+  struct col_type & D.105551;
+  float & D.105550;
+  float & D.105549;
+  float & D.105548;
+  float & D.105547;
+  struct col_type & D.105546;
+  float & D.105545;
+  float & D.105544;
+  float & D.105543;
+  struct col_type & D.105542;
+  float & D.105541;
+  float & D.105540;
+  float & D.105539;
+  float & D.105538;
+  struct col_type & D.105537;
+  float & D.105536;
+  float & D.105535;
+  float & D.105534;
+  float & D.105533;
+  struct col_type & D.105532;
+  float & D.105531;
+  float & D.105530;
+  float & D.105529;
+  float & D.105528;
+  struct col_type & D.105527;
+  float & D.105526;
+  float & D.105525;
+  struct mat Result [value-expr: <retval>];
+  struct mat Rotate;
+  struct vec temp;
+  struct vec axis;
+  const float s;
+  const float c;
+  const float a;
+  struct col_type & D.105523;
+  struct col_type & D.105522;
+  struct vec D.103205;
+  struct vec D.103206;
+  struct vec D.103207;
+  struct vec D.103208;
+  struct col_type & D.105521;
+  struct vec D.103200;
+  struct vec D.103201;
+  struct vec D.103202;
+  struct vec D.103203;
+  struct col_type & D.105520;
+  struct vec D.103192;
+  struct vec D.103193;
+  struct vec D.103197;
+  struct vec D.103198;
+
+  <bb 2> :
+  a = angle;
+  c = std::cos (a);
+  s = std::sin (a);
+  axis = glm::normalize<3, float, (glm::qualifier)0> (v); [return slot optimization]
+
+  <bb 3> :
+  _1 = 1.0e+0 - c;
+  temp = glm::operator*<float, (glm::qualifier)0> (_1, &axis); [return slot optimization]
+  D.105525 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&temp, 0);
+
+  <bb 4> :
+  _2 = D.105525;
+  _3 = *_2;
+  D.105526 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&axis, 0);
+
+  <bb 5> :
+  _4 = D.105526;
+  _5 = *_4;
+  _6 = _3 * _5;
+  D.105527 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 0);
+
+  <bb 6> :
+  _7 = D.105527;
+  D.105528 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_7, 0);
+
+  <bb 7> :
+  _8 = D.105528;
+  _9 = c + _6;
+  *_8 = _9;
+  D.105529 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&temp, 0);
+
+  <bb 8> :
+  _10 = D.105529;
+  _11 = *_10;
+  D.105530 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&axis, 1);
+
+  <bb 9> :
+  _12 = D.105530;
+  _13 = *_12;
+  _14 = _11 * _13;
+  D.105531 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&axis, 2);
+
+  <bb 10> :
+  _15 = D.105531;
+  _16 = *_15;
+  _17 = s * _16;
+  D.105532 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 0);
+
+  <bb 11> :
+  _18 = D.105532;
+  D.105533 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_18, 1);
+
+  <bb 12> :
+  _19 = D.105533;
+  _20 = _14 + _17;
+  *_19 = _20;
+  D.105534 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&temp, 0);
+
+  <bb 13> :
+  _21 = D.105534;
+  _22 = *_21;
+  D.105535 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&axis, 2);
+
+  <bb 14> :
+  _23 = D.105535;
+  _24 = *_23;
+  _25 = _22 * _24;
+  D.105536 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&axis, 1);
+
+  <bb 15> :
+  _26 = D.105536;
+  _27 = *_26;
+  _28 = s * _27;
+  D.105537 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 0);
+
+  <bb 16> :
+  _29 = D.105537;
+  D.105538 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_29, 2);
+
+  <bb 17> :
+  _30 = D.105538;
+  _31 = _25 - _28;
+  *_30 = _31;
+  D.105539 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&temp, 1);
+
+  <bb 18> :
+  _32 = D.105539;
+  _33 = *_32;
+  D.105540 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&axis, 0);
+
+  <bb 19> :
+  _34 = D.105540;
+  _35 = *_34;
+  _36 = _33 * _35;
+  D.105541 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&axis, 2);
+
+  <bb 20> :
+  _37 = D.105541;
+  _38 = *_37;
+  _39 = s * _38;
+  D.105542 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 1);
+
+  <bb 21> :
+  _40 = D.105542;
+  D.105543 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_40, 0);
+
+  <bb 22> :
+  _41 = D.105543;
+  _42 = _36 - _39;
+  *_41 = _42;
+  D.105544 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&temp, 1);
+
+  <bb 23> :
+  _43 = D.105544;
+  _44 = *_43;
+  D.105545 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&axis, 1);
+
+  <bb 24> :
+  _45 = D.105545;
+  _46 = *_45;
+  _47 = _44 * _46;
+  D.105546 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 1);
+
+  <bb 25> :
+  _48 = D.105546;
+  D.105547 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_48, 1);
+
+  <bb 26> :
+  _49 = D.105547;
+  _50 = c + _47;
+  *_49 = _50;
+  D.105548 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&temp, 1);
+
+  <bb 27> :
+  _51 = D.105548;
+  _52 = *_51;
+  D.105549 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&axis, 2);
+
+  <bb 28> :
+  _53 = D.105549;
+  _54 = *_53;
+  _55 = _52 * _54;
+  D.105550 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&axis, 0);
+
+  <bb 29> :
+  _56 = D.105550;
+  _57 = *_56;
+  _58 = s * _57;
+  D.105551 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 1);
+
+  <bb 30> :
+  _59 = D.105551;
+  D.105552 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_59, 2);
+
+  <bb 31> :
+  _60 = D.105552;
+  _61 = _55 + _58;
+  *_60 = _61;
+  D.105553 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&temp, 2);
+
+  <bb 32> :
+  _62 = D.105553;
+  _63 = *_62;
+  D.105554 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&axis, 0);
+
+  <bb 33> :
+  _64 = D.105554;
+  _65 = *_64;
+  _66 = _63 * _65;
+  D.105555 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&axis, 1);
+
+  <bb 34> :
+  _67 = D.105555;
+  _68 = *_67;
+  _69 = s * _68;
+  D.105556 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 2);
+
+  <bb 35> :
+  _70 = D.105556;
+  D.105557 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_70, 0);
+
+  <bb 36> :
+  _71 = D.105557;
+  _72 = _66 + _69;
+  *_71 = _72;
+  D.105558 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&temp, 2);
+
+  <bb 37> :
+  _73 = D.105558;
+  _74 = *_73;
+  D.105559 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&axis, 1);
+
+  <bb 38> :
+  _75 = D.105559;
+  _76 = *_75;
+  _77 = _74 * _76;
+  D.105560 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&axis, 0);
+
+  <bb 39> :
+  _78 = D.105560;
+  _79 = *_78;
+  _80 = s * _79;
+  D.105561 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 2);
+
+  <bb 40> :
+  _81 = D.105561;
+  D.105562 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_81, 1);
+
+  <bb 41> :
+  _82 = D.105562;
+  _83 = _77 - _80;
+  *_82 = _83;
+  D.105563 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&temp, 2);
+
+  <bb 42> :
+  _84 = D.105563;
+  _85 = *_84;
+  D.105564 = glm::vec<3, float, (glm::qualifier)0>::operator[] (&axis, 2);
+
+  <bb 43> :
+  _86 = D.105564;
+  _87 = *_86;
+  _88 = _85 * _87;
+  D.105565 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 2);
+
+  <bb 44> :
+  _89 = D.105565;
+  D.105566 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_89, 2);
+
+  <bb 45> :
+  _90 = D.105566;
+  _91 = c + _88;
+  *_90 = _91;
+  D.105567 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 0);
+
+  <bb 46> :
+  _92 = D.105567;
+  D.105568 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_92, 2);
+
+  <bb 47> :
+  _93 = D.105568;
+  D.105569 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (m, 2);
+
+  <bb 48> :
+  _94 = D.105569;
+  D.103198 = glm::operator*<float, (glm::qualifier)0> (_94, _93); [return slot optimization]
+
+  <bb 49> :
+  D.105570 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 0);
+
+  <bb 50> :
+  _95 = D.105570;
+  D.105571 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_95, 1);
+
+  <bb 51> :
+  _96 = D.105571;
+  D.105572 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (m, 1);
+
+  <bb 52> :
+  _97 = D.105572;
+  D.103193 = glm::operator*<float, (glm::qualifier)0> (_97, _96); [return slot optimization]
+
+  <bb 53> :
+  D.105573 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 0);
+
+  <bb 54> :
+  _98 = D.105573;
+  D.105574 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_98, 0);
+
+  <bb 55> :
+  _99 = D.105574;
+  D.105575 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (m, 0);
+
+  <bb 56> :
+  _100 = D.105575;
+  D.103192 = glm::operator*<float, (glm::qualifier)0> (_100, _99); [return slot optimization]
+
+  <bb 57> :
+  D.103197 = glm::operator+<float, (glm::qualifier)0> (&D.103192, &D.103193); [return slot optimization]
+
+  <bb 58> :
+  D.105576 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&<retval>, 0);
+
+  <bb 59> :
+  D.105520 = D.105576;
+  *D.105520 = glm::operator+<float, (glm::qualifier)0> (&D.103197, &D.103198);
+
+  <bb 60> :
+  D.103197 = {CLOBBER};
+  D.103192 = {CLOBBER};
+  D.103193 = {CLOBBER};
+  D.103198 = {CLOBBER};
+  D.105581 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 1);
+
+  <bb 61> :
+  _101 = D.105581;
+  D.105582 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_101, 2);
+
+  <bb 62> :
+  _102 = D.105582;
+  D.105583 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (m, 2);
+
+  <bb 63> :
+  _103 = D.105583;
+  D.103203 = glm::operator*<float, (glm::qualifier)0> (_103, _102); [return slot optimization]
+
+  <bb 64> :
+  D.105584 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 1);
+
+  <bb 65> :
+  _104 = D.105584;
+  D.105585 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_104, 1);
+
+  <bb 66> :
+  _105 = D.105585;
+  D.105586 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (m, 1);
+
+  <bb 67> :
+  _106 = D.105586;
+  D.103201 = glm::operator*<float, (glm::qualifier)0> (_106, _105); [return slot optimization]
+
+  <bb 68> :
+  D.105587 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 1);
+
+  <bb 69> :
+  _107 = D.105587;
+  D.105588 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_107, 0);
+
+  <bb 70> :
+  _108 = D.105588;
+  D.105589 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (m, 0);
+
+  <bb 71> :
+  _109 = D.105589;
+  D.103200 = glm::operator*<float, (glm::qualifier)0> (_109, _108); [return slot optimization]
+
+  <bb 72> :
+  D.103202 = glm::operator+<float, (glm::qualifier)0> (&D.103200, &D.103201); [return slot optimization]
+
+  <bb 73> :
+  D.105590 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&<retval>, 1);
+
+  <bb 74> :
+  D.105521 = D.105590;
+  *D.105521 = glm::operator+<float, (glm::qualifier)0> (&D.103202, &D.103203);
+
+  <bb 75> :
+  D.103202 = {CLOBBER};
+  D.103200 = {CLOBBER};
+  D.103201 = {CLOBBER};
+  D.103203 = {CLOBBER};
+  D.105595 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 2);
+
+  <bb 76> :
+  _110 = D.105595;
+  D.105596 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_110, 2);
+
+  <bb 77> :
+  _111 = D.105596;
+  D.105597 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (m, 2);
+
+  <bb 78> :
+  _112 = D.105597;
+  D.103208 = glm::operator*<float, (glm::qualifier)0> (_112, _111); [return slot optimization]
+
+  <bb 79> :
+  D.105598 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 2);
+
+  <bb 80> :
+  _113 = D.105598;
+  D.105599 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_113, 1);
+
+  <bb 81> :
+  _114 = D.105599;
+  D.105600 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (m, 1);
+
+  <bb 82> :
+  _115 = D.105600;
+  D.103206 = glm::operator*<float, (glm::qualifier)0> (_115, _114); [return slot optimization]
+
+  <bb 83> :
+  D.105601 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 2);
+
+  <bb 84> :
+  _116 = D.105601;
+  D.105602 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_116, 0);
+
+  <bb 85> :
+  _117 = D.105602;
+  D.105603 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (m, 0);
+
+  <bb 86> :
+  _118 = D.105603;
+  D.103205 = glm::operator*<float, (glm::qualifier)0> (_118, _117); [return slot optimization]
+
+  <bb 87> :
+  D.103207 = glm::operator+<float, (glm::qualifier)0> (&D.103205, &D.103206); [return slot optimization]
+
+  <bb 88> :
+  D.105604 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&<retval>, 2);
+
+  <bb 89> :
+  D.105522 = D.105604;
+  *D.105522 = glm::operator+<float, (glm::qualifier)0> (&D.103207, &D.103208);
+
+  <bb 90> :
+  D.103207 = {CLOBBER};
+  D.103205 = {CLOBBER};
+  D.103206 = {CLOBBER};
+  D.103208 = {CLOBBER};
+  D.105609 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (m, 3);
+
+  <bb 91> :
+  _119 = D.105609;
+  D.105610 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&<retval>, 3);
+
+  <bb 92> :
+  D.105523 = D.105610;
+  *D.105523 = MEM[(const struct vec &)_119];
+
+  <bb 93> :
+  axis = {CLOBBER};
+  temp = {CLOBBER};
+  Rotate = {CLOBBER};
+
+  <bb 94> :
+<L1>:
+  return <retval>;
+
+  <bb 95> :
+<L2>:
+  D.103197 = {CLOBBER};
+  resx 5
+
+  <bb 96> :
+<L3>:
+  D.103192 = {CLOBBER};
+  resx 4
+
+  <bb 97> :
+<L4>:
+  D.103193 = {CLOBBER};
+  resx 3
+
+  <bb 98> :
+<L5>:
+  D.103198 = {CLOBBER};
+  resx 2
+
+  <bb 99> :
+<L6>:
+  D.103202 = {CLOBBER};
+  resx 13
+
+  <bb 100> :
+<L7>:
+  D.103200 = {CLOBBER};
+  resx 12
+
+  <bb 101> :
+<L8>:
+  D.103201 = {CLOBBER};
+  resx 11
+
+  <bb 102> :
+<L9>:
+  D.103203 = {CLOBBER};
+  resx 10
+
+  <bb 103> :
+<L10>:
+  D.103207 = {CLOBBER};
+  resx 21
+
+  <bb 104> :
+<L11>:
+  D.103205 = {CLOBBER};
+  resx 20
+
+  <bb 105> :
+<L12>:
+  D.103206 = {CLOBBER};
+  resx 19
+
+  <bb 106> :
+<L13>:
+  D.103208 = {CLOBBER};
+  resx 18
+
+  <bb 107> :
+<L14>:
+  axis = {CLOBBER};
+  temp = {CLOBBER};
+  Rotate = {CLOBBER};
+  resx 1
+
+}
+
+
+
+;; Function std::__distance<const char*> (_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag, funcdef_no=4234, decl_uid=105188, cgraph_uid=1575, symbol_order=1579)
+
+std::__distance<const char*> (const char * __first, const char * __last, struct random_access_iterator_tag D.105191)
+{
+  difference_type D.105796;
+
+  <bb 2> :
+  D.105796 = __last - __first;
+
+  <bb 3> :
+<L0>:
+  return D.105796;
+
+}
+
+
+
+;; Function std::distance<const char*> (_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_, funcdef_no=4190, decl_uid=104400, cgraph_uid=1532, symbol_order=1536)
+
+std::distance<const char*> (const char * __first, const char * __last)
+{
+  struct random_access_iterator_tag D.105791;
+  struct iterator_category D.105187;
+  difference_type D.105790;
+
+  <bb 2> :
+  std::__iterator_category<const char*> (&__first);
+  __first.71_1 = __first;
+  D.105790 = std::__distance<const char*> (__first.71_1, __last, D.105791);
+
+  <bb 3> :
+  D.105187 = {CLOBBER};
+
+  <bb 4> :
+<L1>:
+  return D.105790;
+
+}
+
+
+
+;; Function std::__cxx11::basic_string<char>::_M_construct<const char*> (_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag, funcdef_no=4150, decl_uid=104037, cgraph_uid=1491, symbol_order=1495)
+
+std::__cxx11::basic_string<char>::_M_construct<const char*> (struct basic_string * const this, const char * __beg, const char * __end, struct forward_iterator_tag D.104041)
+{
+  char * D.105783;
+  char * D.105782;
+  long long int D.105781;
+  size_type __dnew;
+  bool iftmp.67;
+  bool retval.66;
+
+  <bb 2> :
+  _1 = __gnu_cxx::__is_null_pointer<const char> (__beg);
+  if (_1 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 3> :
+  if (__beg != __end)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+  iftmp.67 = 1;
+  goto <bb 6>; [INV]
+
+  <bb 5> :
+  iftmp.67 = 0;
+
+  <bb 6> :
+  retval.66 = iftmp.67;
+  if (retval.66 != 0)
+    goto <bb 7>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 7> :
+  std::__throw_logic_error ("basic_string::_M_construct null not valid");
+
+  <bb 8> :
+  D.105781 = std::distance<const char*> (__beg, __end);
+
+  <bb 9> :
+  _2 = D.105781;
+  _3 = (long long unsigned int) _2;
+  __dnew = _3;
+  __dnew.68_4 = __dnew;
+  if (__dnew.68_4 > 15)
+    goto <bb 10>; [INV]
+  else
+    goto <bb 14>; [INV]
+
+  <bb 10> :
+  D.105782 = std::__cxx11::basic_string<char>::_M_create (this, &__dnew, 0);
+
+  <bb 11> :
+  _5 = D.105782;
+  std::__cxx11::basic_string<char>::_M_data (this, _5);
+
+  <bb 12> :
+  __dnew.69_6 = __dnew;
+  std::__cxx11::basic_string<char>::_M_capacity (this, __dnew.69_6);
+
+  <bb 13> :
+
+  <bb 14> :
+  D.105783 = std::__cxx11::basic_string<char>::_M_data (this);
+
+  <bb 15> :
+  _7 = D.105783;
+  std::__cxx11::basic_string<char>::_S_copy_chars (_7, __beg, __end);
+  __dnew.70_9 = __dnew;
+  std::__cxx11::basic_string<char>::_M_set_length (this, __dnew.70_9);
+
+  <bb 16> :
+  __dnew = {CLOBBER};
+  return;
+
+  <bb 17> :
+<L9>:
+  eh_dispatch 2
+
+  <bb 18> :
+<L10>:
+  _8 = __builtin_eh_pointer (2);
+  __cxa_begin_catch (_8);
+  std::__cxx11::basic_string<char>::_M_dispose (this);
+
+  <bb 19> :
+  __cxa_rethrow ();
+
+  <bb 20> :
+<L11>:
+  __cxa_end_catch ();
+  resx 3
+
+  <bb 21> :
+<L12>:
+  __dnew = {CLOBBER};
+  resx 1
+
+}
+
+
+
+;; Function std::__cxx11::basic_string<char>::_M_construct_aux<const char*> (_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_construct_auxIPKcEEvT_S8_St12__false_type, funcdef_no=4092, decl_uid=103498, cgraph_uid=1433, symbol_order=1437)
+
+std::__cxx11::basic_string<char>::_M_construct_aux<const char*> (struct basic_string * const this, const char * __beg, const char * __end, struct __false_type D.103502)
+{
+  struct forward_iterator_tag D.105768;
+  struct _Tag D.104027;
+  struct forward_iterator_tag D.104047;
+
+  <bb 2> :
+  _1 = &D.104027;
+  std::__cxx11::basic_string<char>::_M_construct<const char*> (this, __beg, __end, D.105768);
+
+  <bb 3> :
+  D.104027 = {CLOBBER};
+  return;
+
+  <bb 4> :
+<L0>:
+  D.104027 = {CLOBBER};
+  resx 1
+
+}
+
+
+
+;; Function std::__cxx11::basic_string<char>::_M_construct<const char*> (_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_, funcdef_no=3965, decl_uid=102624, cgraph_uid=1306, symbol_order=1310)
+
+std::__cxx11::basic_string<char>::_M_construct<const char*> (struct basic_string * const this, const char * __beg, const char * __end)
+{
+  struct __false_type D.105766;
+  struct _Integral D.103464;
+
+  <bb 2> :
+  std::__cxx11::basic_string<char>::_M_construct_aux<const char*> (this, __beg, __end, D.105766);
+
+  <bb 3> :
+  D.103464 = {CLOBBER};
+  return;
+
+  <bb 4> :
+<L0>:
+  D.103464 = {CLOBBER};
+  resx 1
+
+}
+
+
+
+;; Function std::__cxx11::basic_string<char>::basic_string (_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_, funcdef_no=3893, decl_uid=72923, cgraph_uid=1234, symbol_order=1238)
+
+std::__cxx11::basic_string<char>::basic_string (struct basic_string * const this, const char * __s, const struct allocator & __a)
+{
+  char * D.105762;
+  const char * iftmp.65;
+
+  <bb 2> :
+  MEM[(struct  &)this] = {CLOBBER};
+  _1 = &this->_M_dataplus;
+  D.105762 = std::__cxx11::basic_string<char>::_M_local_data (this);
+  _2 = D.105762;
+  std::__cxx11::basic_string<char>::_Alloc_hider::_Alloc_hider (_1, _2, __a);
+  if (__s != 0B)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _3 = std::char_traits<char>::length (__s);
+  iftmp.65 = __s + _3;
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+  iftmp.65 = __s + 18446744073709551615;
+
+  <bb 5> :
+  std::__cxx11::basic_string<char>::_M_construct<const char*> (this, __s, iftmp.65);
+
+  <bb 6> :
+  return;
+
+  <bb 7> :
+<L3>:
+  _4 = &this->_M_dataplus;
+  std::__cxx11::basic_string<char>::_Alloc_hider::~_Alloc_hider (_4);
+  resx 1
+
+}
+
+
+
+;; Function Shader::Shader (_ZN6ShaderC1EPKcS1_S1_, funcdef_no=3518, decl_uid=95316, cgraph_uid=859, symbol_order=861)
+
+Shader::Shader (struct Shader * const this, const char * vertexPath, const char * fragmentPath, const char * geometryPath)
+{
+  unsigned int D.105474;
+  unsigned int D.105468;
+  unsigned int D.105463;
+  unsigned int D.105458;
+  struct basic_ostream & D.105453;
+  struct __filebuf_type * D.105447;
+  struct __filebuf_type * D.105446;
+  struct __filebuf_type * D.105445;
+  const char * gShaderCode;
+  struct failure & e;
+  struct stringstream gShaderStream;
+  struct stringstream fShaderStream;
+  struct stringstream vShaderStream;
+  unsigned int geometry;
+  unsigned int fragment;
+  unsigned int vertex;
+  const char * fShaderCode;
+  const char * vShaderCode;
+  struct ifstream gShaderFile;
+  struct ifstream fShaderFile;
+  struct ifstream vShaderFile;
+  struct string geometryCode;
+  struct string fragmentCode;
+  struct string vertexCode;
+  struct allocator D.95541;
+  struct string D.95540;
+  struct allocator D.95539;
+  struct string D.95538;
+  struct allocator D.95536;
+  struct string D.95535;
+  struct allocator D.95534;
+  struct string D.95533;
+  register struct failure * D.95532;
+  struct __string_type D.95530;
+  struct __string_type D.95528;
+  struct __string_type D.95527;
+
+  <bb 2> :
+  MEM[(struct  &)this] = {CLOBBER};
+  std::__cxx11::basic_string<char>::basic_string (&vertexCode);
+  std::__cxx11::basic_string<char>::basic_string (&fragmentCode);
+  std::__cxx11::basic_string<char>::basic_string (&geometryCode);
+  std::basic_ifstream<char>::basic_ifstream (&vShaderFile);
+
+  <bb 3> :
+  std::basic_ifstream<char>::basic_ifstream (&fShaderFile);
+
+  <bb 4> :
+  std::basic_ifstream<char>::basic_ifstream (&gShaderFile);
+
+  <bb 5> :
+  _1 = std::operator| (4, 1);
+  std::basic_ios<char>::exceptions (&vShaderFile.D.92731, _1);
+
+  <bb 6> :
+  _2 = std::operator| (4, 1);
+  std::basic_ios<char>::exceptions (&fShaderFile.D.92731, _2);
+
+  <bb 7> :
+  _3 = std::operator| (4, 1);
+  std::basic_ios<char>::exceptions (&gShaderFile.D.92731, _3);
+
+  <bb 8> :
+  std::basic_ifstream<char>::open (&vShaderFile, vertexPath, 8);
+
+  <bb 9> :
+  std::basic_ifstream<char>::open (&fShaderFile, fragmentPath, 8);
+
+  <bb 10> :
+  _4 = std::operator| (16, 8);
+  std::__cxx11::basic_stringstream<char>::basic_stringstream (&vShaderStream, _4);
+
+  <bb 11> :
+  _5 = std::operator| (16, 8);
+  std::__cxx11::basic_stringstream<char>::basic_stringstream (&fShaderStream, _5);
+
+  <bb 12> :
+  D.105445 = std::basic_ifstream<char>::rdbuf (&vShaderFile);
+
+  <bb 13> :
+  _6 = D.105445;
+  std::basic_ostream<char>::operator<< (&vShaderStream.D.94702.D.89313, _6);
+
+  <bb 14> :
+  D.105446 = std::basic_ifstream<char>::rdbuf (&fShaderFile);
+
+  <bb 15> :
+  _7 = D.105446;
+  std::basic_ostream<char>::operator<< (&fShaderStream.D.94702.D.89313, _7);
+
+  <bb 16> :
+  std::basic_ifstream<char>::close (&vShaderFile);
+
+  <bb 17> :
+  std::basic_ifstream<char>::close (&fShaderFile);
+
+  <bb 18> :
+  D.95527 = std::__cxx11::basic_stringstream<char>::str (&vShaderStream); [return slot optimization]
+
+  <bb 19> :
+  std::__cxx11::basic_string<char>::operator= (&vertexCode, &D.95527);
+  std::__cxx11::basic_string<char>::~basic_string (&D.95527);
+  D.95527 = {CLOBBER};
+  D.95528 = std::__cxx11::basic_stringstream<char>::str (&fShaderStream); [return slot optimization]
+
+  <bb 20> :
+  std::__cxx11::basic_string<char>::operator= (&fragmentCode, &D.95528);
+  std::__cxx11::basic_string<char>::~basic_string (&D.95528);
+  D.95528 = {CLOBBER};
+  if (geometryPath != 0B)
+    goto <bb 21>; [INV]
+  else
+    goto <bb 28>; [INV]
+
+  <bb 21> :
+  std::basic_ifstream<char>::open (&gShaderFile, geometryPath, 8);
+
+  <bb 22> :
+  _8 = std::operator| (16, 8);
+  std::__cxx11::basic_stringstream<char>::basic_stringstream (&gShaderStream, _8);
+
+  <bb 23> :
+  D.105447 = std::basic_ifstream<char>::rdbuf (&gShaderFile);
+
+  <bb 24> :
+  _9 = D.105447;
+  std::basic_ostream<char>::operator<< (&gShaderStream.D.94702.D.89313, _9);
+
+  <bb 25> :
+  std::basic_ifstream<char>::close (&gShaderFile);
+
+  <bb 26> :
+  D.95530 = std::__cxx11::basic_stringstream<char>::str (&gShaderStream); [return slot optimization]
+
+  <bb 27> :
+  std::__cxx11::basic_string<char>::operator= (&geometryCode, &D.95530);
+  std::__cxx11::basic_string<char>::~basic_string (&D.95530);
+  D.95530 = {CLOBBER};
+  std::__cxx11::basic_stringstream<char>::~basic_stringstream (&gShaderStream);
+  gShaderStream = {CLOBBER};
+
+  <bb 28> :
+  std::__cxx11::basic_stringstream<char>::~basic_stringstream (&fShaderStream);
+  std::__cxx11::basic_stringstream<char>::~basic_stringstream (&vShaderStream);
+  vShaderStream = {CLOBBER};
+  fShaderStream = {CLOBBER};
+
+  <bb 29> :
+  _12 = std::__cxx11::basic_string<char>::c_str (&vertexCode);
+  vShaderCode = _12;
+  _13 = std::__cxx11::basic_string<char>::c_str (&fragmentCode);
+  fShaderCode = _13;
+  __glewCreateShader.31_14 = __glewCreateShader;
+  D.105458 = __glewCreateShader.31_14 (35633);
+
+  <bb 30> :
+  vertex = D.105458;
+  __glewShaderSource.32_15 = __glewShaderSource;
+  __glewShaderSource.32_15 (vertex, 1, &vShaderCode, 0B);
+
+  <bb 31> :
+  __glewCompileShader.33_16 = __glewCompileShader;
+  __glewCompileShader.33_16 (vertex);
+
+  <bb 32> :
+  std::allocator<char>::allocator (&D.95534);
+  std::__cxx11::basic_string<char>::basic_string (&D.95533, "VERTEX", &D.95534);
+
+  <bb 33> :
+  Shader::checkCompileErrors (this, vertex, &D.95533);
+
+  <bb 34> :
+  std::__cxx11::basic_string<char>::~basic_string (&D.95533);
+  D.95533 = {CLOBBER};
+  std::allocator<char>::~allocator (&D.95534);
+  D.95534 = {CLOBBER};
+  __glewCreateShader.34_17 = __glewCreateShader;
+  D.105463 = __glewCreateShader.34_17 (35632);
+
+  <bb 35> :
+  fragment = D.105463;
+  __glewShaderSource.35_18 = __glewShaderSource;
+  __glewShaderSource.35_18 (fragment, 1, &fShaderCode, 0B);
+
+  <bb 36> :
+  __glewCompileShader.36_19 = __glewCompileShader;
+  __glewCompileShader.36_19 (fragment);
+
+  <bb 37> :
+  std::allocator<char>::allocator (&D.95536);
+  std::__cxx11::basic_string<char>::basic_string (&D.95535, "FRAGMENT", &D.95536);
+
+  <bb 38> :
+  Shader::checkCompileErrors (this, fragment, &D.95535);
+
+  <bb 39> :
+  std::__cxx11::basic_string<char>::~basic_string (&D.95535);
+  D.95535 = {CLOBBER};
+  std::allocator<char>::~allocator (&D.95536);
+  D.95536 = {CLOBBER};
+  if (geometryPath != 0B)
+    goto <bb 40>; [INV]
+  else
+    goto <bb 46>; [INV]
+
+  <bb 40> :
+  _20 = std::__cxx11::basic_string<char>::c_str (&geometryCode);
+  gShaderCode = _20;
+  __glewCreateShader.37_21 = __glewCreateShader;
+  D.105468 = __glewCreateShader.37_21 (36313);
+
+  <bb 41> :
+  geometry = D.105468;
+  __glewShaderSource.38_22 = __glewShaderSource;
+  __glewShaderSource.38_22 (geometry, 1, &gShaderCode, 0B);
+
+  <bb 42> :
+  __glewCompileShader.39_23 = __glewCompileShader;
+  __glewCompileShader.39_23 (geometry);
+
+  <bb 43> :
+  std::allocator<char>::allocator (&D.95539);
+  std::__cxx11::basic_string<char>::basic_string (&D.95538, "GEOMETRY", &D.95539);
+
+  <bb 44> :
+  Shader::checkCompileErrors (this, geometry, &D.95538);
+
+  <bb 45> :
+  std::__cxx11::basic_string<char>::~basic_string (&D.95538);
+  D.95538 = {CLOBBER};
+  std::allocator<char>::~allocator (&D.95539);
+  D.95539 = {CLOBBER};
+  gShaderCode = {CLOBBER};
+
+  <bb 46> :
+  __glewCreateProgram.40_24 = __glewCreateProgram;
+  D.105474 = __glewCreateProgram.40_24 ();
+
+  <bb 47> :
+  _25 = D.105474;
+  this->ID = _25;
+  __glewAttachShader.41_26 = __glewAttachShader;
+  _27 = this->ID;
+  __glewAttachShader.41_26 (_27, vertex);
+
+  <bb 48> :
+  __glewAttachShader.42_28 = __glewAttachShader;
+  _29 = this->ID;
+  __glewAttachShader.42_28 (_29, fragment);
+
+  <bb 49> :
+  if (geometryPath != 0B)
+    goto <bb 50>; [INV]
+  else
+    goto <bb 52>; [INV]
+
+  <bb 50> :
+  __glewAttachShader.43_30 = __glewAttachShader;
+  _31 = this->ID;
+  __glewAttachShader.43_30 (_31, geometry);
+
+  <bb 51> :
+
+  <bb 52> :
+  __glewLinkProgram.44_32 = __glewLinkProgram;
+  _33 = this->ID;
+  __glewLinkProgram.44_32 (_33);
+
+  <bb 53> :
+  std::allocator<char>::allocator (&D.95541);
+  std::__cxx11::basic_string<char>::basic_string (&D.95540, "PROGRAM", &D.95541);
+
+  <bb 54> :
+  _34 = this->ID;
+  Shader::checkCompileErrors (this, _34, &D.95540);
+
+  <bb 55> :
+  std::__cxx11::basic_string<char>::~basic_string (&D.95540);
+  D.95540 = {CLOBBER};
+  std::allocator<char>::~allocator (&D.95541);
+  D.95541 = {CLOBBER};
+  __glewDeleteShader.45_35 = __glewDeleteShader;
+  __glewDeleteShader.45_35 (vertex);
+
+  <bb 56> :
+  __glewDeleteShader.46_36 = __glewDeleteShader;
+  __glewDeleteShader.46_36 (fragment);
+
+  <bb 57> :
+  if (geometryPath != 0B)
+    goto <bb 58>; [INV]
+  else
+    goto <bb 60>; [INV]
+
+  <bb 58> :
+  __glewDeleteShader.47_37 = __glewDeleteShader;
+  __glewDeleteShader.47_37 (geometry);
+
+  <bb 59> :
+
+  <bb 60> :
+  std::basic_ifstream<char>::~basic_ifstream (&gShaderFile);
+  std::basic_ifstream<char>::~basic_ifstream (&fShaderFile);
+  std::basic_ifstream<char>::~basic_ifstream (&vShaderFile);
+  std::__cxx11::basic_string<char>::~basic_string (&geometryCode);
+  std::__cxx11::basic_string<char>::~basic_string (&fragmentCode);
+  std::__cxx11::basic_string<char>::~basic_string (&vertexCode);
+  vertexCode = {CLOBBER};
+  fragmentCode = {CLOBBER};
+  geometryCode = {CLOBBER};
+  vShaderFile = {CLOBBER};
+  fShaderFile = {CLOBBER};
+  gShaderFile = {CLOBBER};
+  vShaderCode = {CLOBBER};
+  fShaderCode = {CLOBBER};
+  return;
+
+  <bb 61> :
+<L13>:
+  std::__cxx11::basic_stringstream<char>::~basic_stringstream (&gShaderStream);
+  resx 17
+
+  <bb 62> :
+<L14>:
+  gShaderStream = {CLOBBER};
+  resx 16
+
+  <bb 63> :
+<L15>:
+  std::__cxx11::basic_stringstream<char>::~basic_stringstream (&fShaderStream);
+  resx 11
+
+  <bb 64> :
+<L16>:
+  std::__cxx11::basic_stringstream<char>::~basic_stringstream (&vShaderStream);
+  resx 10
+
+  <bb 65> :
+<L17>:
+  vShaderStream = {CLOBBER};
+  fShaderStream = {CLOBBER};
+  resx 9
+
+  <bb 66> :
+<L18>:
+  eh_dispatch 8
+
+  <bb 67> :
+  resx 8
+
+  <bb 68> :
+<L19>:
+  _10 = __builtin_eh_pointer (8);
+  D.95532 = __cxa_begin_catch (_10);
+  e = D.95532;
+  D.105453 = std::operator<< <std::char_traits<char> > (&cout, "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ");
+
+  <bb 69> :
+  _11 = D.105453;
+  std::basic_ostream<char>::operator<< (_11, endl);
+
+  <bb 70> :
+  __cxa_end_catch ();
+  goto <bb 29>; [INV]
+
+  <bb 71> :
+<L20>:
+  __cxa_end_catch ();
+  resx 25
+
+  <bb 72> :
+<L21>:
+  std::__cxx11::basic_string<char>::~basic_string (&D.95533);
+  resx 30
+
+  <bb 73> :
+<L22>:
+  D.95533 = {CLOBBER};
+  resx 29
+
+  <bb 74> :
+<L23>:
+  std::allocator<char>::~allocator (&D.95534);
+  resx 28
+
+  <bb 75> :
+<L24>:
+  D.95534 = {CLOBBER};
+  resx 27
+
+  <bb 76> :
+<L25>:
+  std::__cxx11::basic_string<char>::~basic_string (&D.95535);
+  resx 38
+
+  <bb 77> :
+<L26>:
+  D.95535 = {CLOBBER};
+  resx 37
+
+  <bb 78> :
+<L27>:
+  std::allocator<char>::~allocator (&D.95536);
+  resx 36
+
+  <bb 79> :
+<L28>:
+  D.95536 = {CLOBBER};
+  resx 35
+
+  <bb 80> :
+<L29>:
+  std::__cxx11::basic_string<char>::~basic_string (&D.95538);
+  resx 47
+
+  <bb 81> :
+<L30>:
+  D.95538 = {CLOBBER};
+  resx 46
+
+  <bb 82> :
+<L31>:
+  std::allocator<char>::~allocator (&D.95539);
+  resx 45
+
+  <bb 83> :
+<L32>:
+  D.95539 = {CLOBBER};
+  resx 44
+
+  <bb 84> :
+<L33>:
+  gShaderCode = {CLOBBER};
+  resx 43
+
+  <bb 85> :
+<L34>:
+  std::__cxx11::basic_string<char>::~basic_string (&D.95540);
+  resx 56
+
+  <bb 86> :
+<L35>:
+  D.95540 = {CLOBBER};
+  resx 55
+
+  <bb 87> :
+<L36>:
+  std::allocator<char>::~allocator (&D.95541);
+  resx 54
+
+  <bb 88> :
+<L37>:
+  D.95541 = {CLOBBER};
+  resx 53
+
+  <bb 89> :
+<L38>:
+  std::basic_ifstream<char>::~basic_ifstream (&gShaderFile);
+  resx 7
+
+  <bb 90> :
+<L39>:
+  std::basic_ifstream<char>::~basic_ifstream (&fShaderFile);
+  resx 6
+
+  <bb 91> :
+<L40>:
+  std::basic_ifstream<char>::~basic_ifstream (&vShaderFile);
+  resx 5
+
+  <bb 92> :
+<L41>:
+  std::__cxx11::basic_string<char>::~basic_string (&geometryCode);
+  resx 4
+
+  <bb 93> :
+<L42>:
+  std::__cxx11::basic_string<char>::~basic_string (&fragmentCode);
+  resx 3
+
+  <bb 94> :
+<L43>:
+  std::__cxx11::basic_string<char>::~basic_string (&vertexCode);
+  resx 2
+
+  <bb 95> :
+<L44>:
+  vertexCode = {CLOBBER};
+  fragmentCode = {CLOBBER};
+  geometryCode = {CLOBBER};
+  vShaderFile = {CLOBBER};
+  fShaderFile = {CLOBBER};
+  gShaderFile = {CLOBBER};
+  vShaderCode = {CLOBBER};
+  fShaderCode = {CLOBBER};
+  resx 1
+
+}
+
+
+
+;; Function main (main, funcdef_no=3539, decl_uid=97940, cgraph_uid=899, symbol_order=903)
+
+main ()
+{
+  float & D.105424;
+  struct col_type & D.105423;
+  float * D.105422;
+  int D.105421;
+  int D.105420;
+  int D.105417;
+  long long unsigned int D.105416;
+  struct FILE * D.105415;
+  struct basic_ostream & D.105414;
+  const GLubyte * D.105413;
+  struct basic_ostream & D.105412;
+  struct basic_ostream & D.105411;
+  unsigned int D.105410;
+  struct basic_ostream & D.105409;
+  struct GLFWwindow * D.105408;
+  unsigned int viewLoc;
+  unsigned int modelLoc;
+  struct mat4 projection;
+  struct mat4 view;
+  struct mat4 model;
+  int validarNumerico;
+  float lenVet;
+  unsigned int VAO;
+  unsigned int VBO;
+  float vertices[0:D.105385] [value-expr: *vertices.3];
+  struct FILE * arqin;
+  char * pch;
+  char linha[100];
+  char c;
+  int i;
+  int linhas;
+  struct Shader ourShader;
+  struct GLFWwindow * window;
+  void * saved_stack.30;
+  struct allocator D.100890;
+  const struct string D.100891;
+  struct vec3 D.100871;
+  struct vec3 D.100852;
+  bool retval.19;
+  bool retval.4;
+  float[0:D.105385] * vertices.3;
+  sizetype D.105389;
+  bitsizetype D.105388;
+  sizetype D.105387;
+  bitsizetype D.105386;
+  sizetype D.105385;
+  ssizetype D.105384;
+  bool retval.1;
+  bool retval.0;
+  int D.105371;
+
+  <bb 2> :
+  saved_stack.30 = __builtin_stack_save ();
+  glfwInit ();
+
+  <bb 3> :
+  glfwWindowHint (139266, 3);
+
+  <bb 4> :
+  glfwWindowHint (139267, 3);
+
+  <bb 5> :
+  glfwWindowHint (139272, 204801);
+
+  <bb 6> :
+  D.105408 = glfwCreateWindow (800, 600, "OPenGL : Exemplo 3D", 0B, 0B);
+
+  <bb 7> :
+  window = D.105408;
+  if (window == 0B)
+    goto <bb 8>; [INV]
+  else
+    goto <bb 12>; [INV]
+
+  <bb 8> :
+  D.105409 = std::operator<< <std::char_traits<char> > (&cout, "Failed to create GLFW window");
+
+  <bb 9> :
+  _1 = D.105409;
+  std::basic_ostream<char>::operator<< (_1, endl);
+
+  <bb 10> :
+  glfwTerminate ();
+
+  <bb 11> :
+  D.105371 = -1;
+  // predicted unlikely by early return (on trees) predictor.
+  goto <bb 94>; [INV]
+
+  <bb 12> :
+  glfwMakeContextCurrent (window);
+
+  <bb 13> :
+  glfwSetFramebufferSizeCallback (window, framebuffer_size_callback);
+
+  <bb 14> :
+  D.105410 = glewInit ();
+
+  <bb 15> :
+  _2 = D.105410;
+  retval.0 = _2 != 0;
+  if (retval.0 != 0)
+    goto <bb 16>; [INV]
+  else
+    goto <bb 19>; [INV]
+
+  <bb 16> :
+  D.105411 = std::operator<< <std::char_traits<char> > (&cout, "Ocorreu um erro iniciando GLEW!");
+
+  <bb 17> :
+  _3 = D.105411;
+  std::basic_ostream<char>::operator<< (_3, endl);
+
+  <bb 18> :
+  goto <bb 24>; [INV]
+
+  <bb 19> :
+  D.105412 = std::operator<< <std::char_traits<char> > (&cout, "GLEW OK!");
+
+  <bb 20> :
+  _4 = D.105412;
+  std::basic_ostream<char>::operator<< (_4, endl);
+
+  <bb 21> :
+  D.105413 = glGetString (7938);
+
+  <bb 22> :
+  _5 = D.105413;
+  D.105414 = std::operator<< <std::char_traits<char> > (&cout, _5);
+
+  <bb 23> :
+  _6 = D.105414;
+  std::basic_ostream<char>::operator<< (_6, endl);
+
+  <bb 24> :
+  glEnable (2929);
+
+  <bb 25> :
+  Shader::Shader (&ourShader, "vertex.glsl", "fragment.glsl", 0B);
+
+  <bb 26> :
+  linhas = 1;
+  i = 0;
+  D.105415 = fopen ("casa.csv", "rt");
+
+  <bb 27> :
+  arqin = D.105415;
+  if (arqin == 0B)
+    goto <bb 28>; [INV]
+  else
+    goto <bb 30>; [INV]
+
+  <bb 28> :
+  printf ("Erro na abertura de %s %d\n", "casa.csv", 8);
+
+  <bb 29> :
+  exit (0);
+
+  <bb 30> :
+  D.105416 = fread (&c, 1, 1, arqin);
+
+  <bb 31> :
+  _7 = D.105416;
+  retval.1 = _7 != 0;
+  if (retval.1 != 0)
+    goto <bb 32>; [INV]
+  else
+    goto <bb 35>; [INV]
+
+  <bb 32> :
+  c.2_8 = c;
+  if (c.2_8 == 10)
+    goto <bb 33>; [INV]
+  else
+    goto <bb 34>; [INV]
+
+  <bb 33> :
+  linhas = linhas + 1;
+
+  <bb 34> :
+  goto <bb 30>; [INV]
+
+  <bb 35> :
+  printf ("Linhas: %d \n", linhas);
+
+  <bb 36> :
+  linhas = linhas * 8;
+  _9 = (ssizetype) linhas;
+  D.105384 = _9 + -1;
+  D.105385 = (sizetype) D.105384;
+  _11 = (sizetype) D.105384;
+  _12 = _11 + 1;
+  _13 = (bitsizetype) _12;
+  D.105386 = _13 * 32;
+  _15 = (sizetype) D.105384;
+  _16 = _15 + 1;
+  D.105387 = _16 * 4;
+  _18 = (sizetype) D.105384;
+  _19 = _18 + 1;
+  _20 = (bitsizetype) _19;
+  D.105388 = _20 * 32;
+  _22 = (sizetype) D.105384;
+  _23 = _22 + 1;
+  D.105389 = _23 * 4;
+  vertices.3 = __builtin_alloca_with_align (D.105389, 32);
+  printf ("Linhas: %d \n", linhas);
+
+  <bb 37> :
+  fclose (arqin);
+
+  <bb 38> :
+  i = 0;
+
+  <bb 39> :
+  _25 = linhas * 8;
+  if (i >= _25)
+    goto <bb 41>; [INV]
+  else
+    goto <bb 40>; [INV]
+
+  <bb 40> :
+  *vertices.3[i] = 0.0;
+  i = i + 1;
+  goto <bb 39>; [INV]
+
+  <bb 41> :
+  _26 = (sizetype) D.105384;
+  _27 = _26 + 1;
+  _28 = _27 * 4;
+  printf ("Tamanho vetor Vertices %d ", _28);
+
+  <bb 42> :
+  fopen ("casa.csv", "rt");
+
+  <bb 43> :
+  _29 = feof (arqin);
+  retval.4 = _29 == 0;
+  if (retval.4 != 0)
+    goto <bb 44>; [INV]
+  else
+    goto <bb 51>; [INV]
+
+  <bb 44> :
+  fgets (&linha, 100, arqin);
+
+  <bb 45> :
+  pch = strtok (&linha, ";");
+
+  <bb 46> :
+  if (pch == 0B)
+    goto <bb 50>; [INV]
+  else
+    goto <bb 47>; [INV]
+
+  <bb 47> :
+  validarNumerico = strcmp (pch, "\n");
+  if (validarNumerico != 0)
+    goto <bb 48>; [INV]
+  else
+    goto <bb 49>; [INV]
+
+  <bb 48> :
+  _30 = atof (pch);
+  _31 = (float) _30;
+  *vertices.3[i] = _31;
+  i = i + 1;
+
+  <bb 49> :
+  pch = strtok (0B, ";");
+  goto <bb 46>; [INV]
+
+  <bb 50> :
+  goto <bb 43>; [INV]
+
+  <bb 51> :
+  fclose (arqin);
+
+  <bb 52> :
+  i = 0;
+
+  <bb 53> :
+  _32 = (long long unsigned int) i;
+  if (_32 > 3)
+    goto <bb 56>; [INV]
+  else
+    goto <bb 54>; [INV]
+
+  <bb 54> :
+  _33 = *vertices.3[i];
+  _34 = (double) _33;
+  printf ("vertices[%d]: %f\n ", i, _34);
+
+  <bb 55> :
+  i = i + 1;
+  goto <bb 53>; [INV]
+
+  <bb 56> :
+  __glewGenVertexArrays.5_35 = __glewGenVertexArrays;
+  __glewGenVertexArrays.5_35 (1, &VAO);
+
+  <bb 57> :
+  __glewGenBuffers.6_36 = __glewGenBuffers;
+  __glewGenBuffers.6_36 (1, &VBO);
+
+  <bb 58> :
+  __glewBindVertexArray.7_37 = __glewBindVertexArray;
+  VAO.8_38 = VAO;
+  __glewBindVertexArray.7_37 (VAO.8_38);
+
+  <bb 59> :
+  _39 = (sizetype) D.105384;
+  _40 = _39 + 1;
+  _41 = _40 * 4;
+  _42 = _41 / 4;
+  lenVet = (float) _42;
+  __glewBindBuffer.9_43 = __glewBindBuffer;
+  VBO.10_44 = VBO;
+  __glewBindBuffer.9_43 (34962, VBO.10_44);
+
+  <bb 60> :
+  __glewBufferData.11_45 = __glewBufferData;
+  vertices.12_46 = vertices.3;
+  _47 = (sizetype) D.105384;
+  _48 = _47 + 1;
+  _49 = _48 * 4;
+  _50 = (long long int) _49;
+  __glewBufferData.11_45 (34962, _50, vertices.12_46, 35044);
+
+  <bb 61> :
+  __glewVertexAttribPointer.13_51 = __glewVertexAttribPointer;
+  __glewVertexAttribPointer.13_51 (0, 3, 5126, 0, 32, 0B);
+
+  <bb 62> :
+  __glewEnableVertexAttribArray.14_52 = __glewEnableVertexAttribArray;
+  __glewEnableVertexAttribArray.14_52 (0);
+
+  <bb 63> :
+  __glewVertexAttribPointer.15_53 = __glewVertexAttribPointer;
+  __glewVertexAttribPointer.15_53 (1, 3, 5126, 0, 32, 12B);
+
+  <bb 64> :
+  __glewEnableVertexAttribArray.16_54 = __glewEnableVertexAttribArray;
+  __glewEnableVertexAttribArray.16_54 (1);
+
+  <bb 65> :
+  __glewVertexAttribPointer.17_55 = __glewVertexAttribPointer;
+  __glewVertexAttribPointer.17_55 (2, 2, 5126, 0, 32, 12B);
+
+  <bb 66> :
+  __glewEnableVertexAttribArray.18_56 = __glewEnableVertexAttribArray;
+  __glewEnableVertexAttribArray.18_56 (2);
+
+  <bb 67> :
+  D.105417 = glfwWindowShouldClose (window);
+
+  <bb 68> :
+  _57 = D.105417;
+  retval.19 = _57 == 0;
+  if (retval.19 != 0)
+    goto <bb 69>; [INV]
+  else
+    goto <bb 90>; [INV]
+
+  <bb 69> :
+  processInput (window);
+
+  <bb 70> :
+  glClearColor (0.0, 0.0, 0.0, 1.0e+0);
+
+  <bb 71> :
+  glClear (16640);
+
+  <bb 72> :
+  Shader::use (&ourShader);
+
+  <bb 73> :
+  model.value[0].D.51351.x = 1.0e+0;
+  model.value[0].D.51357.y = 0.0;
+  model.value[0].D.51363.z = 0.0;
+  model.value[0].D.51369.w = 0.0;
+  model.value[1].D.51351.x = 0.0;
+  model.value[1].D.51357.y = 1.0e+0;
+  model.value[1].D.51363.z = 0.0;
+  model.value[1].D.51369.w = 0.0;
+  model.value[2].D.51351.x = 0.0;
+  model.value[2].D.51357.y = 0.0;
+  model.value[2].D.51363.z = 1.0e+0;
+  model.value[2].D.51369.w = 0.0;
+  model.value[3].D.51351.x = 0.0;
+  model.value[3].D.51357.y = 0.0;
+  model.value[3].D.51363.z = 0.0;
+  model.value[3].D.51369.w = 1.0e+0;
+  view.value[0].D.51351.x = 1.0e+0;
+  view.value[0].D.51357.y = 0.0;
+  view.value[0].D.51363.z = 0.0;
+  view.value[0].D.51369.w = 0.0;
+  view.value[1].D.51351.x = 0.0;
+  view.value[1].D.51357.y = 1.0e+0;
+  view.value[1].D.51363.z = 0.0;
+  view.value[1].D.51369.w = 0.0;
+  view.value[2].D.51351.x = 0.0;
+  view.value[2].D.51357.y = 0.0;
+  view.value[2].D.51363.z = 1.0e+0;
+  view.value[2].D.51369.w = 0.0;
+  view.value[3].D.51351.x = 0.0;
+  view.value[3].D.51357.y = 0.0;
+  view.value[3].D.51363.z = 0.0;
+  view.value[3].D.51369.w = 1.0e+0;
+  projection.value[0].D.51351.x = 1.0e+0;
+  projection.value[0].D.51357.y = 0.0;
+  projection.value[0].D.51363.z = 0.0;
+  projection.value[0].D.51369.w = 0.0;
+  projection.value[1].D.51351.x = 0.0;
+  projection.value[1].D.51357.y = 1.0e+0;
+  projection.value[1].D.51363.z = 0.0;
+  projection.value[1].D.51369.w = 0.0;
+  projection.value[2].D.51351.x = 0.0;
+  projection.value[2].D.51357.y = 0.0;
+  projection.value[2].D.51363.z = 1.0e+0;
+  projection.value[2].D.51369.w = 0.0;
+  projection.value[3].D.51351.x = 0.0;
+  projection.value[3].D.51357.y = 0.0;
+  projection.value[3].D.51363.z = 0.0;
+  projection.value[3].D.51369.w = 1.0e+0;
+  glm::vec<3, float, (glm::qualifier)0>::vec (&D.100852, 1.0e+0, 0.0, 0.0);
+  _58 = glm::radians<float> (5.5e+1);
+  model = glm::rotate<float, (glm::qualifier)0> (&model, _58, &D.100852);
+
+  <bb 74> :
+  D.100852 = {CLOBBER};
+  glm::vec<3, float, (glm::qualifier)0>::vec (&D.100871, 0.0, 0.0, -3.0e+0);
+  view = glm::translate<float, (glm::qualifier)0> (&view, &D.100871);
+
+  <bb 75> :
+  D.100871 = {CLOBBER};
+  _59 = glm::radians<float> (8.0e+1);
+  projection = glm::perspective<float> (_59, 1.33333337306976318359375e+0, 1.00000001490116119384765625e-1, 1.0e+2);
+
+  <bb 76> :
+  __glewGetUniformLocation.20_60 = __glewGetUniformLocation;
+  _61 = ourShader.ID;
+  D.105420 = __glewGetUniformLocation.20_60 (_61, "model");
+
+  <bb 77> :
+  _62 = D.105420;
+  modelLoc = (unsigned int) _62;
+  __glewGetUniformLocation.21_63 = __glewGetUniformLocation;
+  _64 = ourShader.ID;
+  D.105421 = __glewGetUniformLocation.21_63 (_64, "view");
+
+  <bb 78> :
+  _65 = D.105421;
+  viewLoc = (unsigned int) _65;
+  __glewUniformMatrix4fv.22_66 = __glewUniformMatrix4fv;
+  D.105422 = glm::value_ptr<float, (glm::qualifier)0> (&model);
+
+  <bb 79> :
+  _67 = D.105422;
+  modelLoc.23_68 = (int) modelLoc;
+  __glewUniformMatrix4fv.22_66 (modelLoc.23_68, 1, 0, _67);
+
+  <bb 80> :
+  __glewUniformMatrix4fv.24_69 = __glewUniformMatrix4fv;
+  D.105423 = glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&view, 0);
+
+  <bb 81> :
+  _70 = D.105423;
+  D.105424 = glm::vec<4, float, (glm::qualifier)0>::operator[] (_70, 0);
+
+  <bb 82> :
+  _71 = D.105424;
+  viewLoc.25_72 = (int) viewLoc;
+  __glewUniformMatrix4fv.24_69 (viewLoc.25_72, 1, 0, _71);
+
+  <bb 83> :
+  std::allocator<char>::allocator (&D.100890);
+  std::__cxx11::basic_string<char>::basic_string (&D.100891, "projection", &D.100890);
+
+  <bb 84> :
+  Shader::setMat4 (&ourShader, &D.100891, &projection);
+
+  <bb 85> :
+  std::__cxx11::basic_string<char>::~basic_string (&D.100891);
+  D.100891 = {CLOBBER};
+  std::allocator<char>::~allocator (&D.100890);
+  D.100890 = {CLOBBER};
+  __glewBindVertexArray.26_73 = __glewBindVertexArray;
+  VAO.27_74 = VAO;
+  __glewBindVertexArray.26_73 (VAO.27_74);
+
+  <bb 86> :
+  glDrawArrays (4, 0, 36);
+
+  <bb 87> :
+  glfwSwapBuffers (window);
+
+  <bb 88> :
+  glfwPollEvents ();
+
+  <bb 89> :
+  model = {CLOBBER};
+  view = {CLOBBER};
+  projection = {CLOBBER};
+  goto <bb 67>; [INV]
+
+  <bb 90> :
+  __glewDeleteVertexArrays.28_75 = __glewDeleteVertexArrays;
+  __glewDeleteVertexArrays.28_75 (1, &VAO);
+
+  <bb 91> :
+  __glewDeleteBuffers.29_76 = __glewDeleteBuffers;
+  __glewDeleteBuffers.29_76 (1, &VBO);
+
+  <bb 92> :
+  glfwTerminate ();
+
+  <bb 93> :
+  D.105371 = 0;
+
+  <bb 94> :
+  __builtin_stack_restore (saved_stack.30);
+  ourShader = {CLOBBER};
+  c = {CLOBBER};
+  linha = {CLOBBER};
+  VBO = {CLOBBER};
+  VAO = {CLOBBER};
+
+  <bb 95> :
+<L32>:
+  return D.105371;
+
+  <bb 96> :
+<L33>:
+  D.100852 = {CLOBBER};
+  resx 3
+
+  <bb 97> :
+<L34>:
+  D.100871 = {CLOBBER};
+  resx 5
+
+  <bb 98> :
+<L35>:
+  std::__cxx11::basic_string<char>::~basic_string (&D.100891);
+  resx 10
+
+  <bb 99> :
+<L36>:
+  D.100891 = {CLOBBER};
+  resx 9
+
+  <bb 100> :
+<L37>:
+  std::allocator<char>::~allocator (&D.100890);
+  resx 8
+
+  <bb 101> :
+<L38>:
+  D.100890 = {CLOBBER};
+  resx 7
+
+  <bb 102> :
+<L39>:
+  model = {CLOBBER};
+  view = {CLOBBER};
+  projection = {CLOBBER};
+  resx 2
+
+  <bb 103> :
+<L40>:
+  __builtin_stack_restore (saved_stack.30);
+  ourShader = {CLOBBER};
+  c = {CLOBBER};
+  linha = {CLOBBER};
+  VBO = {CLOBBER};
+  VAO = {CLOBBER};
+  resx 1
+
+}
+
+
+
+;; Function __static_initialization_and_destruction_0 (_Z41__static_initialization_and_destruction_0ii, funcdef_no=4260, decl_uid=105359, cgraph_uid=1602, symbol_order=1702)
+
+__static_initialization_and_destruction_0 (int __initialize_p, int __priority)
+{
+  <bb 2> :
+  if (__initialize_p == 1)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 3> :
+  if (__priority == 65535)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+  std::ios_base::Init::Init (&__ioinit);
+  atexit (__tcf_0);
+
+  <bb 5> :
+  return;
+
+}
+
+
+
+;; Function _GLOBAL__sub_I_main (_GLOBAL__sub_I_main, funcdef_no=4262, decl_uid=105367, cgraph_uid=1603, symbol_order=2318)
+
+_GLOBAL__sub_I_main ()
+{
+  <bb 2> :
+  __static_initialization_and_destruction_0 (1, 65535);
+  return;
+
+}
+
+
