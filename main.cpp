@@ -14,7 +14,7 @@ void processInput(GLFWwindow *window);
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
-#define arquivo "casa.csv"
+#define arquivo "teste.csv"
 
 int main()
 {
@@ -66,6 +66,7 @@ int main()
     int i=0;
     char c,linha[100];
     char *pch;
+    char *linhaComentario;
 
     // 1ª abertura do arquivo para Verificar tamanho!
     FILE *arqin = fopen(arquivo, "rt"); // é um char criar define
@@ -83,45 +84,37 @@ int main()
     printf("Linhas: %d \n",linhas);
 
     //float *vertices=(float *)malloc((linhas * 8)*sizeof(float));
-    float vertices[linhas*8];//=(float *)malloc((288)*sizeof(float));
-
-   // float *vertices=(float*)calloc((linhas * 8),sizeof( float));
-   /*
-   for (i = 0; i < linhas * 8; i++){
-        *(vertices+i) = 0;
-         printf("vertices[%d]: %f\n ",i,*(vertices+i));
-   }
-   */
-
-
+    float vertices[linhas*8];//=(float *)malloc((288)*sizeof(float))
 
     fclose(arqin);
     i=0;
-    //2ª abertura do arquivo para popular Vetor de Vertices
 
+    //2ª abertura do arquivo para popular Vetor de Vertices
     fopen(arquivo, "rt");
     while (!feof(arqin))
     {
         fgets(linha, 100, arqin);
 
-        pch = strtok(linha, ";");
-        while (pch != NULL) //Enquanto houver token
-        {
-            int validarNumerico = strcmp(pch,"\n");
-            if (validarNumerico) {
-                     *(vertices+i) =  atof(pch);
-                //vertices[i] =  atof(pch);
+        linhaComentario = strstr(linha, "//");
 
-                printf("vertices[%d]: %f\n ",i,vertices[i]);
-                i++;
+        if (linhaComentario == NULL) {
+            pch = strtok(linha, ";");
+            while (pch != NULL) //Enquanto houver token
+            {
+                int validarNumerico = strcmp(pch,"\n");
+                if (validarNumerico) {
+                    *(vertices+i) =  atof(pch);
+                    //vertices[i] =  atof(pch);
+
+                    printf("vertices[%d]: %f\n ",i,vertices[i]);
+                    i++;
+                }
+
+                pch = strtok(NULL, ";"); //Procura próximo token
             }
-
-            pch = strtok(NULL, ";"); //Procura próximo token
         }
-
     }
     fclose(arqin);
-
 
     unsigned int VBO, VAO;
     glGenVertexArrays(1, &VAO);
@@ -164,13 +157,15 @@ int main()
         glm::mat4 projection    = glm::mat4(1.0f);
 
         // Gira o modelo ao redor do eixo y
-        //model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.0f, -0.5f, 0.0f));
-        model = glm::rotate(model,  glm::radians(55.0f), glm::vec3(0.1f, 0.0f, 0.0f));
+        model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.0f, -0.5f, 0.0f));
+        //model = glm::rotate(model,  glm::radians(55.0f), glm::vec3(0.1f, 0.0f, 0.0f));
+
         // afasta o objetoo do observador e o coloca um pouco abaixo dele,
         // para um ponto de vista mais elevado do objeto
         view  = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
 
         projection = glm::perspective(glm::radians(60.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+
         // retrieve the matrix uniform locations
         unsigned int modelLoc = glGetUniformLocation(ourShader.ID, "model");
         unsigned int viewLoc  = glGetUniformLocation(ourShader.ID, "view");
@@ -183,7 +178,7 @@ int main()
         // render box
         glBindVertexArray(VAO);
 
-        glDrawArrays(GL_TRIANGLES, 0, 36);
+        glDrawArrays(GL_TRIANGLES, 0, 36 * linhas);
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
