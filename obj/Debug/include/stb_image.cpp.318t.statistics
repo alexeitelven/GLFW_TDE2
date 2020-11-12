@@ -1,0 +1,33 @@
+56 release_ssa "SSA names released" "_mm_set_epi64" 1
+56 release_ssa "SSA name holes removed" "_mm_set_epi64" 1
+36 einline "Symbol to SSA rewrite" "_mm_set_epi32" 1
+56 release_ssa "SSA names released" "_mm_set1_epi32" 1
+56 release_ssa "SSA name holes removed" "_mm_set1_epi32" 1
+36 einline "Symbol to SSA rewrite" "_mm_set1_epi16" 1
+56 release_ssa "SSA names released" "_mm_set1_epi16" 1
+56 release_ssa "SSA name holes removed" "_mm_set1_epi16" 1
+36 einline "Symbol to SSA rewrite" "_mm_set1_epi8" 1
+56 release_ssa "SSA names released" "_mm_set1_epi8" 1
+56 release_ssa "SSA name holes removed" "_mm_set1_epi8" 1
+36 einline "Symbol to SSA rewrite" "_mm_setr_epi16" 1
+56 release_ssa "SSA names released" "_mm_setr_epi16" 1
+56 release_ssa "SSA name holes removed" "_mm_setr_epi16" 1
+36 einline "Symbol to SSA rewrite" "_mm_load_si128" 1
+56 release_ssa "SSA names released" "_mm_loadl_epi64" 1
+56 release_ssa "SSA name holes removed" "_mm_loadl_epi64" 1
+36 einline "Symbol to SSA rewrite" "_mm_storeu_si128" 1
+56 release_ssa "SSA names released" "stbi__YCbCr_to_RGB_simd" 37
+56 release_ssa "SSA name holes removed" "stbi__YCbCr_to_RGB_simd" 37
+36 einline "Symbol to SSA rewrite" "stbi__bitreverse16" 1
+56 release_ssa "SSA names released" "stbi__idct_simd" 274
+56 release_ssa "SSA name holes removed" "stbi__idct_simd" 274
+36 einline "Symbol to SSA rewrite" "stbi__resample_row_hv_2_simd" 1
+56 release_ssa "SSA names released" "stbi__resample_row_hv_2_simd" 21
+56 release_ssa "SSA name holes removed" "stbi__resample_row_hv_2_simd" 21
+36 einline "Symbol to SSA rewrite" "std::ldexp" 1
+232 switchlower "Symbol to SSA rewrite" "stbi__process_scan_header" 1
+237 resx "Symbol to SSA rewrite" "stbi__resample_row_generic" 1
+232 switchlower "Symbol to SSA rewrite" "stbi__do_png" 1
+232 switchlower "Symbol to SSA rewrite" "stbi__pic_load" 1
+232 switchlower "Symbol to SSA rewrite" "stbi__load_gif_main" 1
+232 switchlower "Symbol to SSA rewrite" "stbi__hdr_load" 1
