@@ -14,7 +14,7 @@ void processInput(GLFWwindow *window);
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
-#define arquivo "teste.csv"
+#define arquivo "casa.csv"
 
 int main()
 {
@@ -83,8 +83,8 @@ int main()
 
     printf("Linhas: %d \n",linhas);
 
-    //float *vertices=(float *)malloc((linhas * 8)*sizeof(float));
-    float vertices[linhas*8];//=(float *)malloc((288)*sizeof(float))
+    float *vertices=(float *)malloc((linhas * 8)*sizeof(float));
+    //float vertices[linhas*8];//=(float *)malloc((288)*sizeof(float))
 
     fclose(arqin);
     i=0;
@@ -123,7 +123,7 @@ int main()
     glBindVertexArray(VAO);
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(float)*(linhas*8), &vertices[0], GL_STATIC_DRAW);
 
     // position attribute
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);

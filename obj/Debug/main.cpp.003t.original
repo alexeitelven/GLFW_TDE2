@@ -8843,47 +8843,40 @@ return <retval> = (const struct col_type &) &((const struct mat *) this)->value[
   } &) this = {CLOBBER} >>>>>;
 {
   <<cleanup_point <<< Unknown tree: expr_stmt
-  (void) (((struct mat *) this)->value = {TARGET_EXPR <D.100741, <<< Unknown tree: aggr_init_expr
+  (void) (((struct mat *) this)->value = {TARGET_EXPR <D.100742, <<< Unknown tree: aggr_init_expr
   8
   __ct_comp 
-  D.100741
+  D.100742
   (struct vec *) <<< Unknown tree: void_cst >>>
   (float) *s
   0
   0
-  0 >>>>, TARGET_EXPR <D.100760, <<< Unknown tree: aggr_init_expr
+  0 >>>>, TARGET_EXPR <D.100761, <<< Unknown tree: aggr_init_expr
   8
   __ct_comp 
-  D.100760
+  D.100761
   (struct vec *) <<< Unknown tree: void_cst >>>
   0
   (float) *s
   0
-  0 >>>>, TARGET_EXPR <D.100779, <<< Unknown tree: aggr_init_expr
+  0 >>>>, TARGET_EXPR <D.100780, <<< Unknown tree: aggr_init_expr
   8
   __ct_comp 
-  D.100779
+  D.100780
   (struct vec *) <<< Unknown tree: void_cst >>>
   0
   0
   (float) *s
-  0 >>>>, TARGET_EXPR <D.100798, <<< Unknown tree: aggr_init_expr
+  0 >>>>, TARGET_EXPR <D.100799, <<< Unknown tree: aggr_init_expr
   8
   __ct_comp 
-  D.100798
+  D.100799
   (struct vec *) <<< Unknown tree: void_cst >>>
   0
   0
   0
   (float) *s >>>>}) >>>>>;
 }
-
-
-;; Function constexpr genType glm::radians(genType) [with genType = float] (null)
-;; enabled by -tree-original
-
-
-return <retval> = degrees * 1.745329238474369049072265625e-2;
 
 
 ;; Function constexpr glm::vec<3, T, Q>::vec(T, T, T) [with T = float; glm::qualifier Q = (glm::qualifier)0] (null)
@@ -8907,6 +8900,13 @@ return <retval> = degrees * 1.745329238474369049072265625e-2;
 }
 
 
+;; Function constexpr genType glm::radians(genType) [with genType = float] (null)
+;; enabled by -tree-original
+
+
+return <retval> = degrees * 1.745329238474369049072265625e-2;
+
+
 ;; Function int main() (null)
 ;; enabled by -tree-original
 
@@ -8919,8 +8919,9 @@ return <retval> = degrees * 1.745329238474369049072265625e-2;
   char c;
   char linha[100];
   char * pch;
+  char * linhaComentario;
   struct FILE * arqin;
-  float vertices[0:(sizetype) (SAVE_EXPR <(ssizetype) (linhas * 8) + -1>)];
+  float * vertices;
   unsigned int VBO;
   unsigned int VAO;
 
@@ -8969,6 +8970,7 @@ return <retval> = degrees * 1.745329238474369049072265625e-2;
     char c;
     char linha[100];
     char * pch;
+    char * linhaComentario;
     struct FILE * arqin;
   <<cleanup_point <<< Unknown tree: expr_stmt
   (void) (arqin = fopen ((const char *) "casa.csv", (const char *) "rt")) >>>>>;
@@ -8981,17 +8983,19 @@ return <retval> = degrees * 1.745329238474369049072265625e-2;
     }
   while (1)
     {
-      if (<<cleanup_point fread ((void *) &c, 1, 1, arqin) != 0>>) (void) 0; else goto <D.100891>;
+      if (<<cleanup_point fread ((void *) &c, 1, 1, arqin) != 0>>) (void) 0; else goto <D.100892>;
       if (c == 10)
         {
           <<cleanup_point <<< Unknown tree: expr_stmt
   (void) linhas++  >>>>>;
         }
     }
-  <D.100891>:;
+  <D.100892>:;
   <<cleanup_point <<< Unknown tree: expr_stmt
   (void) printf ((const char *) "Linhas: %d \n", linhas) >>>>>;
-  <<cleanup_point   float vertices[0:(sizetype) (SAVE_EXPR <(ssizetype) (linhas * 8) + -1>)];>>;
+    float * vertices;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (vertices = (float *) malloc ((long long unsigned int) (linhas * 8) * 4)) >>>>>;
   <<cleanup_point <<< Unknown tree: expr_stmt
   (void) fclose (arqin) >>>>>;
   <<cleanup_point <<< Unknown tree: expr_stmt
@@ -9000,36 +9004,45 @@ return <retval> = degrees * 1.745329238474369049072265625e-2;
   (void) fopen ((const char *) "casa.csv", (const char *) "rt") >>>>>;
   while (1)
     {
-      if (<<cleanup_point feof (arqin) == 0>>) (void) 0; else goto <D.100893>;
+      if (<<cleanup_point feof (arqin) == 0>>) (void) 0; else goto <D.100894>;
       {
         <<cleanup_point <<< Unknown tree: expr_stmt
   (void) fgets ((char *) &linha, 100, arqin) >>>>>;
         <<cleanup_point <<< Unknown tree: expr_stmt
-  (void) (pch = strtok ((char *) &linha, (const char *) ";")) >>>>>;
-        while (1)
-          {
-            if (pch == 0B) goto <D.100895>;
+  (void) (linhaComentario = strstr ((const char *) &linha, (const char *) "//")) >>>>>;
+        {
+          if (linhaComentario == 0B)
             {
-              int validarNumerico = strcmp ((const char *) pch, (const char *) "\n");
+              {
+                <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (pch = strtok ((char *) &linha, (const char *) ";")) >>>>>;
+                while (1)
+                  {
+                    if (pch == 0B) goto <D.100896>;
+                    {
+                      int validarNumerico = strcmp ((const char *) pch, (const char *) "\n");
 
-                            int validarNumerico = strcmp ((const char *) pch, (const char *) "\n");
-              if (validarNumerico != 0)
-                {
-                  <<cleanup_point <<< Unknown tree: expr_stmt
-  (void) (*((float *) &vertices + (sizetype) ((long long unsigned int) i * 4)) = (float) atof ((const char *) pch)) >>>>>;
-                  <<cleanup_point <<< Unknown tree: expr_stmt
-  (void) printf ((const char *) "vertices[%d]: %f\n ", i, (double) vertices[i]) >>>>>;
-                  <<cleanup_point <<< Unknown tree: expr_stmt
+                                            int validarNumerico = strcmp ((const char *) pch, (const char *) "\n");
+                      if (validarNumerico != 0)
+                        {
+                          <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (*(vertices + (sizetype) ((long long unsigned int) i * 4)) = (float) atof ((const char *) pch)) >>>>>;
+                          <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) printf ((const char *) "vertices[%d]: %f\n ", i, (double) *(vertices + (sizetype) ((long long unsigned int) i * 4))) >>>>>;
+                          <<cleanup_point <<< Unknown tree: expr_stmt
   (void) i++  >>>>>;
-                }
-              <<cleanup_point <<< Unknown tree: expr_stmt
+                        }
+                      <<cleanup_point <<< Unknown tree: expr_stmt
   (void) (pch = strtok (0B, (const char *) ";")) >>>>>;
+                    }
+                  }
+                <D.100896>:;
+              }
             }
-          }
-        <D.100895>:;
+        }
       }
     }
-  <D.100893>:;
+  <D.100894>:;
   <<cleanup_point <<< Unknown tree: expr_stmt
   (void) fclose (arqin) >>>>>;
     unsigned int VBO;
@@ -9043,7 +9056,7 @@ return <retval> = degrees * 1.745329238474369049072265625e-2;
   <<cleanup_point <<< Unknown tree: expr_stmt
   __glewBindBuffer (34962, VBO) >>>>>;
   <<cleanup_point <<< Unknown tree: expr_stmt
-  __glewBufferData (34962, (GLsizeiptr) (((sizetype) (SAVE_EXPR <(ssizetype) (linhas * 8) + -1>) + 1) * 4), (const void *) &vertices, 35044) >>>>>;
+  __glewBufferData (34962, (GLsizeiptr) ((long long unsigned int) (linhas * 8) * 4), (const void *) vertices, 35044) >>>>>;
   <<cleanup_point <<< Unknown tree: expr_stmt
   __glewVertexAttribPointer (0, 3, 5126, 0, 32, 0B) >>>>>;
   <<cleanup_point <<< Unknown tree: expr_stmt
@@ -9058,7 +9071,7 @@ return <retval> = degrees * 1.745329238474369049072265625e-2;
   __glewEnableVertexAttribArray (2) >>>>>;
   while (1)
     {
-      if (<<cleanup_point glfwWindowShouldClose (window) == 0>>) (void) 0; else goto <D.100897>;
+      if (<<cleanup_point glfwWindowShouldClose (window) == 0>>) (void) 0; else goto <D.100898>;
       {
         struct mat4 model = {.value={{.D.51351={.x=1.0e+0}, .D.51357={.y=0.0}, .D.51363={.z=0.0}, .D.51369={.w=0.0}}, {.D.51351={.x=0.0}, .D.51357={.y=1.0e+0}, .D.51363={.z=0.0}, .D.51369={.w=0.0}}, {.D.51351={.x=0.0}, .D.51357={.y=0.0}, .D.51363={.z=1.0e+0}, .D.51369={.w=0.0}}, {.D.51351={.x=0.0}, .D.51357={.y=0.0}, .D.51363={.z=0.0}, .D.51369={.w=1.0e+0}}}};
         struct mat4 view = {.value={{.D.51351={.x=1.0e+0}, .D.51357={.y=0.0}, .D.51363={.z=0.0}, .D.51369={.w=0.0}}, {.D.51351={.x=0.0}, .D.51357={.y=1.0e+0}, .D.51363={.z=0.0}, .D.51369={.w=0.0}}, {.D.51351={.x=0.0}, .D.51357={.y=0.0}, .D.51363={.z=1.0e+0}, .D.51369={.w=0.0}}, {.D.51351={.x=0.0}, .D.51357={.y=0.0}, .D.51363={.z=0.0}, .D.51369={.w=1.0e+0}}}};
@@ -9078,25 +9091,25 @@ return <retval> = degrees * 1.745329238474369049072265625e-2;
         <<cleanup_point         struct mat4 view = {.value={{.D.51351={.x=1.0e+0}, .D.51357={.y=0.0}, .D.51363={.z=0.0}, .D.51369={.w=0.0}}, {.D.51351={.x=0.0}, .D.51357={.y=1.0e+0}, .D.51363={.z=0.0}, .D.51369={.w=0.0}}, {.D.51351={.x=0.0}, .D.51357={.y=0.0}, .D.51363={.z=1.0e+0}, .D.51369={.w=0.0}}, {.D.51351={.x=0.0}, .D.51357={.y=0.0}, .D.51363={.z=0.0}, .D.51369={.w=1.0e+0}}}};>>;
         <<cleanup_point         struct mat4 projection = {.value={{.D.51351={.x=1.0e+0}, .D.51357={.y=0.0}, .D.51363={.z=0.0}, .D.51369={.w=0.0}}, {.D.51351={.x=0.0}, .D.51357={.y=1.0e+0}, .D.51363={.z=0.0}, .D.51369={.w=0.0}}, {.D.51351={.x=0.0}, .D.51357={.y=0.0}, .D.51363={.z=1.0e+0}, .D.51369={.w=0.0}}, {.D.51351={.x=0.0}, .D.51357={.y=0.0}, .D.51363={.z=0.0}, .D.51369={.w=1.0e+0}}}};>>;
         <<cleanup_point <<< Unknown tree: expr_stmt
-  (void) (model = *(struct mat &) &TARGET_EXPR <D.100860, glm::rotate<float, (glm::qualifier)0> ((const struct mat &) &model, glm::radians<float> (5.5e+1), (const struct vec &) &TARGET_EXPR <D.100851, <<< Unknown tree: aggr_init_expr
+  (void) (model = *(struct mat &) &TARGET_EXPR <D.100858, glm::rotate<float, (glm::qualifier)0> ((const struct mat &) &model, (float) glfwGetTime (), (const struct vec &) &TARGET_EXPR <D.100850, <<< Unknown tree: aggr_init_expr
   7
   __ct_comp 
-  D.100851
+  D.100850
   (struct vec *) <<< Unknown tree: void_cst >>>
-  1.00000001490116119384765625e-1
   0.0
+  -5.0e-1
   0.0 >>>>)>) >>>>>;
         <<cleanup_point <<< Unknown tree: expr_stmt
-  (void) (view = *(struct mat &) &TARGET_EXPR <D.100874, glm::translate<float, (glm::qualifier)0> ((const struct mat &) &view, (const struct vec &) &TARGET_EXPR <D.100870, <<< Unknown tree: aggr_init_expr
+  (void) (view = *(struct mat &) &TARGET_EXPR <D.100872, glm::translate<float, (glm::qualifier)0> ((const struct mat &) &view, (const struct vec &) &TARGET_EXPR <D.100868, <<< Unknown tree: aggr_init_expr
   7
   __ct_comp 
-  D.100870
+  D.100868
   (struct vec *) <<< Unknown tree: void_cst >>>
   0.0
   0.0
   -3.0e+0 >>>>)>) >>>>>;
         <<cleanup_point <<< Unknown tree: expr_stmt
-  (void) (projection = *(struct mat &) &TARGET_EXPR <D.100880, glm::perspective<float> (glm::radians<float> (4.5e+1), 1.33333337306976318359375e+0, 1.00000001490116119384765625e-1, 1.0e+2)>) >>>>>;
+  (void) (projection = *(struct mat &) &TARGET_EXPR <D.100881, glm::perspective<float> (glm::radians<float> (6.0e+1), 1.33333337306976318359375e+0, 1.00000001490116119384765625e-1, 1.0e+2)>) >>>>>;
                 unsigned int modelLoc;
         <<cleanup_point <<< Unknown tree: expr_stmt
   (void) (modelLoc = (unsigned int) __glewGetUniformLocation (ourShader.ID, (const char *) "model")) >>>>>;
@@ -9108,28 +9121,28 @@ return <retval> = degrees * 1.745329238474369049072265625e-2;
         <<cleanup_point <<< Unknown tree: expr_stmt
   __glewUniformMatrix4fv ((GLint) viewLoc, 1, 0, (const GLfloat *) glm::vec<4, float, (glm::qualifier)0>::operator[] ((struct col_type *) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&view, 0), 0)) >>>>>;
         <<cleanup_point <<< Unknown tree: expr_stmt
-  Shader::setMat4 (&ourShader, (const struct string &) &TARGET_EXPR <D.100890, <<< Unknown tree: aggr_init_expr
+  Shader::setMat4 (&ourShader, (const struct string &) &TARGET_EXPR <D.100891, <<< Unknown tree: aggr_init_expr
   6
   __ct_comp 
-  D.100890
+  D.100891
   (const struct string *) <<< Unknown tree: void_cst >>>
   (const char *) "projection"
-  (const struct allocator &) &TARGET_EXPR <D.100889, <<< Unknown tree: aggr_init_expr
+  (const struct allocator &) &TARGET_EXPR <D.100890, <<< Unknown tree: aggr_init_expr
   4
   __ct_comp 
-  D.100889
+  D.100890
   (struct allocator *) <<< Unknown tree: void_cst >>> >>>> >>>>, (const struct mat4 &) &projection) >>>>>;
         <<cleanup_point <<< Unknown tree: expr_stmt
   __glewBindVertexArray (VAO) >>>>>;
         <<cleanup_point <<< Unknown tree: expr_stmt
-  glDrawArrays (4, 0, 36) >>>>>;
+  glDrawArrays (4, 0, linhas * 36) >>>>>;
         <<cleanup_point <<< Unknown tree: expr_stmt
   glfwSwapBuffers (window) >>>>>;
         <<cleanup_point <<< Unknown tree: expr_stmt
   glfwPollEvents () >>>>>;
       }
     }
-  <D.100897>:;
+  <D.100898>:;
   <<cleanup_point <<< Unknown tree: expr_stmt
   __glewDeleteVertexArrays (1, (const GLuint *) &VAO) >>>>>;
   <<cleanup_point <<< Unknown tree: expr_stmt
@@ -9164,28 +9177,28 @@ if (<<cleanup_point glfwGetKey (window, 256) == 1>>)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.100928, glm::detail::compute_max_vector<2, float, (glm::qualifier)0, false>::call (a, b)>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.100929, glm::detail::compute_max_vector<2, float, (glm::qualifier)0, false>::call (a, b)>>>;
 
 
 ;; Function constexpr glm::vec<L, T, Q> glm::min(const glm::vec<L, T, Q>&, const glm::vec<L, T, Q>&) [with int L = 2; T = float; glm::qualifier Q = (glm::qualifier)0] (null)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.100937, glm::detail::compute_min_vector<2, float, (glm::qualifier)0, false>::call (a, b)>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.100938, glm::detail::compute_min_vector<2, float, (glm::qualifier)0, false>::call (a, b)>>>;
 
 
 ;; Function static glm::vec<L, T, Q> glm::detail::compute_clamp_vector<L, T, Q, Aligned>::call(const glm::vec<L, T, Q>&, const glm::vec<L, T, Q>&, const glm::vec<L, T, Q>&) [with int L = 2; T = float; glm::qualifier Q = (glm::qualifier)0; bool Aligned = false] (null)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.100929, glm::min<2, float, (glm::qualifier)0> ((const struct vec &) &TARGET_EXPR <D.100914, glm::max<2, float, (glm::qualifier)0> (x, minVal)>, maxVal)>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.100930, glm::min<2, float, (glm::qualifier)0> ((const struct vec &) &TARGET_EXPR <D.100915, glm::max<2, float, (glm::qualifier)0> (x, minVal)>, maxVal)>>>;
 
 
 ;; Function glm::vec<L, T, Q> glm::round(const glm::vec<L, T, Q>&) [with int L = 2; T = float; glm::qualifier Q = (glm::qualifier)0] (null)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.100944, glm::detail::compute_round<2, float, (glm::qualifier)0, false>::call (x)>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.100945, glm::detail::compute_round<2, float, (glm::qualifier)0, false>::call (x)>>>;
 
 
 ;; Function constexpr glm::vec<2, T, Q>::vec(const glm::vec<2, U, P>&) [with U = float; glm::qualifier P = (glm::qualifier)0; T = short unsigned int; glm::qualifier Q = (glm::qualifier)0] (null)
@@ -9310,28 +9323,28 @@ switch (i)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.100990, glm::detail::compute_max_vector<4, float, (glm::qualifier)0, false>::call (a, b)>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.100991, glm::detail::compute_max_vector<4, float, (glm::qualifier)0, false>::call (a, b)>>>;
 
 
 ;; Function constexpr glm::vec<L, T, Q> glm::min(const glm::vec<L, T, Q>&, const glm::vec<L, T, Q>&) [with int L = 4; T = float; glm::qualifier Q = (glm::qualifier)0] (null)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.100999, glm::detail::compute_min_vector<4, float, (glm::qualifier)0, false>::call (a, b)>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.101000, glm::detail::compute_min_vector<4, float, (glm::qualifier)0, false>::call (a, b)>>>;
 
 
 ;; Function static glm::vec<L, T, Q> glm::detail::compute_clamp_vector<L, T, Q, Aligned>::call(const glm::vec<L, T, Q>&, const glm::vec<L, T, Q>&, const glm::vec<L, T, Q>&) [with int L = 4; T = float; glm::qualifier Q = (glm::qualifier)0; bool Aligned = false] (null)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.100991, glm::min<4, float, (glm::qualifier)0> ((const struct vec &) &TARGET_EXPR <D.100976, glm::max<4, float, (glm::qualifier)0> (x, minVal)>, maxVal)>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.100992, glm::min<4, float, (glm::qualifier)0> ((const struct vec &) &TARGET_EXPR <D.100977, glm::max<4, float, (glm::qualifier)0> (x, minVal)>, maxVal)>>>;
 
 
 ;; Function glm::vec<L, T, Q> glm::round(const glm::vec<L, T, Q>&) [with int L = 4; T = float; glm::qualifier Q = (glm::qualifier)0] (null)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.101006, glm::detail::compute_round<4, float, (glm::qualifier)0, false>::call (x)>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.101007, glm::detail::compute_round<4, float, (glm::qualifier)0, false>::call (x)>>>;
 
 
 ;; Function constexpr glm::vec<4, T, Q>::vec(const glm::vec<4, U, P>&) [with U = float; glm::qualifier P = (glm::qualifier)0; T = unsigned char; glm::qualifier Q = (glm::qualifier)0] (null)
@@ -9587,7 +9600,7 @@ return <retval> = x >= 0.0 ? x : -NON_LVALUE_EXPR <x>;
         } &) this = {CLOBBER};
       }
   }
-  <D.101082>:;
+  <D.101083>:;
    >>>;
 
 
@@ -9634,7 +9647,7 @@ return <retval> = 0;
         }
       else
         {
-          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long int; _Ret = int; _CharT = char; _Base = {int}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long int) __tmp, TARGET_EXPR <D.101195, *(struct integral_constant &) &TARGET_EXPR <D.101161, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
+          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long int; _Ret = int; _CharT = char; _Base = {int}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long int) __tmp, TARGET_EXPR <D.101196, *(struct integral_constant &) &TARGET_EXPR <D.101162, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
             {
               <<cleanup_point <<< Unknown tree: expr_stmt
   std::__throw_out_of_range (__name) >>>>>;
@@ -9698,7 +9711,7 @@ return <retval> = 0;
         } &) this = {CLOBBER};
       }
   }
-  <D.101232>:;
+  <D.101233>:;
    >>>;
 
 
@@ -9745,7 +9758,7 @@ return <retval> = 0;
         }
       else
         {
-          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long int; _Ret = long int; _CharT = char; _Base = {int}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long int) __tmp, TARGET_EXPR <D.101297, *(struct integral_constant &) &TARGET_EXPR <D.101287, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
+          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long int; _Ret = long int; _CharT = char; _Base = {int}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long int) __tmp, TARGET_EXPR <D.101298, *(struct integral_constant &) &TARGET_EXPR <D.101288, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
             {
               <<cleanup_point <<< Unknown tree: expr_stmt
   std::__throw_out_of_range (__name) >>>>>;
@@ -9809,7 +9822,7 @@ return <retval> = 0;
         } &) this = {CLOBBER};
       }
   }
-  <D.101334>:;
+  <D.101335>:;
    >>>;
 
 
@@ -9856,7 +9869,7 @@ return <retval> = (signed int) __val >= 0 || (signed int) __val < 0;
         }
       else
         {
-          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long unsigned int; _Ret = long unsigned int; _CharT = char; _Base = {int}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long unsigned int) __tmp, TARGET_EXPR <D.101390, *(struct integral_constant &) &TARGET_EXPR <D.101380, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
+          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long unsigned int; _Ret = long unsigned int; _CharT = char; _Base = {int}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long unsigned int) __tmp, TARGET_EXPR <D.101391, *(struct integral_constant &) &TARGET_EXPR <D.101381, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
             {
               <<cleanup_point <<< Unknown tree: expr_stmt
   std::__throw_out_of_range (__name) >>>>>;
@@ -9920,7 +9933,7 @@ return <retval> = (signed int) __val >= 0 || (signed int) __val < 0;
         } &) this = {CLOBBER};
       }
   }
-  <D.101427>:;
+  <D.101428>:;
    >>>;
 
 
@@ -9967,7 +9980,7 @@ return <retval> = __val < -2147483648 || __val > 2147483647;
         }
       else
         {
-          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long long int; _Ret = long long int; _CharT = char; _Base = {int}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long long int) __tmp, TARGET_EXPR <D.101483, *(struct integral_constant &) &TARGET_EXPR <D.101473, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
+          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long long int; _Ret = long long int; _CharT = char; _Base = {int}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long long int) __tmp, TARGET_EXPR <D.101484, *(struct integral_constant &) &TARGET_EXPR <D.101474, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
             {
               <<cleanup_point <<< Unknown tree: expr_stmt
   std::__throw_out_of_range (__name) >>>>>;
@@ -10031,7 +10044,7 @@ return <retval> = __val < -2147483648 || __val > 2147483647;
         } &) this = {CLOBBER};
       }
   }
-  <D.101520>:;
+  <D.101521>:;
    >>>;
 
 
@@ -10078,7 +10091,7 @@ return <retval> = __val <= 18446744071562067967 || __val > 2147483647;
         }
       else
         {
-          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long long unsigned int; _Ret = long long unsigned int; _CharT = char; _Base = {int}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long long unsigned int) __tmp, TARGET_EXPR <D.101576, *(struct integral_constant &) &TARGET_EXPR <D.101566, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
+          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long long unsigned int; _Ret = long long unsigned int; _CharT = char; _Base = {int}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long long unsigned int) __tmp, TARGET_EXPR <D.101577, *(struct integral_constant &) &TARGET_EXPR <D.101567, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
             {
               <<cleanup_point <<< Unknown tree: expr_stmt
   std::__throw_out_of_range (__name) >>>>>;
@@ -10142,7 +10155,7 @@ return <retval> = __val <= 18446744071562067967 || __val > 2147483647;
         } &) this = {CLOBBER};
       }
   }
-  <D.101613>:;
+  <D.101614>:;
    >>>;
 
 
@@ -10189,7 +10202,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483648e+9;
         }
       else
         {
-          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = float; _Ret = float; _CharT = char; _Base = {}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((float) __tmp, TARGET_EXPR <D.101669, *(struct integral_constant &) &TARGET_EXPR <D.101659, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
+          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = float; _Ret = float; _CharT = char; _Base = {}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((float) __tmp, TARGET_EXPR <D.101670, *(struct integral_constant &) &TARGET_EXPR <D.101660, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
             {
               <<cleanup_point <<< Unknown tree: expr_stmt
   std::__throw_out_of_range (__name) >>>>>;
@@ -10253,7 +10266,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483648e+9;
         } &) this = {CLOBBER};
       }
   }
-  <D.101706>:;
+  <D.101707>:;
    >>>;
 
 
@@ -10300,7 +10313,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
         }
       else
         {
-          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = double; _Ret = double; _CharT = char; _Base = {}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((double) __tmp, TARGET_EXPR <D.101762, *(struct integral_constant &) &TARGET_EXPR <D.101752, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
+          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = double; _Ret = double; _CharT = char; _Base = {}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((double) __tmp, TARGET_EXPR <D.101763, *(struct integral_constant &) &TARGET_EXPR <D.101753, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
             {
               <<cleanup_point <<< Unknown tree: expr_stmt
   std::__throw_out_of_range (__name) >>>>>;
@@ -10364,7 +10377,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
         } &) this = {CLOBBER};
       }
   }
-  <D.101799>:;
+  <D.101800>:;
    >>>;
 
 
@@ -10411,7 +10424,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
         }
       else
         {
-          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long double; _Ret = long double; _CharT = char; _Base = {}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long double) __tmp, TARGET_EXPR <D.101855, *(struct integral_constant &) &TARGET_EXPR <D.101845, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
+          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long double; _Ret = long double; _CharT = char; _Base = {}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long double) __tmp, TARGET_EXPR <D.101856, *(struct integral_constant &) &TARGET_EXPR <D.101846, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
             {
               <<cleanup_point <<< Unknown tree: expr_stmt
   std::__throw_out_of_range (__name) >>>>>;
@@ -10456,17 +10469,17 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
   (void) (__len = __convf (__s, __n, __fmt, __args)) >>>>>;
   <<cleanup_point <<< Unknown tree: expr_stmt
   __builtin_va_end ((char * &) &__args) >>>>>;
-  <<cleanup_point return *<retval> = TARGET_EXPR <D.101999, <<< Unknown tree: aggr_init_expr
+  <<cleanup_point return *<retval> = TARGET_EXPR <D.102000, <<< Unknown tree: aggr_init_expr
   7
   __ct_comp 
-  D.101999
+  D.102000
   (struct basic_string *) <<< Unknown tree: void_cst >>>
   __s
   __s + (sizetype) __len
-  (const struct allocator &) &TARGET_EXPR <D.101998, <<< Unknown tree: aggr_init_expr
+  (const struct allocator &) &TARGET_EXPR <D.101999, <<< Unknown tree: aggr_init_expr
   4
   __ct_comp 
-  D.101998
+  D.101999
   (struct allocator *) <<< Unknown tree: void_cst >>> >>>> >>>>>>;
 }
 
@@ -10495,7 +10508,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
       } &) this = {CLOBBER};
     }
 }
-<D.102003>:;
+<D.102004>:;
 
 
 ;; Function std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::~basic_string() [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] (null)
@@ -10526,7 +10539,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
         } &) this = {CLOBBER};
       }
   }
-  <D.102001>:;
+  <D.102002>:;
    >>>;
 
 
@@ -10622,7 +10635,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
         } &) this = {CLOBBER};
       }
   }
-  <D.102087>:;
+  <D.102088>:;
    >>>;
 
 
@@ -10669,7 +10682,7 @@ return <retval> = 0;
         }
       else
         {
-          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long int; _Ret = int; _CharT = wchar_t; _Base = {int}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long int) __tmp, TARGET_EXPR <D.102108, *(struct integral_constant &) &TARGET_EXPR <D.102107, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
+          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long int; _Ret = int; _CharT = wchar_t; _Base = {int}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long int) __tmp, TARGET_EXPR <D.102109, *(struct integral_constant &) &TARGET_EXPR <D.102108, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
             {
               <<cleanup_point <<< Unknown tree: expr_stmt
   std::__throw_out_of_range (__name) >>>>>;
@@ -10733,7 +10746,7 @@ return <retval> = 0;
         } &) this = {CLOBBER};
       }
   }
-  <D.102145>:;
+  <D.102146>:;
    >>>;
 
 
@@ -10780,7 +10793,7 @@ return <retval> = 0;
         }
       else
         {
-          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long int; _Ret = long int; _CharT = wchar_t; _Base = {int}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long int) __tmp, TARGET_EXPR <D.102166, *(struct integral_constant &) &TARGET_EXPR <D.102165, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
+          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long int; _Ret = long int; _CharT = wchar_t; _Base = {int}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long int) __tmp, TARGET_EXPR <D.102167, *(struct integral_constant &) &TARGET_EXPR <D.102166, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
             {
               <<cleanup_point <<< Unknown tree: expr_stmt
   std::__throw_out_of_range (__name) >>>>>;
@@ -10844,7 +10857,7 @@ return <retval> = 0;
         } &) this = {CLOBBER};
       }
   }
-  <D.102203>:;
+  <D.102204>:;
    >>>;
 
 
@@ -10891,7 +10904,7 @@ return <retval> = (signed int) __val >= 0 || (signed int) __val < 0;
         }
       else
         {
-          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long unsigned int; _Ret = long unsigned int; _CharT = wchar_t; _Base = {int}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long unsigned int) __tmp, TARGET_EXPR <D.102224, *(struct integral_constant &) &TARGET_EXPR <D.102223, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
+          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long unsigned int; _Ret = long unsigned int; _CharT = wchar_t; _Base = {int}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long unsigned int) __tmp, TARGET_EXPR <D.102225, *(struct integral_constant &) &TARGET_EXPR <D.102224, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
             {
               <<cleanup_point <<< Unknown tree: expr_stmt
   std::__throw_out_of_range (__name) >>>>>;
@@ -10955,7 +10968,7 @@ return <retval> = (signed int) __val >= 0 || (signed int) __val < 0;
         } &) this = {CLOBBER};
       }
   }
-  <D.102261>:;
+  <D.102262>:;
    >>>;
 
 
@@ -11002,7 +11015,7 @@ return <retval> = __val < -2147483648 || __val > 2147483647;
         }
       else
         {
-          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long long int; _Ret = long long int; _CharT = wchar_t; _Base = {int}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long long int) __tmp, TARGET_EXPR <D.102282, *(struct integral_constant &) &TARGET_EXPR <D.102281, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
+          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long long int; _Ret = long long int; _CharT = wchar_t; _Base = {int}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long long int) __tmp, TARGET_EXPR <D.102283, *(struct integral_constant &) &TARGET_EXPR <D.102282, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
             {
               <<cleanup_point <<< Unknown tree: expr_stmt
   std::__throw_out_of_range (__name) >>>>>;
@@ -11066,7 +11079,7 @@ return <retval> = __val < -2147483648 || __val > 2147483647;
         } &) this = {CLOBBER};
       }
   }
-  <D.102319>:;
+  <D.102320>:;
    >>>;
 
 
@@ -11113,7 +11126,7 @@ return <retval> = __val <= 18446744071562067967 || __val > 2147483647;
         }
       else
         {
-          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long long unsigned int; _Ret = long long unsigned int; _CharT = wchar_t; _Base = {int}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long long unsigned int) __tmp, TARGET_EXPR <D.102340, *(struct integral_constant &) &TARGET_EXPR <D.102339, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
+          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long long unsigned int; _Ret = long long unsigned int; _CharT = wchar_t; _Base = {int}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long long unsigned int) __tmp, TARGET_EXPR <D.102341, *(struct integral_constant &) &TARGET_EXPR <D.102340, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
             {
               <<cleanup_point <<< Unknown tree: expr_stmt
   std::__throw_out_of_range (__name) >>>>>;
@@ -11177,7 +11190,7 @@ return <retval> = __val <= 18446744071562067967 || __val > 2147483647;
         } &) this = {CLOBBER};
       }
   }
-  <D.102377>:;
+  <D.102378>:;
    >>>;
 
 
@@ -11224,7 +11237,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483648e+9;
         }
       else
         {
-          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = float; _Ret = float; _CharT = wchar_t; _Base = {}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((float) __tmp, TARGET_EXPR <D.102398, *(struct integral_constant &) &TARGET_EXPR <D.102397, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
+          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = float; _Ret = float; _CharT = wchar_t; _Base = {}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((float) __tmp, TARGET_EXPR <D.102399, *(struct integral_constant &) &TARGET_EXPR <D.102398, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
             {
               <<cleanup_point <<< Unknown tree: expr_stmt
   std::__throw_out_of_range (__name) >>>>>;
@@ -11288,7 +11301,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483648e+9;
         } &) this = {CLOBBER};
       }
   }
-  <D.102435>:;
+  <D.102436>:;
    >>>;
 
 
@@ -11335,7 +11348,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
         }
       else
         {
-          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = double; _Ret = double; _CharT = wchar_t; _Base = {}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((double) __tmp, TARGET_EXPR <D.102456, *(struct integral_constant &) &TARGET_EXPR <D.102455, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
+          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = double; _Ret = double; _CharT = wchar_t; _Base = {}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((double) __tmp, TARGET_EXPR <D.102457, *(struct integral_constant &) &TARGET_EXPR <D.102456, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
             {
               <<cleanup_point <<< Unknown tree: expr_stmt
   std::__throw_out_of_range (__name) >>>>>;
@@ -11399,7 +11412,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
         } &) this = {CLOBBER};
       }
   }
-  <D.102493>:;
+  <D.102494>:;
    >>>;
 
 
@@ -11446,7 +11459,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
         }
       else
         {
-          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long double; _Ret = long double; _CharT = wchar_t; _Base = {}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long double) __tmp, TARGET_EXPR <D.102514, *(struct integral_constant &) &TARGET_EXPR <D.102513, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
+          if (<<cleanup_point *_errno () == 34 || __gnu_cxx::__stoa(_TRet (*)(const _CharT*, _CharT**, _Base ...), const char*, const _CharT*, std::size_t*, _Base ...) [with _TRet = long double; _Ret = long double; _CharT = wchar_t; _Base = {}; std::size_t = long long unsigned int]::_Range_chk::_S_chk ((long double) __tmp, TARGET_EXPR <D.102515, *(struct integral_constant &) &TARGET_EXPR <D.102514, {}>>;, <<< Unknown tree: empty_class_expr >>>;)>>)
             {
               <<cleanup_point <<< Unknown tree: expr_stmt
   std::__throw_out_of_range (__name) >>>>>;
@@ -11491,17 +11504,17 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
   (void) (__len = __convf (__s, __n, __fmt, __args)) >>>>>;
   <<cleanup_point <<< Unknown tree: expr_stmt
   __builtin_va_end ((char * &) &__args) >>>>>;
-  <<cleanup_point return *<retval> = TARGET_EXPR <D.102546, <<< Unknown tree: aggr_init_expr
+  <<cleanup_point return *<retval> = TARGET_EXPR <D.102547, <<< Unknown tree: aggr_init_expr
   7
   __ct_comp 
-  D.102546
+  D.102547
   (struct basic_string *) <<< Unknown tree: void_cst >>>
   __s
   __s + (sizetype) ((long long unsigned int) __len * 2)
-  (const struct allocator &) &TARGET_EXPR <D.102545, <<< Unknown tree: aggr_init_expr
+  (const struct allocator &) &TARGET_EXPR <D.102546, <<< Unknown tree: aggr_init_expr
   4
   __ct_comp 
-  D.102545
+  D.102546
   (struct allocator *) <<< Unknown tree: void_cst >>> >>>> >>>>>>;
 }
 
@@ -11530,7 +11543,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
       } &) this = {CLOBBER};
     }
 }
-<D.102550>:;
+<D.102551>:;
 
 
 ;; Function std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::~basic_string() [with _CharT = wchar_t; _Traits = std::char_traits<wchar_t>; _Alloc = std::allocator<wchar_t>] (null)
@@ -11561,7 +11574,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
         } &) this = {CLOBBER};
       }
   }
-  <D.102548>:;
+  <D.102549>:;
    >>>;
 
 
@@ -11730,7 +11743,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
         __gnu_cxx::new_allocator<char>::~new_allocator ((struct new_allocator *) this);
       }
   }
-  <D.102612>:;
+  <D.102613>:;
    >>>;
 
 
@@ -11795,7 +11808,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
         __gnu_cxx::new_allocator<wchar_t>::~new_allocator ((struct new_allocator *) this);
       }
   }
-  <D.102629>:;
+  <D.102630>:;
    >>>;
 
 
@@ -11860,7 +11873,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
         __gnu_cxx::new_allocator<char16_t>::~new_allocator ((struct new_allocator *) this);
       }
   }
-  <D.102646>:;
+  <D.102647>:;
    >>>;
 
 
@@ -11888,7 +11901,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
       } &) this = {CLOBBER};
     }
 }
-<D.102682>:;
+<D.102683>:;
 
 
 ;; Function std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _CharT*, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type, const _Alloc&) [with _CharT = char16_t; _Traits = std::char_traits<char16_t>; _Alloc = std::allocator<char16_t>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type = long long unsigned int] (null)
@@ -11945,7 +11958,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
         } &) this = {CLOBBER};
       }
   }
-  <D.102696>:;
+  <D.102697>:;
    >>>;
 
 
@@ -12028,7 +12041,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
         __gnu_cxx::new_allocator<char32_t>::~new_allocator ((struct new_allocator *) this);
       }
   }
-  <D.102716>:;
+  <D.102717>:;
    >>>;
 
 
@@ -12056,7 +12069,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
       } &) this = {CLOBBER};
     }
 }
-<D.102752>:;
+<D.102753>:;
 
 
 ;; Function std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const _CharT*, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type, const _Alloc&) [with _CharT = char32_t; _Traits = std::char_traits<char32_t>; _Alloc = std::allocator<char32_t>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type = long long unsigned int] (null)
@@ -12113,7 +12126,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
         } &) this = {CLOBBER};
       }
   }
-  <D.102766>:;
+  <D.102767>:;
    >>>;
 
 
@@ -12211,10 +12224,10 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
     const bool __cond;
   <<cleanup_point <<< Unknown tree: expr_stmt
   (void) (__cond = std::__cxx11::basic_string<char>::capacity ((struct basic_string *) __lhs) < (long long unsigned int) __size && std::__cxx11::basic_string<char>::capacity ((struct basic_string *) __rhs) >= (long long unsigned int) __size) >>>>>;
-  <<cleanup_point return *<retval> = TARGET_EXPR <D.103006, <<< Unknown tree: aggr_init_expr
+  <<cleanup_point return *<retval> = TARGET_EXPR <D.103007, <<< Unknown tree: aggr_init_expr
   5
   __ct_comp 
-  D.103006
+  D.103007
   (struct basic_string *) <<< Unknown tree: void_cst >>>
   (struct basic_string &) ((bool) __cond ? std::move<std::__cxx11::basic_string<char>&> (std::__cxx11::basic_string<char>::insert ((struct basic_string *) __rhs, 0, (const struct basic_string &) __lhs)) : std::move<std::__cxx11::basic_string<char>&> (std::__cxx11::basic_string<char>::append ((struct basic_string *) __lhs, (const struct basic_string &) __rhs))) >>>>>>;
 }
@@ -12224,10 +12237,10 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
 ;; enabled by -tree-original
 
 
-<<cleanup_point return *<retval> = TARGET_EXPR <D.103008, <<< Unknown tree: aggr_init_expr
+<<cleanup_point return *<retval> = TARGET_EXPR <D.103009, <<< Unknown tree: aggr_init_expr
   5
   __ct_comp 
-  D.103008
+  D.103009
   (struct basic_string *) <<< Unknown tree: void_cst >>>
   (struct basic_string &) std::move<std::__cxx11::basic_string<char>&> (std::__cxx11::basic_string<char>::insert ((struct basic_string *) __rhs, 0, __lhs)) >>>>>>;
 
@@ -12305,7 +12318,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
         } &) this = {CLOBBER};
       }
   }
-  <D.103015>:;
+  <D.103016>:;
    >>>;
 
 
@@ -12368,7 +12381,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
         } &) this = {CLOBBER};
       }
   }
-  <D.103028>:;
+  <D.103029>:;
    >>>;
 
 
@@ -12442,10 +12455,10 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
   } &) this = {CLOBBER} >>>>>;
   {
     <<cleanup_point <<< Unknown tree: expr_stmt
-  std::__cxx11::basic_string<char>::_Alloc_hider::_Alloc_hider (&((struct basic_string *) this)->_M_dataplus, std::__cxx11::basic_string<char>::_M_local_data ((struct basic_string *) this), (struct allocator &) &TARGET_EXPR <D.103057, <<< Unknown tree: aggr_init_expr
+  std::__cxx11::basic_string<char>::_Alloc_hider::_Alloc_hider (&((struct basic_string *) this)->_M_dataplus, std::__cxx11::basic_string<char>::_M_local_data ((struct basic_string *) this), (struct allocator &) &TARGET_EXPR <D.103058, <<< Unknown tree: aggr_init_expr
   4
   __ct_comp 
-  D.103057
+  D.103058
   (struct allocator *) <<< Unknown tree: void_cst >>> >>>>) >>>>>;
     try
       {
@@ -12493,7 +12506,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
   (void) (((struct basic_ifstream *) this)->_M_filebuf = <<< Unknown tree: aggr_init_expr
   4
   __ct_comp 
-  D.103062
+  D.103063
   (struct basic_filebuf *) <<< Unknown tree: void_cst >>> >>>) >>>>>;
           try
             {
@@ -12578,7 +12591,7 @@ return <retval> = __val < -2.147483648e+9 || __val > 2.147483647e+9;
           }
       }
   }
-  <D.103068>:;
+  <D.103069>:;
    >>>;
 
 
@@ -12653,7 +12666,7 @@ else
       } &) this = {CLOBBER};
     }
 }
-<D.103081>:;
+<D.103082>:;
 
 
 ;; Function std::__cxx11::basic_stringstream<_CharT, _Traits, _Alloc>::basic_stringstream(std::ios_base::openmode) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::ios_base::openmode = std::_Ios_Openmode] (null)
@@ -12774,7 +12787,7 @@ else
           }
       }
   }
-  <D.103093>:;
+  <D.103094>:;
    >>>;
 
 
@@ -12800,10 +12813,10 @@ if (<<cleanup_point std::basic_filebuf<char>::close (&((struct basic_ifstream *)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return *<retval> = TARGET_EXPR <D.103105, <<< Unknown tree: aggr_init_expr
+<<cleanup_point return *<retval> = TARGET_EXPR <D.103106, <<< Unknown tree: aggr_init_expr
   4
   str
-  D.103105
+  D.103106
   &((const struct basic_stringstream *) this)->_M_stringbuf >>>>>>;
 
 
@@ -13103,11 +13116,11 @@ switch (i)
   <<< Unknown tree: expr_stmt
    >>>;
   <<cleanup_point <<< Unknown tree: expr_stmt
-  (void) (*(struct col_type *) SAVE_EXPR <glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&<retval>, 0)> = *(const struct vec &) &TARGET_EXPR <D.103194, glm::operator+<float, (glm::qualifier)0> ((const struct vec &) &TARGET_EXPR <D.103192, glm::operator+<float, (glm::qualifier)0> ((const struct vec &) &TARGET_EXPR <D.103187, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 0), (const float &) glm::vec<4, float, (glm::qualifier)0>::operator[] ((struct col_type *) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 0), 0))>, (const struct vec &) &TARGET_EXPR <D.103188, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 1), (const float &) glm::vec<4, float, (glm::qualifier)0>::operator[] ((struct col_type *) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 0), 1))>)>, (const struct vec &) &TARGET_EXPR <D.103193, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 2), (const float &) glm::vec<4, float, (glm::qualifier)0>::operator[] ((struct col_type *) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 0), 2))>)>) >>>>>;
+  (void) (*(struct col_type *) SAVE_EXPR <glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&<retval>, 0)> = *(const struct vec &) &TARGET_EXPR <D.103195, glm::operator+<float, (glm::qualifier)0> ((const struct vec &) &TARGET_EXPR <D.103193, glm::operator+<float, (glm::qualifier)0> ((const struct vec &) &TARGET_EXPR <D.103188, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 0), (const float &) glm::vec<4, float, (glm::qualifier)0>::operator[] ((struct col_type *) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 0), 0))>, (const struct vec &) &TARGET_EXPR <D.103189, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 1), (const float &) glm::vec<4, float, (glm::qualifier)0>::operator[] ((struct col_type *) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 0), 1))>)>, (const struct vec &) &TARGET_EXPR <D.103194, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 2), (const float &) glm::vec<4, float, (glm::qualifier)0>::operator[] ((struct col_type *) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 0), 2))>)>) >>>>>;
   <<cleanup_point <<< Unknown tree: expr_stmt
-  (void) (*(struct col_type *) SAVE_EXPR <glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&<retval>, 1)> = *(const struct vec &) &TARGET_EXPR <D.103199, glm::operator+<float, (glm::qualifier)0> ((const struct vec &) &TARGET_EXPR <D.103197, glm::operator+<float, (glm::qualifier)0> ((const struct vec &) &TARGET_EXPR <D.103195, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 0), (const float &) glm::vec<4, float, (glm::qualifier)0>::operator[] ((struct col_type *) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 1), 0))>, (const struct vec &) &TARGET_EXPR <D.103196, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 1), (const float &) glm::vec<4, float, (glm::qualifier)0>::operator[] ((struct col_type *) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 1), 1))>)>, (const struct vec &) &TARGET_EXPR <D.103198, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 2), (const float &) glm::vec<4, float, (glm::qualifier)0>::operator[] ((struct col_type *) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 1), 2))>)>) >>>>>;
+  (void) (*(struct col_type *) SAVE_EXPR <glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&<retval>, 1)> = *(const struct vec &) &TARGET_EXPR <D.103200, glm::operator+<float, (glm::qualifier)0> ((const struct vec &) &TARGET_EXPR <D.103198, glm::operator+<float, (glm::qualifier)0> ((const struct vec &) &TARGET_EXPR <D.103196, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 0), (const float &) glm::vec<4, float, (glm::qualifier)0>::operator[] ((struct col_type *) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 1), 0))>, (const struct vec &) &TARGET_EXPR <D.103197, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 1), (const float &) glm::vec<4, float, (glm::qualifier)0>::operator[] ((struct col_type *) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 1), 1))>)>, (const struct vec &) &TARGET_EXPR <D.103199, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 2), (const float &) glm::vec<4, float, (glm::qualifier)0>::operator[] ((struct col_type *) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 1), 2))>)>) >>>>>;
   <<cleanup_point <<< Unknown tree: expr_stmt
-  (void) (*(struct col_type *) SAVE_EXPR <glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&<retval>, 2)> = *(const struct vec &) &TARGET_EXPR <D.103204, glm::operator+<float, (glm::qualifier)0> ((const struct vec &) &TARGET_EXPR <D.103202, glm::operator+<float, (glm::qualifier)0> ((const struct vec &) &TARGET_EXPR <D.103200, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 0), (const float &) glm::vec<4, float, (glm::qualifier)0>::operator[] ((struct col_type *) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 2), 0))>, (const struct vec &) &TARGET_EXPR <D.103201, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 1), (const float &) glm::vec<4, float, (glm::qualifier)0>::operator[] ((struct col_type *) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 2), 1))>)>, (const struct vec &) &TARGET_EXPR <D.103203, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 2), (const float &) glm::vec<4, float, (glm::qualifier)0>::operator[] ((struct col_type *) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 2), 2))>)>) >>>>>;
+  (void) (*(struct col_type *) SAVE_EXPR <glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&<retval>, 2)> = *(const struct vec &) &TARGET_EXPR <D.103205, glm::operator+<float, (glm::qualifier)0> ((const struct vec &) &TARGET_EXPR <D.103203, glm::operator+<float, (glm::qualifier)0> ((const struct vec &) &TARGET_EXPR <D.103201, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 0), (const float &) glm::vec<4, float, (glm::qualifier)0>::operator[] ((struct col_type *) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 2), 0))>, (const struct vec &) &TARGET_EXPR <D.103202, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 1), (const float &) glm::vec<4, float, (glm::qualifier)0>::operator[] ((struct col_type *) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 2), 1))>)>, (const struct vec &) &TARGET_EXPR <D.103204, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 2), (const float &) glm::vec<4, float, (glm::qualifier)0>::operator[] ((struct col_type *) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&Rotate, 2), 2))>)>) >>>>>;
   <<cleanup_point <<< Unknown tree: expr_stmt
   (void) (*(struct col_type *) SAVE_EXPR <glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&<retval>, 3)> = *(const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 3)) >>>>>;
   <<cleanup_point return <retval>>>;
@@ -13118,10 +13131,10 @@ switch (i)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.103230, <<< Unknown tree: aggr_init_expr
+<<cleanup_point return <retval> = TARGET_EXPR <D.103231, <<< Unknown tree: aggr_init_expr
   8
   __ct_comp 
-  D.103230
+  D.103231
   (struct vec *) <<< Unknown tree: void_cst >>>
   (float) a->D.51351.x + (float) b->D.51351.x
   (float) a->D.51357.y + (float) b->D.51357.y
@@ -13133,14 +13146,14 @@ switch (i)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = *(struct vec *) this = *(const struct vec &) &TARGET_EXPR <D.103228, glm::detail::compute_vec4_add<float, (glm::qualifier)0, false>::call ((const struct vec &) this, (const struct vec &) &TARGET_EXPR <D.103227, *v>)>;, (struct vec &) this;>>;
+<<cleanup_point return <retval> = *(struct vec *) this = *(const struct vec &) &TARGET_EXPR <D.103229, glm::detail::compute_vec4_add<float, (glm::qualifier)0, false>::call ((const struct vec &) this, (const struct vec &) &TARGET_EXPR <D.103228, *v>)>;, (struct vec &) this;>>;
 
 
 ;; Function constexpr glm::vec<4, T, Q> glm::operator+(const glm::vec<4, T, Q>&, const glm::vec<4, T, Q>&) [with T = float; glm::qualifier Q = (glm::qualifier)0] (null)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.103231, *(const struct vec &) glm::vec<4, float, (glm::qualifier)0>::operator+=<float> (&TARGET_EXPR <D.103213, *v1>, v2)>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.103232, *(const struct vec &) glm::vec<4, float, (glm::qualifier)0>::operator+=<float> (&TARGET_EXPR <D.103214, *v1>, v2)>>>;
 
 
 ;; Function glm::mat<4, 4, T, Q> glm::translate(const glm::mat<4, 4, T, Q>&, const glm::vec<3, T, Q>&) [with T = float; glm::qualifier Q = (glm::qualifier)0] (null)
@@ -13152,7 +13165,7 @@ switch (i)
 
   <retval> = *m;
   <<cleanup_point <<< Unknown tree: expr_stmt
-  (void) (*(struct col_type *) SAVE_EXPR <glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&<retval>, 3)> = *(const struct vec &) &TARGET_EXPR <D.103233, glm::operator+<float, (glm::qualifier)0> ((const struct vec &) &TARGET_EXPR <D.103232, glm::operator+<float, (glm::qualifier)0> ((const struct vec &) &TARGET_EXPR <D.103210, glm::operator+<float, (glm::qualifier)0> ((const struct vec &) &TARGET_EXPR <D.103208, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 0), glm::vec<3, float, (glm::qualifier)0>::operator[] ((const struct vec *) v, 0))>, (const struct vec &) &TARGET_EXPR <D.103209, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 1), glm::vec<3, float, (glm::qualifier)0>::operator[] ((const struct vec *) v, 1))>)>, (const struct vec &) &TARGET_EXPR <D.103211, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 2), glm::vec<3, float, (glm::qualifier)0>::operator[] ((const struct vec *) v, 2))>)>, (const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 3))>) >>>>>;
+  (void) (*(struct col_type *) SAVE_EXPR <glm::mat<4, 4, float, (glm::qualifier)0>::operator[] (&<retval>, 3)> = *(const struct vec &) &TARGET_EXPR <D.103234, glm::operator+<float, (glm::qualifier)0> ((const struct vec &) &TARGET_EXPR <D.103233, glm::operator+<float, (glm::qualifier)0> ((const struct vec &) &TARGET_EXPR <D.103211, glm::operator+<float, (glm::qualifier)0> ((const struct vec &) &TARGET_EXPR <D.103209, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 0), glm::vec<3, float, (glm::qualifier)0>::operator[] ((const struct vec *) v, 0))>, (const struct vec &) &TARGET_EXPR <D.103210, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 1), glm::vec<3, float, (glm::qualifier)0>::operator[] ((const struct vec *) v, 1))>)>, (const struct vec &) &TARGET_EXPR <D.103212, glm::operator*<float, (glm::qualifier)0> ((const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 2), glm::vec<3, float, (glm::qualifier)0>::operator[] ((const struct vec *) v, 2))>)>, (const struct vec &) glm::mat<4, 4, float, (glm::qualifier)0>::operator[] ((const struct mat *) m, 3))>) >>>>>;
   <<cleanup_point return <retval>>>;
 }
 
@@ -13161,7 +13174,7 @@ switch (i)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.103241, glm::perspectiveRH_NO<float> (fovy, aspect, zNear, zFar)>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.103242, glm::perspectiveRH_NO<float> (fovy, aspect, zNear, zFar)>>>;
 
 
 ;; Function T* glm::value_ptr(glm::mat<4, 4, T, Q>&) [with T = float; glm::qualifier Q = (glm::qualifier)0] (null)
@@ -13204,58 +13217,58 @@ switch (i)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.103262, glm::detail::functor2<glm::vec, 2, float, (glm::qualifier)0>::call (max, x, y)>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.103263, glm::detail::functor2<glm::vec, 2, float, (glm::qualifier)0>::call (max, x, y)>>>;
 
 
 ;; Function static glm::vec<L, T, Q> glm::detail::compute_min_vector<L, T, Q, Aligned>::call(const glm::vec<L, T, Q>&, const glm::vec<L, T, Q>&) [with int L = 2; T = float; glm::qualifier Q = (glm::qualifier)0; bool Aligned = false] (null)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.103267, glm::detail::functor2<glm::vec, 2, float, (glm::qualifier)0>::call (min, x, y)>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.103268, glm::detail::functor2<glm::vec, 2, float, (glm::qualifier)0>::call (min, x, y)>>>;
 
 
 ;; Function static constexpr vec<2, R, Q> glm::detail::functor1<vec, 2, R, T, Q>::call(R (*)(T), const vec<2, T, Q>&) [with vec = glm::vec; R = float; T = float; glm::qualifier Q = (glm::qualifier)0] (null)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.103277, <<< Unknown tree: aggr_init_expr
+<<cleanup_point return <retval> = TARGET_EXPR <D.103278, <<< Unknown tree: aggr_init_expr
   6
   __ct_comp 
-  D.103277
+  D.103278
   (struct vec *) <<< Unknown tree: void_cst >>>
   Func ((float) v->D.47816.x)
-  Func ((float) v->D.47822.y) >>>>;, D.103277>>;
+  Func ((float) v->D.47822.y) >>>>;, D.103278>>;
 
 
 ;; Function static glm::vec<L, T, Q> glm::detail::compute_round<L, T, Q, Aligned>::call(const glm::vec<L, T, Q>&) [with int L = 2; T = float; glm::qualifier Q = (glm::qualifier)0; bool Aligned = false] (null)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.103275, glm::detail::functor1<glm::vec, 2, float, float, (glm::qualifier)0>::call (round, x)>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.103276, glm::detail::functor1<glm::vec, 2, float, float, (glm::qualifier)0>::call (round, x)>>>;
 
 
 ;; Function static glm::vec<L, T, Q> glm::detail::compute_max_vector<L, T, Q, Aligned>::call(const glm::vec<L, T, Q>&, const glm::vec<L, T, Q>&) [with int L = 4; T = float; glm::qualifier Q = (glm::qualifier)0; bool Aligned = false] (null)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.103286, glm::detail::functor2<glm::vec, 4, float, (glm::qualifier)0>::call (max, x, y)>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.103287, glm::detail::functor2<glm::vec, 4, float, (glm::qualifier)0>::call (max, x, y)>>>;
 
 
 ;; Function static glm::vec<L, T, Q> glm::detail::compute_min_vector<L, T, Q, Aligned>::call(const glm::vec<L, T, Q>&, const glm::vec<L, T, Q>&) [with int L = 4; T = float; glm::qualifier Q = (glm::qualifier)0; bool Aligned = false] (null)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.103288, glm::detail::functor2<glm::vec, 4, float, (glm::qualifier)0>::call (min, x, y)>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.103289, glm::detail::functor2<glm::vec, 4, float, (glm::qualifier)0>::call (min, x, y)>>>;
 
 
 ;; Function static constexpr vec<4, R, Q> glm::detail::functor1<vec, 4, R, T, Q>::call(R (*)(T), const vec<4, T, Q>&) [with vec = glm::vec; R = float; T = float; glm::qualifier Q = (glm::qualifier)0] (null)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.103298, <<< Unknown tree: aggr_init_expr
+<<cleanup_point return <retval> = TARGET_EXPR <D.103299, <<< Unknown tree: aggr_init_expr
   8
   __ct_comp 
-  D.103298
+  D.103299
   (struct vec *) <<< Unknown tree: void_cst >>>
   Func ((float) v->D.51351.x)
   Func ((float) v->D.51357.y)
@@ -13267,7 +13280,7 @@ switch (i)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.103296, glm::detail::functor1<glm::vec, 4, float, float, (glm::qualifier)0>::call (round, x)>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.103297, glm::detail::functor1<glm::vec, 4, float, float, (glm::qualifier)0>::call (round, x)>>>;
 
 
 ;; Function std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::pointer std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_data() const [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::pointer = char*] (null)
@@ -13399,7 +13412,7 @@ return <retval> = (struct allocator_type &) &((struct basic_string *) this)->_M_
 <<cleanup_point <<< Unknown tree: expr_stmt
   std::__cxx11::basic_string<char>::_M_length ((struct basic_string *) this, __n) >>>>>;
 <<cleanup_point <<< Unknown tree: expr_stmt
-  std::char_traits<char>::assign ((char_type &) (std::__cxx11::basic_string<char>::_M_data ((struct basic_string *) this) + (sizetype) NON_LVALUE_EXPR <__n>), (const char_type &) &TARGET_EXPR <D.103354, 0>) >>>>>;
+  std::char_traits<char>::assign ((char_type &) (std::__cxx11::basic_string<char>::_M_data ((struct basic_string *) this) + (sizetype) NON_LVALUE_EXPR <__n>), (const char_type &) &TARGET_EXPR <D.103355, 0>) >>>>>;
 
 
 ;; Function std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::pointer std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_data() const [with _CharT = wchar_t; _Traits = std::char_traits<wchar_t>; _Alloc = std::allocator<wchar_t>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::pointer = wchar_t*] (null)
@@ -13531,7 +13544,7 @@ return <retval> = (struct allocator_type &) &((struct basic_string *) this)->_M_
 <<cleanup_point <<< Unknown tree: expr_stmt
   std::__cxx11::basic_string<wchar_t>::_M_length ((struct basic_string *) this, __n) >>>>>;
 <<cleanup_point <<< Unknown tree: expr_stmt
-  std::char_traits<wchar_t>::assign ((char_type &) (std::__cxx11::basic_string<wchar_t>::_M_data ((struct basic_string *) this) + (sizetype) (__n * 2)), (const char_type &) &TARGET_EXPR <D.103410, 0>) >>>>>;
+  std::char_traits<wchar_t>::assign ((char_type &) (std::__cxx11::basic_string<wchar_t>::_M_data ((struct basic_string *) this) + (sizetype) (__n * 2)), (const char_type &) &TARGET_EXPR <D.103411, 0>) >>>>>;
 
 
 ;; Function std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::pointer std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_data() const [with _CharT = char16_t; _Traits = std::char_traits<char16_t>; _Alloc = std::allocator<char16_t>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::pointer = char16_t*] (null)
@@ -13567,7 +13580,7 @@ return <retval> = (char32_t *) ((const struct basic_string *) this)->_M_dataplus
   {
     
   }
-  <D.103417>:;
+  <D.103418>:;
    >>>;
 
 
@@ -13603,7 +13616,7 @@ return <retval> = (char32_t *) ((const struct basic_string *) this)->_M_dataplus
   typedef struct _Integral _Integral;
 
   <<cleanup_point <<< Unknown tree: expr_stmt
-  std::__cxx11::basic_string<char>::_M_construct_aux<const char*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.103459, {}>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
+  std::__cxx11::basic_string<char>::_M_construct_aux<const char*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.103460, {}>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
 }
 
 
@@ -13626,7 +13639,7 @@ return <retval> = (char32_t *) ((const struct basic_string *) this)->_M_dataplus
   {
     
   }
-  <D.103502>:;
+  <D.103503>:;
    >>>;
 
 
@@ -13662,7 +13675,7 @@ return <retval> = (char32_t *) ((const struct basic_string *) this)->_M_dataplus
   typedef struct _Integral _Integral;
 
   <<cleanup_point <<< Unknown tree: expr_stmt
-  std::__cxx11::basic_string<wchar_t>::_M_construct_aux<const wchar_t*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.103520, {}>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
+  std::__cxx11::basic_string<wchar_t>::_M_construct_aux<const wchar_t*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.103521, {}>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
 }
 
 
@@ -13685,7 +13698,7 @@ return <retval> = (char32_t *) ((const struct basic_string *) this)->_M_dataplus
   {
     
   }
-  <D.103530>:;
+  <D.103531>:;
    >>>;
 
 
@@ -13728,7 +13741,7 @@ return <retval> = (char32_t *) ((const struct basic_string *) this)->_M_dataplus
   typedef struct _Integral _Integral;
 
   <<cleanup_point <<< Unknown tree: expr_stmt
-  std::__cxx11::basic_string<char16_t>::_M_construct_aux<const char16_t*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.103584, {}>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
+  std::__cxx11::basic_string<char16_t>::_M_construct_aux<const char16_t*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.103585, {}>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
 }
 
 
@@ -13821,7 +13834,7 @@ return <retval> = (struct allocator_type &) &((struct basic_string *) this)->_M_
 <<cleanup_point <<< Unknown tree: expr_stmt
   std::__cxx11::basic_string<char16_t>::_M_length ((struct basic_string *) this, __n) >>>>>;
 <<cleanup_point <<< Unknown tree: expr_stmt
-  std::char_traits<char16_t>::assign ((char_type &) (std::__cxx11::basic_string<char16_t>::_M_data ((struct basic_string *) this) + (sizetype) (__n * 2)), (const char_type &) &TARGET_EXPR <D.103601, 0>) >>>>>;
+  std::char_traits<char16_t>::assign ((char_type &) (std::__cxx11::basic_string<char16_t>::_M_data ((struct basic_string *) this) + (sizetype) (__n * 2)), (const char_type &) &TARGET_EXPR <D.103602, 0>) >>>>>;
 
 
 ;; Function __gnu_cxx::new_allocator<_Tp>::new_allocator() [with _Tp = char32_t] (null)
@@ -13843,7 +13856,7 @@ return <retval> = (struct allocator_type &) &((struct basic_string *) this)->_M_
   {
     
   }
-  <D.103606>:;
+  <D.103607>:;
    >>>;
 
 
@@ -13886,7 +13899,7 @@ return <retval> = (struct allocator_type &) &((struct basic_string *) this)->_M_
   typedef struct _Integral _Integral;
 
   <<cleanup_point <<< Unknown tree: expr_stmt
-  std::__cxx11::basic_string<char32_t>::_M_construct_aux<const char32_t*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.103660, {}>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
+  std::__cxx11::basic_string<char32_t>::_M_construct_aux<const char32_t*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.103661, {}>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
 }
 
 
@@ -13979,7 +13992,7 @@ return <retval> = (struct allocator_type &) &((struct basic_string *) this)->_M_
 <<cleanup_point <<< Unknown tree: expr_stmt
   std::__cxx11::basic_string<char32_t>::_M_length ((struct basic_string *) this, __n) >>>>>;
 <<cleanup_point <<< Unknown tree: expr_stmt
-  std::char_traits<char32_t>::assign ((char_type &) (std::__cxx11::basic_string<char32_t>::_M_data ((struct basic_string *) this) + (sizetype) (__n * 4)), (const char_type &) &TARGET_EXPR <D.103677, 0>) >>>>>;
+  std::char_traits<char32_t>::assign ((char_type &) (std::__cxx11::basic_string<char32_t>::_M_data ((struct basic_string *) this) + (sizetype) (__n * 4)), (const char_type &) &TARGET_EXPR <D.103678, 0>) >>>>>;
 
 
 ;; Function std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] (null)
@@ -13995,10 +14008,10 @@ return <retval> = (struct allocator_type &) &((struct basic_string *) this)->_M_
   } &) this = {CLOBBER} >>>>>;
 {
   <<cleanup_point <<< Unknown tree: expr_stmt
-  std::__cxx11::basic_string<char>::_Alloc_hider::_Alloc_hider (&((struct basic_string *) this)->_M_dataplus, std::__cxx11::basic_string<char>::_M_local_data ((struct basic_string *) this), (struct allocator &) &TARGET_EXPR <D.103679, <<< Unknown tree: aggr_init_expr
+  std::__cxx11::basic_string<char>::_Alloc_hider::_Alloc_hider (&((struct basic_string *) this)->_M_dataplus, std::__cxx11::basic_string<char>::_M_local_data ((struct basic_string *) this), (struct allocator &) &TARGET_EXPR <D.103680, <<< Unknown tree: aggr_init_expr
   4
   _S_select_on_copy
-  D.103679
+  D.103680
   (const struct allocator &) std::__cxx11::basic_string<char>::_M_get_allocator ((const struct basic_string *) __str) >>>>) >>>>>;
   try
     {
@@ -14183,7 +14196,7 @@ return <retval> = (struct allocator_type &) &((struct basic_string *) this)->_M_
         } &) this = {CLOBBER};
       }
   }
-  <D.103695>:;
+  <D.103696>:;
    >>>;
 
 
@@ -14272,7 +14285,7 @@ return <retval> = (struct allocator_type &) &((struct basic_string *) this)->_M_
           }
       }
   }
-  <D.103707>:;
+  <D.103708>:;
    >>>;
 
 
@@ -14341,7 +14354,7 @@ return <retval> = (struct allocator_type &) &((struct basic_string *) this)->_M_
         } &) this = {CLOBBER};
       }
   }
-  <D.103717>:;
+  <D.103718>:;
    >>>;
 
 
@@ -14469,7 +14482,7 @@ return <retval> = (struct allocator_type &) &((struct basic_string *) this)->_M_
           }
       }
   }
-  <D.103730>:;
+  <D.103731>:;
    >>>;
 
 
@@ -14507,7 +14520,7 @@ return <retval> = (struct allocator_type &) &((struct basic_string *) this)->_M_
   (void) (((struct basic_stringbuf *) this)->_M_string = <<< Unknown tree: aggr_init_expr
   4
   __ct_comp 
-  D.103740
+  D.103741
   (struct basic_string *) <<< Unknown tree: void_cst >>> >>>) >>>>>;
       try
         {
@@ -14559,7 +14572,7 @@ return <retval> = (struct allocator_type &) &((struct basic_string *) this)->_M_
         } &) this = {CLOBBER};
       }
   }
-  <D.103745>:;
+  <D.103746>:;
    >>>;
 
 
@@ -14572,10 +14585,10 @@ return <retval> = (struct allocator_type &) &((struct basic_string *) this)->_M_
 
   (void) 0;
   <<cleanup_point <<< Unknown tree: expr_stmt
-  std::__cxx11::basic_string<char>::basic_string ((struct __string_type *) <retval>, (const struct allocator &) &TARGET_EXPR <D.103755, <<< Unknown tree: aggr_init_expr
+  std::__cxx11::basic_string<char>::basic_string ((struct __string_type *) <retval>, (const struct allocator &) &TARGET_EXPR <D.103756, <<< Unknown tree: aggr_init_expr
   4
   get_allocator
-  D.103755
+  D.103756
   &((const struct basic_stringbuf *) this)->_M_string >>>>) >>>>>;
   try
     {
@@ -14634,7 +14647,7 @@ return <retval> = (struct allocator_type &) &((struct basic_string *) this)->_M_
   typedef struct __pocma __pocma;
 
   <<cleanup_point <<< Unknown tree: expr_stmt
-  std::__do_alloc_on_move<std::allocator<char> > (__one, __two, TARGET_EXPR <D.103766, {}>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
+  std::__do_alloc_on_move<std::allocator<char> > (__one, __two, TARGET_EXPR <D.103767, {}>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
 }
 
 
@@ -14682,17 +14695,17 @@ return <retval> = (struct basic_string &) this;
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.103784, glm::detail::compute_normalize<3, float, (glm::qualifier)0, false>::call (x)>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.103785, glm::detail::compute_normalize<3, float, (glm::qualifier)0, false>::call (x)>>>;
 
 
 ;; Function constexpr glm::vec<3, T, Q> glm::operator*(T, const glm::vec<3, T, Q>&) [with T = float; glm::qualifier Q = (glm::qualifier)0] (null)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.103786, <<< Unknown tree: aggr_init_expr
+<<cleanup_point return <retval> = TARGET_EXPR <D.103787, <<< Unknown tree: aggr_init_expr
   7
   __ct_comp 
-  D.103786
+  D.103787
   (struct vec *) <<< Unknown tree: void_cst >>>
   (float) v->D.95554.x * scalar
   (float) v->D.95560.y * scalar
@@ -14731,13 +14744,13 @@ return <retval> = (struct basic_string &) this;
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.103794, <<< Unknown tree: aggr_init_expr
+<<cleanup_point return <retval> = TARGET_EXPR <D.103795, <<< Unknown tree: aggr_init_expr
   6
   __ct_comp 
-  D.103794
+  D.103795
   (struct vec *) <<< Unknown tree: void_cst >>>
   Func ((float) a->D.47816.x, (float) b->D.47816.x)
-  Func ((float) a->D.47822.y, (float) b->D.47822.y) >>>>;, D.103794>>;
+  Func ((float) a->D.47822.y, (float) b->D.47822.y) >>>>;, D.103795>>;
 
 
 ;; Function constexpr genType glm::max(genType, genType) [with genType = float] (null)
@@ -14758,10 +14771,10 @@ return <retval> = y < x ? y : x;
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.103798, <<< Unknown tree: aggr_init_expr
+<<cleanup_point return <retval> = TARGET_EXPR <D.103799, <<< Unknown tree: aggr_init_expr
   8
   __ct_comp 
-  D.103798
+  D.103799
   (struct vec *) <<< Unknown tree: void_cst >>>
   Func ((float) a->D.51351.x, (float) b->D.51351.x)
   Func ((float) a->D.51357.y, (float) b->D.51357.y)
@@ -14777,7 +14790,7 @@ return <retval> = y < x ? y : x;
   typedef struct _Integral _Integral;
 
   <<cleanup_point <<< Unknown tree: expr_stmt
-  std::__cxx11::basic_string<char>::_M_construct_aux<char*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.103807, {}>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
+  std::__cxx11::basic_string<char>::_M_construct_aux<char*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.103808, {}>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
 }
 
 
@@ -14825,7 +14838,7 @@ return <retval> = y < x ? y : x;
   typedef struct _Integral _Integral;
 
   <<cleanup_point <<< Unknown tree: expr_stmt
-  std::__cxx11::basic_string<wchar_t>::_M_construct_aux<wchar_t*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.103872, {}>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
+  std::__cxx11::basic_string<wchar_t>::_M_construct_aux<wchar_t*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.103873, {}>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
 }
 
 
@@ -14883,7 +14896,7 @@ return <retval> = y < x ? y : x;
   typedef struct _Tag _Tag;
 
   <<cleanup_point <<< Unknown tree: expr_stmt
-  std::__cxx11::basic_string<char>::_M_construct<const char*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.104042, *(struct forward_iterator_tag &) &TARGET_EXPR <D.104022, {}>>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
+  std::__cxx11::basic_string<char>::_M_construct<const char*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.104043, *(struct forward_iterator_tag &) &TARGET_EXPR <D.104023, {}>>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
 }
 
 
@@ -14895,7 +14908,7 @@ return <retval> = y < x ? y : x;
   typedef struct _Tag _Tag;
 
   <<cleanup_point <<< Unknown tree: expr_stmt
-  std::__cxx11::basic_string<wchar_t>::_M_construct<const wchar_t*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.104065, *(struct forward_iterator_tag &) &TARGET_EXPR <D.104054, {}>>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
+  std::__cxx11::basic_string<wchar_t>::_M_construct<const wchar_t*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.104066, *(struct forward_iterator_tag &) &TARGET_EXPR <D.104055, {}>>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
 }
 
 
@@ -14936,7 +14949,7 @@ return <retval> = y < x ? y : x;
   typedef struct _Tag _Tag;
 
   <<cleanup_point <<< Unknown tree: expr_stmt
-  std::__cxx11::basic_string<char16_t>::_M_construct<const char16_t*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.104105, *(struct forward_iterator_tag &) &TARGET_EXPR <D.104094, {}>>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
+  std::__cxx11::basic_string<char16_t>::_M_construct<const char16_t*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.104106, *(struct forward_iterator_tag &) &TARGET_EXPR <D.104095, {}>>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
 }
 
 
@@ -14994,7 +15007,7 @@ return <retval> = y < x ? y : x;
   typedef struct _Tag _Tag;
 
   <<cleanup_point <<< Unknown tree: expr_stmt
-  std::__cxx11::basic_string<char32_t>::_M_construct<const char32_t*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.104180, *(struct forward_iterator_tag &) &TARGET_EXPR <D.104169, {}>>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
+  std::__cxx11::basic_string<char32_t>::_M_construct<const char32_t*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.104181, *(struct forward_iterator_tag &) &TARGET_EXPR <D.104170, {}>>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
 }
 
 
@@ -15019,10 +15032,10 @@ return <retval> = y < x ? y : x;
 ;; enabled by -tree-original
 
 
-<<cleanup_point return *<retval> = TARGET_EXPR <D.104218, <<< Unknown tree: aggr_init_expr
+<<cleanup_point return *<retval> = TARGET_EXPR <D.104219, <<< Unknown tree: aggr_init_expr
   4
   select_on_container_copy_construction
-  D.104218
+  D.104219
   (const struct allocator_type &) __a >>>>>>;
 
 
@@ -15140,7 +15153,7 @@ return <retval> = (iostate) ((const struct basic_ios *) this)->D.86211._M_stream
           }
       }
   }
-  <D.104227>:;
+  <D.104228>:;
    >>>;
 
 
@@ -15176,10 +15189,10 @@ return <retval> = (iostate) ((const struct basic_ios *) this)->D.86211._M_stream
   <<cleanup_point <<< Unknown tree: expr_stmt
   (void) (((struct basic_streambuf *) this)->_M_out_end = 0B) >>>>>;
   <<cleanup_point <<< Unknown tree: expr_stmt
-  (void) (((struct basic_streambuf *) this)->_M_buf_locale = TARGET_EXPR <D.104237, <<< Unknown tree: aggr_init_expr
+  (void) (((struct basic_streambuf *) this)->_M_buf_locale = TARGET_EXPR <D.104238, <<< Unknown tree: aggr_init_expr
   4
   __ct_comp 
-  D.104237
+  D.104238
   (struct locale *) <<< Unknown tree: void_cst >>> >>>>) >>>>>;
   try
     {
@@ -15197,10 +15210,10 @@ return <retval> = (iostate) ((const struct basic_ios *) this)->D.86211._M_stream
 
 
 <<< Unknown tree: must_not_throw_expr
-  <<cleanup_point return *<retval> = TARGET_EXPR <D.104242, <<< Unknown tree: aggr_init_expr
+  <<cleanup_point return *<retval> = TARGET_EXPR <D.104243, <<< Unknown tree: aggr_init_expr
   5
   __ct_comp 
-  D.104242
+  D.104243
   (struct allocator *) <<< Unknown tree: void_cst >>>
   (const struct allocator &) std::__cxx11::basic_string<char>::_M_get_allocator ((const struct basic_string *) this) >>>>>>
    >>>;
@@ -15259,17 +15272,17 @@ return <retval> = (char_type *) ((const struct basic_streambuf *) this)->_M_out_
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = std::__cxx11::basic_string<char>::replace ((struct basic_string *) this, TARGET_EXPR <D.104286, <<< Unknown tree: aggr_init_expr
+<<cleanup_point return <retval> = std::__cxx11::basic_string<char>::replace ((struct basic_string *) this, TARGET_EXPR <D.104287, <<< Unknown tree: aggr_init_expr
   5
   __ct_comp 
-  D.104286
+  D.104287
   (struct __const_iterator *) <<< Unknown tree: void_cst >>>
-  (const struct __normal_iterator &) &TARGET_EXPR <D.104250, std::__cxx11::basic_string<char>::begin ((struct basic_string *) this)> >>>>, TARGET_EXPR <D.104305, <<< Unknown tree: aggr_init_expr
+  (const struct __normal_iterator &) &TARGET_EXPR <D.104251, std::__cxx11::basic_string<char>::begin ((struct basic_string *) this)> >>>>, TARGET_EXPR <D.104306, <<< Unknown tree: aggr_init_expr
   5
   __ct_comp 
-  D.104305
+  D.104306
   (struct __const_iterator *) <<< Unknown tree: void_cst >>>
-  (const struct __normal_iterator &) &TARGET_EXPR <D.104260, std::__cxx11::basic_string<char>::end ((struct basic_string *) this)> >>>>, __first, __last)>>;
+  (const struct __normal_iterator &) &TARGET_EXPR <D.104261, std::__cxx11::basic_string<char>::end ((struct basic_string *) this)> >>>>, __first, __last)>>;
 
 
 ;; Function static constexpr bool __gnu_cxx::__alloc_traits<_Alloc, <template-parameter-1-2> >::_S_propagate_on_copy_assign() [with _Alloc = std::allocator<char>; <template-parameter-1-2> = char] (null)
@@ -15317,7 +15330,7 @@ return <retval> = 0;
   (void) (__alloc = <<< Unknown tree: aggr_init_expr
   5
   __ct_comp 
-  D.104312
+  D.104313
   (struct allocator *) <<< Unknown tree: void_cst >>>
   (const struct allocator &) std::__cxx11::basic_string<char>::_M_get_allocator ((const struct basic_string *) __str) >>>) >>>>>;
                           try
@@ -15385,7 +15398,7 @@ return <retval> = (const struct ctype &) NON_LVALUE_EXPR <__f>;
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.104339, glm::operator*<float, (glm::qualifier)0> (v, glm::inversesqrt<float> (glm::dot<3, float, (glm::qualifier)0> (v, v)))>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.104340, glm::operator*<float, (glm::qualifier)0> (v, glm::inversesqrt<float> (glm::dot<3, float, (glm::qualifier)0> (v, v)))>>>;
 
 
 ;; Function void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_construct_aux(_InIterator, _InIterator, std::__false_type) [with _InIterator = char*; _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] (null)
@@ -15396,7 +15409,7 @@ return <retval> = (const struct ctype &) NON_LVALUE_EXPR <__f>;
   typedef struct _Tag _Tag;
 
   <<cleanup_point <<< Unknown tree: expr_stmt
-  std::__cxx11::basic_string<char>::_M_construct<char*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.104353, *(struct forward_iterator_tag &) &TARGET_EXPR <D.104342, {}>>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
+  std::__cxx11::basic_string<char>::_M_construct<char*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.104354, *(struct forward_iterator_tag &) &TARGET_EXPR <D.104343, {}>>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
 }
 
 
@@ -15437,7 +15450,7 @@ return <retval> = (const struct ctype &) NON_LVALUE_EXPR <__f>;
   typedef struct _Tag _Tag;
 
   <<cleanup_point <<< Unknown tree: expr_stmt
-  std::__cxx11::basic_string<wchar_t>::_M_construct<wchar_t*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.104377, *(struct forward_iterator_tag &) &TARGET_EXPR <D.104366, {}>>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
+  std::__cxx11::basic_string<wchar_t>::_M_construct<wchar_t*> ((struct basic_string *) this, __beg, __end, TARGET_EXPR <D.104378, *(struct forward_iterator_tag &) &TARGET_EXPR <D.104367, {}>>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
 }
 
 
@@ -15740,10 +15753,10 @@ return <retval> = (const struct ctype &) NON_LVALUE_EXPR <__f>;
 ;; enabled by -tree-original
 
 
-<<cleanup_point return *<retval> = TARGET_EXPR <D.105085, <<< Unknown tree: aggr_init_expr
+<<cleanup_point return *<retval> = TARGET_EXPR <D.105086, <<< Unknown tree: aggr_init_expr
   5
   __ct_comp 
-  D.105085
+  D.105086
   (struct allocator *) <<< Unknown tree: void_cst >>>
   (const struct allocator &) __rhs >>>>>>;
 
@@ -15790,12 +15803,12 @@ return <retval> = __pos;
 
 
 <<< Unknown tree: must_not_throw_expr
-  <<cleanup_point return <retval> = TARGET_EXPR <D.105092, <<< Unknown tree: aggr_init_expr
+  <<cleanup_point return <retval> = TARGET_EXPR <D.105093, <<< Unknown tree: aggr_init_expr
   5
   __ct_comp 
-  D.105092
+  D.105093
   (struct __normal_iterator *) <<< Unknown tree: void_cst >>>
-  (char * const &) &TARGET_EXPR <D.105091, std::__cxx11::basic_string<char>::_M_data ((struct basic_string *) this)> >>>>;, D.105092>>
+  (char * const &) &TARGET_EXPR <D.105092, std::__cxx11::basic_string<char>::_M_data ((struct basic_string *) this)> >>>>;, D.105093>>
    >>>;
 
 
@@ -15804,12 +15817,12 @@ return <retval> = __pos;
 
 
 <<< Unknown tree: must_not_throw_expr
-  <<cleanup_point return <retval> = TARGET_EXPR <D.105104, <<< Unknown tree: aggr_init_expr
+  <<cleanup_point return <retval> = TARGET_EXPR <D.105105, <<< Unknown tree: aggr_init_expr
   5
   __ct_comp 
-  D.105104
+  D.105105
   (struct __normal_iterator *) <<< Unknown tree: void_cst >>>
-  (char * const &) &TARGET_EXPR <D.105103, std::__cxx11::basic_string<char>::_M_data ((struct basic_string *) this) + (sizetype) std::__cxx11::basic_string<char>::size ((struct basic_string *) this)> >>>>;, D.105104>>
+  (char * const &) &TARGET_EXPR <D.105104, std::__cxx11::basic_string<char>::_M_data ((struct basic_string *) this) + (sizetype) std::__cxx11::basic_string<char>::size ((struct basic_string *) this)> >>>>;, D.105105>>
    >>>;
 
 
@@ -15834,7 +15847,7 @@ return <retval> = __pos;
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = std::__cxx11::basic_string<char>::replace ((struct basic_string *) this, (size_type) __gnu_cxx::operator-<const char*, char*, std::__cxx11::basic_string<char> > ((const struct __normal_iterator &) &__i1, (const struct __normal_iterator &) &TARGET_EXPR <D.105109, std::__cxx11::basic_string<char>::begin ((struct basic_string *) this)>), (size_type) __gnu_cxx::operator-<const char*, std::__cxx11::basic_string<char> > ((const struct __normal_iterator &) &__i2, (const struct __normal_iterator &) &__i1), (const char *) __k1, (size_type) (__k2 - __k1))>>;
+<<cleanup_point return <retval> = std::__cxx11::basic_string<char>::replace ((struct basic_string *) this, (size_type) __gnu_cxx::operator-<const char*, char*, std::__cxx11::basic_string<char> > ((const struct __normal_iterator &) &__i1, (const struct __normal_iterator &) &TARGET_EXPR <D.105110, std::__cxx11::basic_string<char>::begin ((struct basic_string *) this)>), (size_type) __gnu_cxx::operator-<const char*, std::__cxx11::basic_string<char> > ((const struct __normal_iterator &) &__i2, (const struct __normal_iterator &) &__i1), (const char *) __k1, (size_type) (__k2 - __k1))>>;
 
 
 ;; Function static _Tp* std::allocator_traits<std::allocator<_CharT> >::allocate(std::allocator_traits<std::allocator<_CharT> >::allocator_type&, std::allocator_traits<std::allocator<_CharT> >::size_type) [with _Tp = char; std::allocator_traits<std::allocator<_CharT> >::pointer = char*; std::allocator_traits<std::allocator<_CharT> >::allocator_type = std::allocator<char>; std::allocator_traits<std::allocator<_CharT> >::size_type = long long unsigned int] (null)
@@ -15853,7 +15866,7 @@ return <retval> = __pos;
   typedef struct __pocca __pocca;
 
   <<cleanup_point <<< Unknown tree: expr_stmt
-  std::__do_alloc_on_copy<std::allocator<char> > (__one, __two, TARGET_EXPR <D.105127, {}>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
+  std::__do_alloc_on_copy<std::allocator<char> > (__one, __two, TARGET_EXPR <D.105128, {}>;, <<< Unknown tree: empty_class_expr >>>;) >>>>>;
 }
 
 
@@ -15883,10 +15896,10 @@ return <retval> = __pos;
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.105142, <<< Unknown tree: aggr_init_expr
+<<cleanup_point return <retval> = TARGET_EXPR <D.105143, <<< Unknown tree: aggr_init_expr
   7
   __ct_comp 
-  D.105142
+  D.105143
   (struct vec *) <<< Unknown tree: void_cst >>>
   (float) v->D.95554.x * scalar
   (float) v->D.95560.y * scalar
@@ -16040,14 +16053,14 @@ return <retval> = __ptr == 0B;
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.105192, {}>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.105193, {}>>>;
 
 
 ;; Function typename std::iterator_traits<_Iterator>::difference_type std::distance(_InputIterator, _InputIterator) [with _InputIterator = const char*; typename std::iterator_traits<_Iterator>::difference_type = long long int] (null)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = std::__distance<const char*> (__first, __last, TARGET_EXPR <D.105182, std::__iterator_category<const char*> ((const char * const &) &__first)>;, <<< Unknown tree: empty_class_expr >>>;)>>;
+<<cleanup_point return <retval> = std::__distance<const char*> (__first, __last, TARGET_EXPR <D.105183, std::__iterator_category<const char*> ((const char * const &) &__first)>;, <<< Unknown tree: empty_class_expr >>>;)>>;
 
 
 ;; Function static void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_S_copy_chars(_CharT*, const _CharT*, const _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] (null)
@@ -16071,14 +16084,14 @@ return <retval> = __ptr == 0B;
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.105209, {}>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.105210, {}>>>;
 
 
 ;; Function typename std::iterator_traits<_Iterator>::difference_type std::distance(_InputIterator, _InputIterator) [with _InputIterator = const wchar_t*; typename std::iterator_traits<_Iterator>::difference_type = long long int] (null)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = std::__distance<const wchar_t*> (__first, __last, TARGET_EXPR <D.105199, std::__iterator_category<const wchar_t*> ((const wchar_t * const &) &__first)>;, <<< Unknown tree: empty_class_expr >>>;)>>;
+<<cleanup_point return <retval> = std::__distance<const wchar_t*> (__first, __last, TARGET_EXPR <D.105200, std::__iterator_category<const wchar_t*> ((const wchar_t * const &) &__first)>;, <<< Unknown tree: empty_class_expr >>>;)>>;
 
 
 ;; Function static void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_S_copy_chars(_CharT*, const _CharT*, const _CharT*) [with _CharT = wchar_t; _Traits = std::char_traits<wchar_t>; _Alloc = std::allocator<wchar_t>] (null)
@@ -16111,14 +16124,14 @@ return <retval> = __ptr == 0B;
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.105227, {}>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.105228, {}>>>;
 
 
 ;; Function typename std::iterator_traits<_Iterator>::difference_type std::distance(_InputIterator, _InputIterator) [with _InputIterator = const char16_t*; typename std::iterator_traits<_Iterator>::difference_type = long long int] (null)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = std::__distance<const char16_t*> (__first, __last, TARGET_EXPR <D.105217, std::__iterator_category<const char16_t*> ((const char16_t * const &) &__first)>;, <<< Unknown tree: empty_class_expr >>>;)>>;
+<<cleanup_point return <retval> = std::__distance<const char16_t*> (__first, __last, TARGET_EXPR <D.105218, std::__iterator_category<const char16_t*> ((const char16_t * const &) &__first)>;, <<< Unknown tree: empty_class_expr >>>;)>>;
 
 
 ;; Function std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::pointer std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_create(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type) [with _CharT = char16_t; _Traits = std::char_traits<char16_t>; _Alloc = std::allocator<char16_t>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::pointer = char16_t*; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type = long long unsigned int] (null)
@@ -16190,14 +16203,14 @@ return <retval> = __ptr == 0B;
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.105250, {}>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.105251, {}>>>;
 
 
 ;; Function typename std::iterator_traits<_Iterator>::difference_type std::distance(_InputIterator, _InputIterator) [with _InputIterator = const char32_t*; typename std::iterator_traits<_Iterator>::difference_type = long long int] (null)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = std::__distance<const char32_t*> (__first, __last, TARGET_EXPR <D.105240, std::__iterator_category<const char32_t*> ((const char32_t * const &) &__first)>;, <<< Unknown tree: empty_class_expr >>>;)>>;
+<<cleanup_point return <retval> = std::__distance<const char32_t*> (__first, __last, TARGET_EXPR <D.105241, std::__iterator_category<const char32_t*> ((const char32_t * const &) &__first)>;, <<< Unknown tree: empty_class_expr >>>;)>>;
 
 
 ;; Function std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::pointer std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_M_create(std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type&, std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type) [with _CharT = char32_t; _Traits = std::char_traits<char32_t>; _Alloc = std::allocator<char32_t>; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::pointer = char32_t*; std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::size_type = long long unsigned int] (null)
@@ -16325,10 +16338,10 @@ if (<<cleanup_point __gnu_cxx::new_allocator<char>::max_size ((struct new_alloca
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.105274, <<< Unknown tree: aggr_init_expr
+<<cleanup_point return <retval> = TARGET_EXPR <D.105275, <<< Unknown tree: aggr_init_expr
   7
   __ct_comp 
-  D.105274
+  D.105275
   (struct vec *) <<< Unknown tree: void_cst >>>
   (float) v1->D.95554.x * (float) v2->D.95554.x
   (float) v1->D.95560.y * (float) v2->D.95560.y
@@ -16360,14 +16373,14 @@ return <retval> = __ptr == 0B;
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.105289, {}>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.105290, {}>>>;
 
 
 ;; Function typename std::iterator_traits<_Iterator>::difference_type std::distance(_InputIterator, _InputIterator) [with _InputIterator = char*; typename std::iterator_traits<_Iterator>::difference_type = long long int] (null)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = std::__distance<char*> (__first, __last, TARGET_EXPR <D.105279, std::__iterator_category<char*> ((char * const &) &__first)>;, <<< Unknown tree: empty_class_expr >>>;)>>;
+<<cleanup_point return <retval> = std::__distance<char*> (__first, __last, TARGET_EXPR <D.105280, std::__iterator_category<char*> ((char * const &) &__first)>;, <<< Unknown tree: empty_class_expr >>>;)>>;
 
 
 ;; Function static void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_S_copy_chars(_CharT*, _CharT*, _CharT*) [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>] (null)
@@ -16400,14 +16413,14 @@ return <retval> = __ptr == 0B;
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = TARGET_EXPR <D.105307, {}>>>;
+<<cleanup_point return <retval> = TARGET_EXPR <D.105308, {}>>>;
 
 
 ;; Function typename std::iterator_traits<_Iterator>::difference_type std::distance(_InputIterator, _InputIterator) [with _InputIterator = wchar_t*; typename std::iterator_traits<_Iterator>::difference_type = long long int] (null)
 ;; enabled by -tree-original
 
 
-<<cleanup_point return <retval> = std::__distance<wchar_t*> (__first, __last, TARGET_EXPR <D.105297, std::__iterator_category<wchar_t*> ((wchar_t * const &) &__first)>;, <<< Unknown tree: empty_class_expr >>>;)>>;
+<<cleanup_point return <retval> = std::__distance<wchar_t*> (__first, __last, TARGET_EXPR <D.105298, std::__iterator_category<wchar_t*> ((wchar_t * const &) &__first)>;, <<< Unknown tree: empty_class_expr >>>;)>>;
 
 
 ;; Function static void std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::_S_copy_chars(_CharT*, _CharT*, _CharT*) [with _CharT = wchar_t; _Traits = std::char_traits<wchar_t>; _Alloc = std::allocator<wchar_t>] (null)
